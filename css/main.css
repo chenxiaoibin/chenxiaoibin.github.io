@@ -203,7 +203,7 @@ body {
 }
 @media (min-width: 1600px) {
   body {
-    font-size: 16px;
+    font-size: 20px;
   }
 }
 h1,
@@ -219,51 +219,51 @@ h6 {
   font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 h1 {
-  font-size: 24px;
-}
-@media (max-width: 767px) {
-  h1 {
-    font-size: 20px;
-  }
-}
-h2 {
   font-size: 22px;
 }
 @media (max-width: 767px) {
-  h2 {
+  h1 {
     font-size: 18px;
   }
 }
-h3 {
-  font-size: 20px;
-}
-@media (max-width: 767px) {
-  h3 {
-    font-size: 16px;
-  }
-}
-h4 {
+h2 {
   font-size: 18px;
 }
 @media (max-width: 767px) {
-  h4 {
+  h2 {
     font-size: 14px;
   }
 }
-h5 {
-  font-size: 16px;
-}
-@media (max-width: 767px) {
-  h5 {
-    font-size: 12px;
-  }
-}
-h6 {
+h3 {
   font-size: 14px;
 }
 @media (max-width: 767px) {
-  h6 {
+  h3 {
     font-size: 10px;
+  }
+}
+h4 {
+  font-size: 10px;
+}
+@media (max-width: 767px) {
+  h4 {
+    font-size: 6px;
+  }
+}
+h5 {
+  font-size: 6px;
+}
+@media (max-width: 767px) {
+  h5 {
+    font-size: 2px;
+  }
+}
+h6 {
+  font-size: 2px;
+}
+@media (max-width: 767px) {
+  h6 {
+    font-size: -2px;
   }
 }
 p {
@@ -461,7 +461,7 @@ pre,
   margin: 20px 0;
   padding: 15px;
   overflow: auto;
-  font-size: 13px;
+  font-size: 16px;
   color: #4d4d4c;
   line-height: 1.6;
 }
@@ -961,7 +961,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff852a;
+  background: #0dd70f;
 }
 .sidebar-nav {
   margin: 0 0 20px;
@@ -2101,12 +2101,12 @@ ul li {
 }
 @media (max-width: 767px) {
   .posts-expand .post-title {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 @media (min-width: 1600px) {
   .posts-expand .post-title {
-    font-size: 26px;
+    font-size: 30px;
   }
 }
 .posts-expand .post-title:hover:before {
@@ -2145,7 +2145,7 @@ mobie()
 }
 @media (min-width: 1600px) {
   .post-more-link a {
-    font-size: 16px;
+    font-size: 20px;
   }
 }
 .post-more-link a:hover {
