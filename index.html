@@ -567,9 +567,7 @@
 
       
         
-          <span itemprop="articleBody">
-            
-              <h2 id="知识点">知识点</h2><p>1、 含义：过滤器是指对客户端向服务器端的web目标资源发出的请求，以及服务器端所做出的响应进行截取并处理。<br>2、 生命周期：①实例化（Web容器在部署Web应用程序时对所有过滤器进行实例化，也就是调用过滤器的构造方法）②初始化（实例化完成后立马对其进行初始化，也就是调用过滤器的init()）③工作（也就是进行过滤URL，调用过滤器的doFilter()）④销毁（web容器关闭时调用过滤器的destroy()）<br>3、 分类：①request过滤器（过滤重定向请求，至少进行两次请求，两次响应，默认的过滤方式）②forward过滤器（过滤请求转发，进行一次请求，一次响应）③include过滤器（针对jsp页面的<code>&lt;jsp:include&gt;&lt;/jsp:include&gt;</code>里的路径进行过滤）④error过滤器（过滤web.xml文件中的<code>&lt;error-page&gt;&lt;/error-page&gt;</code>里的路径进行过滤）⑤async过滤器（异步过滤器）</p>
+          <h2 id="知识点">知识点</h2><p>1、 含义：过滤器是指对客户端向服务器端的web目标资源发出的请求，以及服务器端所做出的响应进行截取并处理。<br>2、 生命周期：①实例化（Web容器在部署Web应用程序时对所有过滤器进行实例化，也就是调用过滤器的构造方法）②初始化（实例化完成后立马对其进行初始化，也就是调用过滤器的init()）③工作（也就是进行过滤URL，调用过滤器的doFilter()）④销毁（web容器关闭时调用过滤器的destroy()）<br>3、 分类：①request过滤器（过滤重定向请求，至少进行两次请求，两次响应，默认的过滤方式）②forward过滤器（过滤请求转发，进行一次请求，一次响应）③include过滤器（针对jsp页面的<code>&lt;jsp:include&gt;&lt;/jsp:include&gt;</code>里的路径进行过滤）④error过滤器（过滤web.xml文件中的<code>&lt;error-page&gt;&lt;/error-page&gt;</code>里的路径进行过滤）⑤async过滤器（异步过滤器）</p>
 <h2 id="字符编码过滤器">字符编码过滤器</h2><p>首先，在web.xml文件中进行过滤器的配置</p>
 <pre><code><span class="tag">&lt;<span class="title">filter</span>&gt;</span>
     <span class="comment">&lt;!-- 过滤器的名字 --&gt;</span>
@@ -619,68 +617,12 @@
         System.out.println(<span class="string">"init: "</span> + encoding);
     }
 }
-</code></pre><h2 id="验证是否登录过滤器">验证是否登录过滤器</h2><p>首先，web.xml文件中进行配置</p>
-<pre><code><span class="comment">&lt;!-- 验证是否登录过滤器 --&gt;</span>
-<span class="tag">&lt;<span class="title">filter</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">filter-name</span>&gt;</span>checkLoginFilter<span class="tag">&lt;/<span class="title">filter-name</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">filter-class</span>&gt;</span>com.mvbin.filter.CheckLoginFilter<span class="tag">&lt;/<span class="title">filter-class</span>&gt;</span>
-    <span class="comment">&lt;!-- 配置不进行过滤验证的路径 --&gt;</span>
-    <span class="tag">&lt;<span class="title">init-param</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">param-name</span>&gt;</span>noCheckUrl<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">param-value</span>&gt;</span>index.jsp,user.jspx<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">init-param</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">filter</span>&gt;</span>
-<span class="tag">&lt;<span class="title">filter-mapping</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">filter-name</span>&gt;</span>checkLoginFilter<span class="tag">&lt;/<span class="title">filter-name</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">filter-mapping</span>&gt;</span>    
-</code></pre><p>其次，编写过滤器代码</p>
-<pre><code><span class="keyword">import</span> ***;
-
-<span class="comment">//CheckLoginFilter类</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CheckLoginFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>{
-
-    <span class="keyword">private</span> String noCheckUrl;
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>{
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response,
-            FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException </span>{
-        <span class="comment">//进行强制类型转换</span>
-        HttpServletRequest req = (HttpServletRequest) request;
-        HttpServletResponse resp = (HttpServletResponse) response;
-        <span class="comment">//根据,进行字符串分割</span>
-        String[] urls = noCheckUrl.split(<span class="string">","</span>);
-        <span class="comment">//获取session中是否存在loginUser</span>
-        User user = (User) req.getSession().getAttribute(<span class="string">"loginUser"</span>);
-        <span class="comment">//foreach循环进行验证，包含不过滤的路径的话就放行</span>
-        <span class="keyword">for</span> (String str : urls) {
-            <span class="keyword">if</span>(req.getRequestURI().indexOf(str) != -<span class="number">1</span>) {
-                chain.doFilter(request, response);            
-                <span class="keyword">return</span>;
-            }
-        }
-        <span class="comment">//判断user是否为空</span>
-        <span class="keyword">if</span>(user == <span class="keyword">null</span>) {
-            resp.sendRedirect(<span class="string">"index.jsp"</span>);
-        } <span class="keyword">else</span> {
-            <span class="comment">//不为空则放行</span>
-            chain.doFilter(request, response);            
-        }
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig config)</span> <span class="keyword">throws</span> ServletException </span>{
-        <span class="comment">//获取不过滤的路径</span>
-        <span class="keyword">this</span>.noCheckUrl = config.getInitParameter(<span class="string">"noCheckUrl"</span>);
-    }
-}
 </code></pre>
-            
-          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/05/Java-Web之过滤器/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
