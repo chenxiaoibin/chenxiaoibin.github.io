@@ -210,15 +210,6 @@
 
     
     
-      
-      
-        
-        
-        
-      
-
-      
-    
 
     
       
@@ -579,10 +570,19 @@
           <span itemprop="articleBody">
             
               <p><strong>过滤器是指对客户端向服务器目标资源发出的请求，以及服务器发出的响应进行截取。</strong></p>
-<h2 id="字符编码过滤器">字符编码过滤器</h2><ol>
-<li>web.xml文件中配置过滤器<br> System.out.println(“nihao,shijie”);</li>
-</ol>
-
+<h2 id="字符编码过滤器">字符编码过滤器</h2><p>首先，在web.xml文件中进行过滤器的配置</p>
+<pre><code><span class="tag">&lt;<span class="title">filter</span>&gt;</span>
+    <span class="comment">&lt;!-- 过滤器的名字--&gt;</span>
+    <span class="tag">&lt;<span class="title">filter-name</span>&gt;</span>encodingFilter<span class="tag">&lt;/<span class="title">filter-name</span>&gt;</span>
+    <span class="comment">&lt;!-- 过滤器类的完全限定名--&gt;</span>
+      <span class="tag">&lt;<span class="title">filter-class</span>&gt;</span>com.bysj.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="title">filter-class</span>&gt;</span>
+    <span class="comment">&lt;!-- 过滤器类的初始化参数--&gt;</span>
+      <span class="tag">&lt;<span class="title">init-param</span>&gt;</span>
+          <span class="tag">&lt;<span class="title">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span>
+          <span class="tag">&lt;<span class="title">param-value</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span>
+      <span class="tag">&lt;/<span class="title">init-param</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">filter</span>&gt;</span>    
+</code></pre>
             
           </span>
         
