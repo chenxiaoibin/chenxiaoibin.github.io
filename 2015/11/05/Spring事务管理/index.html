@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Spring,Transaction," />
+  <meta name="keywords" content="SSH,Spring,Transaction," />
 
 
 
@@ -53,16 +53,31 @@
 
 
 
-<meta name="description" content="Just Coding Or Sleeping">
+<meta name="description" content="事务
+含义：访问并可能更新数据库中各种数据项的一个程序执行单元(unit)，是一个序列的对数据库的读/写的操作。
+目的：
+保证用户的每一次操作都是可靠的，即便出现了异常的访问情况，也不至于破坏后台数据的完整性。
+为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。
+当多个应用程序在并发访问数据库时，可以在这些应用程序之间提供一个隔离方法，以">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring事务管理">
 <meta property="og:url" content="http://yoursite.com/2015/11/05/Spring事务管理/index.html">
 <meta property="og:site_name" content="MVBlog">
-<meta property="og:description" content="Just Coding Or Sleeping">
-<meta property="og:updated_time" content="2015-11-05T02:00:13.770Z">
+<meta property="og:description" content="事务
+含义：访问并可能更新数据库中各种数据项的一个程序执行单元(unit)，是一个序列的对数据库的读/写的操作。
+目的：
+保证用户的每一次操作都是可靠的，即便出现了异常的访问情况，也不至于破坏后台数据的完整性。
+为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。
+当多个应用程序在并发访问数据库时，可以在这些应用程序之间提供一个隔离方法，以">
+<meta property="og:updated_time" content="2015-11-07T04:15:37.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring事务管理">
-<meta name="twitter:description" content="Just Coding Or Sleeping">
+<meta name="twitter:description" content="事务
+含义：访问并可能更新数据库中各种数据项的一个程序执行单元(unit)，是一个序列的对数据库的读/写的操作。
+目的：
+保证用户的每一次操作都是可靠的，即便出现了异常的访问情况，也不至于破坏后台数据的完整性。
+为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。
+当多个应用程序在并发访问数据库时，可以在这些应用程序之间提供一个隔离方法，以">
 
 
 
@@ -280,13 +295,31 @@
       
 
       
-        <span itemprop="articleBody"></span>
+        <span itemprop="articleBody"><h2 id="事务">事务</h2><ul>
+<li>含义：访问并可能更新数据库中各种数据项的一个程序执行单元(unit)，是一个序列的对数据库的读/写的操作。</li>
+<li>目的：<ul>
+<li>保证用户的每一次操作都是可靠的，即便出现了异常的访问情况，也不至于破坏后台数据的完整性。</li>
+<li>为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。</li>
+<li>当多个应用程序在并发访问数据库时，可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作互相干扰。</li>
+</ul>
+</li>
+<li>特性：<ul>
+<li>原子性（Atomicity）：事务作为一个整体被执行，包含在其中的对数据库的操作要么全部被执行，要么都不执行。</li>
+<li>一致性（Consistency）：事务应确保数据库的状态从一个一致状态转变为另一个一致状态。一致状态的含义是数据库中的数据应满足完整性约束。</li>
+<li>隔离性（Isolation）：多个事务并发执行时，一个事务的执行不应影响其他事务的执行。</li>
+<li>持久性（Durability）：已被提交的事务对数据库的修改应该永久保存在数据库中。     </li>
+</ul>
+</li>
+</ul>
+</span>
       
     </div>
 
     <footer class="post-footer">
       
         <div class="post-tags">
+          
+            <a href="/tags/SSH/" rel="tag">#SSH</a>
           
             <a href="/tags/Spring/" rel="tag">#Spring</a>
           
@@ -395,7 +428,7 @@
 
           <div class="site-state-item site-state-tags">
             
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">标签</span>
               
           </div>
@@ -427,7 +460,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">1.</span> <span class="nav-text">事务</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
