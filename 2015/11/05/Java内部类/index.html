@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java,内部类," />
 
 
 
@@ -53,16 +53,46 @@
 
 
 
-<meta name="description" content="Just Coding Or Sleeping">
+<meta name="description" content="含义将一个类的定义放在另一个类的定义内部
+作用
+与外部类进行通讯：能访问其外部类的所有成员
+一般来说，内部类继承自某个类或某个接口，内部类可以操作外部类对象，提供了进入其外围类的窗口
+解决“多重继承”问题
+闭包与回调
+
+分类
+局部内部类：在局部作用域里定义的内部类（该类只在所在的局部作用域内有效）
+匿名内部类：
+嵌套类：以static修饰的内部类（静态内部类），不需要内部类对象与其外部类对象有联系">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java内部类">
 <meta property="og:url" content="http://yoursite.com/2015/11/05/Java内部类/index.html">
 <meta property="og:site_name" content="MVBlog">
-<meta property="og:description" content="Just Coding Or Sleeping">
-<meta property="og:updated_time" content="2015-11-05T01:50:59.665Z">
+<meta property="og:description" content="含义将一个类的定义放在另一个类的定义内部
+作用
+与外部类进行通讯：能访问其外部类的所有成员
+一般来说，内部类继承自某个类或某个接口，内部类可以操作外部类对象，提供了进入其外围类的窗口
+解决“多重继承”问题
+闭包与回调
+
+分类
+局部内部类：在局部作用域里定义的内部类（该类只在所在的局部作用域内有效）
+匿名内部类：
+嵌套类：以static修饰的内部类（静态内部类），不需要内部类对象与其外部类对象有联系">
+<meta property="og:updated_time" content="2015-11-09T08:46:39.890Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java内部类">
-<meta name="twitter:description" content="Just Coding Or Sleeping">
+<meta name="twitter:description" content="含义将一个类的定义放在另一个类的定义内部
+作用
+与外部类进行通讯：能访问其外部类的所有成员
+一般来说，内部类继承自某个类或某个接口，内部类可以操作外部类对象，提供了进入其外围类的窗口
+解决“多重继承”问题
+闭包与回调
+
+分类
+局部内部类：在局部作用域里定义的内部类（该类只在所在的局部作用域内有效）
+匿名内部类：
+嵌套类：以static修饰的内部类（静态内部类），不需要内部类对象与其外部类对象有联系">
 
 
 
@@ -240,6 +270,21 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaSE/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaSE</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -265,11 +310,35 @@
       
 
       
-        <span itemprop="articleBody"></span>
+        <span itemprop="articleBody"><h2 id="含义">含义</h2><p>将一个类的定义放在另一个类的定义内部</p>
+<h2 id="作用">作用</h2><ul>
+<li>与外部类进行通讯：能访问其外部类的所有成员</li>
+<li>一般来说，内部类继承自某个类或某个接口，内部类可以操作外部类对象，提供了进入其外围类的窗口</li>
+<li>解决“多重继承”问题</li>
+<li>闭包与回调</li>
+</ul>
+<h2 id="分类">分类</h2><ul>
+<li>局部内部类：在局部作用域里定义的内部类（该类只在所在的局部作用域内有效）</li>
+<li>匿名内部类：</li>
+<li>嵌套类：以static修饰的内部类（静态内部类），不需要内部类对象与其外部类对象有联系，不能从嵌套类对象中访问非静态的外围类对象</li>
+</ul>
+<h2 id="注意">注意</h2><ul>
+<li>必须使用外部类的对象的引用去创建内部类，除非内部类是静态内部类（嵌套类）</li>
+<li>创建内部类可以使用：外部类对象的引用.new 内部类 的方式进行创建</li>
+</ul>
+</span>
       
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/内部类/" rel="tag">#内部类</a>
+          
+        </div>
       
 
       
@@ -358,21 +427,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">标签</span>
               
           </div>
@@ -404,7 +473,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#含义"><span class="nav-number">1.</span> <span class="nav-text">含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用"><span class="nav-number">2.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">3.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">4.</span> <span class="nav-text">注意</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
