@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Junit,SSH,Spring,Test,Transaction," />
+  <meta name="keywords" content="Http," />
 
 
 
@@ -53,31 +53,28 @@
 
 
 
-<meta name="description" content="事务
-含义：访问并可能更新数据库中各种数据项的一个程序执行单元(unit)，是一个序列的对数据库的读/写的操作。
-目的：
-保证用户的每一次操作都是可靠的，即便出现了异常的访问情况，也不至于破坏后台数据的完整性。
-为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。
-当多个应用程序在并发访问数据库时，可以在这些应用程序之间提供一个隔离方法，以">
+<meta name="description" content="请求转发&amp;lt;!-- 伪代码 --&amp;gt;
+request.getRequestDispatcher(&quot;index.jsp&quot;).forward(request, response);
+
+一次请求，一次响应，地址栏不变
+客户端浏览器发出http请求，web服务器接收此请求，调用内部的一个方法在容器内部完成请求处理和转发动作，将目标资源发送给客户；在这里，转发的路径必须是同一个web容器下的url，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring事务管理">
-<meta property="og:url" content="http://yoursite.com/2015/11/05/Spring事务管理/index.html">
+<meta property="og:title" content="请求转发与重定向的区别">
+<meta property="og:url" content="http://yoursite.com/2015/11/11/请求转发与重定向的区别/index.html">
 <meta property="og:site_name" content="MVBlog">
-<meta property="og:description" content="事务
-含义：访问并可能更新数据库中各种数据项的一个程序执行单元(unit)，是一个序列的对数据库的读/写的操作。
-目的：
-保证用户的每一次操作都是可靠的，即便出现了异常的访问情况，也不至于破坏后台数据的完整性。
-为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。
-当多个应用程序在并发访问数据库时，可以在这些应用程序之间提供一个隔离方法，以">
-<meta property="og:updated_time" content="2015-11-11T07:37:05.478Z">
+<meta property="og:description" content="请求转发&amp;lt;!-- 伪代码 --&amp;gt;
+request.getRequestDispatcher(&quot;index.jsp&quot;).forward(request, response);
+
+一次请求，一次响应，地址栏不变
+客户端浏览器发出http请求，web服务器接收此请求，调用内部的一个方法在容器内部完成请求处理和转发动作，将目标资源发送给客户；在这里，转发的路径必须是同一个web容器下的url，">
+<meta property="og:updated_time" content="2015-11-11T07:36:45.180Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring事务管理">
-<meta name="twitter:description" content="事务
-含义：访问并可能更新数据库中各种数据项的一个程序执行单元(unit)，是一个序列的对数据库的读/写的操作。
-目的：
-保证用户的每一次操作都是可靠的，即便出现了异常的访问情况，也不至于破坏后台数据的完整性。
-为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。
-当多个应用程序在并发访问数据库时，可以在这些应用程序之间提供一个隔离方法，以">
+<meta name="twitter:title" content="请求转发与重定向的区别">
+<meta name="twitter:description" content="请求转发&amp;lt;!-- 伪代码 --&amp;gt;
+request.getRequestDispatcher(&quot;index.jsp&quot;).forward(request, response);
+
+一次请求，一次响应，地址栏不变
+客户端浏览器发出http请求，web服务器接收此请求，调用内部的一个方法在容器内部完成请求处理和转发动作，将目标资源发送给客户；在这里，转发的路径必须是同一个web容器下的url，">
 
 
 
@@ -89,7 +86,7 @@
   };
 </script>
 
-  <title> Spring事务管理 | MVBlog </title>
+  <title> 请求转发与重定向的区别 | MVBlog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -240,7 +237,7 @@
             
             
               
-                Spring事务管理
+                请求转发与重定向的区别
               
             
           </h1>
@@ -249,8 +246,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-05T09:50:01+08:00" content="2015-11-05">
-              2015-11-05
+            <time itemprop="dateCreated" datetime="2015-11-11T15:05:48+08:00" content="2015-11-11">
+              2015-11-11
             </time>
           </span>
 
@@ -259,8 +256,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaEE/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaEE</span>
+                  <a href="/categories/Http/" itemprop="url" rel="index">
+                    <span itemprop="name">Http</span>
                   </a>
                 </span>
 
@@ -275,8 +272,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/05/Spring事务管理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/05/Spring事务管理/" itemprop="commentsCount"></span>
+                <a href="/2015/11/11/请求转发与重定向的区别/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/11/请求转发与重定向的区别/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -295,28 +292,34 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="事务">事务</h2><ul>
-<li>含义：访问并可能更新数据库中各种数据项的一个程序执行单元(unit)，是一个序列的对数据库的读/写的操作。</li>
-<li>目的：<ul>
-<li>保证用户的每一次操作都是可靠的，即便出现了异常的访问情况，也不至于破坏后台数据的完整性。</li>
-<li>为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。</li>
-<li>当多个应用程序在并发访问数据库时，可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作互相干扰。</li>
+        <span itemprop="articleBody"><h2 id="请求转发">请求转发</h2><pre><code><span class="comment">&lt;!-- 伪代码 --&gt;</span>
+request.getRequestDispatcher("index.jsp").forward(request, response);
+</code></pre><ol>
+<li>一次请求，一次响应，地址栏不变<ul>
+<li>客户端浏览器发出http请求，web服务器接收此请求，调用内部的一个方法在容器内部完成请求处理和转发动作，将目标资源发送给客户；在这里，转发的路径必须是同一个web容器下的url，其不能转向到其他的web路径上去，中间传递的是自己的容器内的request。在客户浏览器路径栏显示的仍然是其第一次访问的路径，也就是说客户是感觉不到服务器做了转发的。转发行为是浏览器只做了一次访问请求。</li>
 </ul>
 </li>
-<li>特性：<ul>
-<li>原子性（Atomicity）：事务作为一个整体被执行，包含在其中的对数据库的操作要么全部被执行，要么都不执行。</li>
-<li>一致性（Consistency）：事务应确保数据库的状态从一个一致状态转变为另一个一致状态。一致状态的含义是数据库中的数据应满足完整性约束。</li>
-<li>隔离性（Isolation）：多个事务并发执行时，一个事务的执行不应影响其他事务的执行。</li>
-<li>持久性（Durability）：已被提交的事务对数据库的修改应该永久保存在数据库中。     </li>
+<li>request中的数据<code>response.setAttribute(&quot;data&quot;,data);</code>不会丢失<ul>
+<li>以这种方式的请求可以进行数据传递。</li>
+<li>只能将请求转发给同一个WEB应用中的组件。</li>
+<li>如果指定的相对url以“/”开头，它是相对于当前WEB应用程序的根目录。</li>
 </ul>
 </li>
-<li>Spring事务管理<ul>
-<li>编程式事务管理</li>
-<li>声明式事务管理</li>
+</ol>
+<h2 id="重定向">重定向</h2><pre><code><span class="comment">&lt;!-- 伪代码 --&gt;</span>
+response.sendRedirect("index.jsp");
+</code></pre><ol>
+<li>两次请求，两次响应，地址栏改变<ul>
+<li>客户端浏览器发出http请求，web服务器接收后发送302状态码响应及对应新的location给客户浏览器，客户浏览器发现是302响应，则自动再发送一个新的http请求，请求url是新的location地址，服务器根据此请求寻找资源并发送给客户。在这里location可以重定向到任意url，既然是浏览器重新发出了请求，则就没有什么request传递的概念了。在客户浏览器路径栏显示的是其重定向的路径，客户可以观察到地址的变化的。重定向行为是浏览器做了至少两次的访问请求的。</li>
 </ul>
 </li>
+<li>request中的数据<code>response.setAttribute(&quot;data&quot;,data);</code>会丢失<ul>
+<li>以这种方式的请求不能进行数据传递。</li>
+<li>不仅可以重定向到当前应用程序中的其他资源，还可以重定向到同一个站点上的其他应用程序中的资源，甚至是使用绝对url重定向到其他站点的资源。</li>
+<li>如果指定的相对url以“/”开头，它是相对于整个WEB站点的根目录。</li>
 </ul>
-<h2 id="一个转账例子进行分析">一个转账例子进行分析</h2><p><strong>首先搭建环境</strong></p>
+</li>
+</ol>
 </span>
       
     </div>
@@ -325,15 +328,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Junit/" rel="tag">#Junit</a>
-          
-            <a href="/tags/SSH/" rel="tag">#SSH</a>
-          
-            <a href="/tags/Spring/" rel="tag">#Spring</a>
-          
-            <a href="/tags/Test/" rel="tag">#Test</a>
-          
-            <a href="/tags/Transaction/" rel="tag">#Transaction</a>
+            <a href="/tags/Http/" rel="tag">#Http</a>
           
         </div>
       
@@ -342,17 +337,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/05/Java-Web之过滤器/" rel="next" title="Java Web之过滤器">
-                <i class="fa fa-chevron-left"></i> Java Web之过滤器
+              <a href="/2015/11/11/Struts2工作原理/" rel="next" title="Struts2工作原理">
+                <i class="fa fa-chevron-left"></i> Struts2工作原理
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/05/Json实战总结/" rel="prev" title="Json实战总结">
-                Json实战总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -379,8 +370,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/05/Spring事务管理/"
-           data-title="Spring事务管理" data-url="http://yoursite.com/2015/11/05/Spring事务管理/">
+      <div class="ds-thread" data-thread-key="2015/11/11/请求转发与重定向的区别/"
+           data-title="请求转发与重定向的区别" data-url="http://yoursite.com/2015/11/11/请求转发与重定向的区别/">
       </div>
     
   </div>
@@ -470,7 +461,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">1.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个转账例子进行分析"><span class="nav-number">2.</span> <span class="nav-text">一个转账例子进行分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#请求转发"><span class="nav-number">1.</span> <span class="nav-text">请求转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重定向"><span class="nav-number">2.</span> <span class="nav-text">重定向</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

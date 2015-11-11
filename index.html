@@ -233,6 +233,136 @@
             
               
                 
+                <a class="post-title-link" href="/2015/11/11/请求转发与重定向的区别/" itemprop="url">
+                  请求转发与重定向的区别
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-11T15:05:48+08:00" content="2015-11-11">
+              2015-11-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Http/" itemprop="url" rel="index">
+                    <span itemprop="name">Http</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/11/请求转发与重定向的区别/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/11/请求转发与重定向的区别/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="请求转发">请求转发</h2><pre><code><span class="comment">&lt;!-- 伪代码 --&gt;</span>
+request.getRequestDispatcher("index.jsp").forward(request, response);
+</code></pre><ol>
+<li>一次请求，一次响应，地址栏不变<ul>
+<li>客户端浏览器发出http请求，web服务器接收此请求，调用内部的一个方法在容器内部完成请求处理和转发动作，将目标资源发送给客户；在这里，转发的路径必须是同一个web容器下的url，其不能转向到其他的web路径上去，中间传递的是自己的容器内的request。在客户浏览器路径栏显示的仍然是其第一次访问的路径，也就是说客户是感觉不到服务器做了转发的。转发行为是浏览器只做了一次访问请求。</li>
+</ul>
+</li>
+<li>request中的数据<code>response.setAttribute(&quot;data&quot;,data);</code>不会丢失<ul>
+<li>以这种方式的请求可以进行数据传递。</li>
+<li>只能将请求转发给同一个WEB应用中的组件。</li>
+<li>如果指定的相对url以“/”开头，它是相对于当前WEB应用程序的根目录。</li>
+</ul>
+</li>
+</ol>
+<h2 id="重定向">重定向</h2><pre><code><span class="comment">&lt;!-- 伪代码 --&gt;</span>
+response.sendRedirect("index.jsp");
+</code></pre><ol>
+<li>两次请求，两次响应，地址栏改变<ul>
+<li>客户端浏览器发出http请求，web服务器接收后发送302状态码响应及对应新的location给客户浏览器，客户浏览器发现是302响应，则自动再发送一个新的http请求，请求url是新的location地址，服务器根据此请求寻找资源并发送给客户。在这里location可以重定向到任意url，既然是浏览器重新发出了请求，则就没有什么request传递的概念了。在客户浏览器路径栏显示的是其重定向的路径，客户可以观察到地址的变化的。重定向行为是浏览器做了至少两次的访问请求的。</li>
+</ul>
+</li>
+<li>request中的数据<code>response.setAttribute(&quot;data&quot;,data);</code>会丢失<ul>
+<li>以这种方式的请求不能进行数据传递。</li>
+<li>不仅可以重定向到当前应用程序中的其他资源，还可以重定向到同一个站点上的其他应用程序中的资源，甚至是使用绝对url重定向到其他站点的资源。</li>
+<li>如果指定的相对url以“/”开头，它是相对于整个WEB站点的根目录。</li>
+</ul>
+</li>
+</ol>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/11/Struts2工作原理/" itemprop="url">
                   Struts2工作原理
                 </a>
@@ -295,9 +425,9 @@
             
               <p><strong>看一下Struts2官方给出的体系结构图</strong><br><img src="/uploads/Struts2体系结构.png" alt="Struts2体系结构" title="Struts2体系结构"><br><strong>解释</strong></p>
 <ul>
-<li>客户端发出一个HttpServletRequest请求（action或jsp）</li>
-<li>请求经过一系列的过滤器链（过滤器链包括可选的 ActionContextCleanUp 过滤器，用于系统整合技术，如 SiteMesh 插件）</li>
-<li>FilterDispather是struts2的核心控制器，此过滤器须在web.xml中进行配置，通常为过滤器链中的最后一个过滤器</li>
+<li>客户端发出一个HttpServletRequest请求（action或jsp）。</li>
+<li>请求经过一系列的过滤器链（过滤器链包括可选的 ActionContextCleanUp 过滤器，用于系统整合技术，如 SiteMesh 插件）。</li>
+<li>FilterDispather是struts2的核心控制器，此过滤器须在web.xml中进行配置，通常为过滤器链中的最后一个过滤器。</li>
 </ul>
 <pre><code><span class="comment">&lt;!-- 配置struts2的核心过滤器 --&gt;</span>
 <span class="tag">&lt;<span class="title">filter</span>&gt;</span>
@@ -313,13 +443,13 @@
     <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">filter-mapping</span>&gt;</span>
 </code></pre><ul>
-<li>通过FilterDispatcher查找ActionMapper，以确定这个请求是否需要调用某个 Action</li>
-<li>如果ActionMapper确定需要调用某个Action，FilterDispatcher 将控制权交给ActionProxy</li>
+<li>通过FilterDispatcher查找ActionMapper，以确定这个请求是否需要调用某个 Action。</li>
+<li>如果ActionMapper确定需要调用某个Action，FilterDispatcher 将控制权交给ActionProxy。</li>
 <li>ActionProxy依照框架的配置文件(struts.xml)，找到需要调用的Action类</li>
-<li>ActionProxy会创建一个ActionInvocation的实例</li>
-<li>ActionInvocation会先调用相关的拦截器（Action 调用之前），最后调用 Action</li>
-<li>Action调用返回结果Result，根据之前的配置文件（struts.xml），查找响应的转发路径（此路径可以是一个jsp文件或者FreeMarker的模版技术的网页呈现，也可以是一个Action类等）</li>
-<li>按照相反的方向调用相关的拦截器链（Action调用之后），返回一个HttpServletResponse，然后再通过过滤器链返回给客户端进行呈现</li>
+<li>ActionProxy会创建一个ActionInvocation的实例。</li>
+<li>ActionInvocation会先调用相关的拦截器（Action 调用之前），最后调用 Action。</li>
+<li>Action调用返回结果Result，根据之前的配置文件（struts.xml），查找响应的转发路径（此路径可以是一个jsp文件或者FreeMarker的模版技术的网页呈现，也可以是一个Action类等）。</li>
+<li>按照相反的方向调用相关的拦截器链（Action调用之后），返回一个HttpServletResponse，然后再通过过滤器链返回给客户端进行呈现。</li>
 </ul>
 
             
@@ -424,13 +554,13 @@
           <span itemprop="articleBody">
             
               <ol>
-<li>购买一个自己喜欢的域名（可在<a href="http://wanwang.aliyun.com/" target="_blank" rel="external">万网</a>上买，如果在其他域名商那购买，也可在万网上进行云解析）</li>
-<li>免费申请到阿里云虚拟主机（1g的网页空间，windows或centos操作系统，sqlserver或mysql数据库）</li>
-<li>将你的域名绑定你的主机的ip地址</li>
-<li>使用centos系统，因为支持php</li>
-<li>下载wordpress压缩包，使用ftp上传到你的主机上的htdocs文件夹下（如果使用ftp无法上传，请检查输入的ftp信息是否正确，如：密码错误等）</li>
-<li>利用阿里云上的主机管理平台→文件管理→文件解压缩，将wordpress压缩包解压到htdocs文件夹下</li>
-<li>访问你的域名，进行wordpress著名的五分钟安装</li>
+<li>购买一个自己喜欢的域名（可在<a href="http://wanwang.aliyun.com/" target="_blank" rel="external">万网</a>上买，如果在其他域名商那购买，也可在万网上进行云解析）。</li>
+<li>免费申请到阿里云虚拟主机（1g的网页空间，windows或centos操作系统，sqlserver或mysql数据库）。</li>
+<li>将你的域名绑定你的主机的ip地址。</li>
+<li>使用centos系统，因为支持php。</li>
+<li>下载wordpress压缩包，使用ftp上传到你的主机上的htdocs文件夹下（如果使用ftp无法上传，请检查输入的ftp信息是否正确，如：密码错误等）。</li>
+<li>利用阿里云上的主机管理平台→文件管理→文件解压缩，将wordpress压缩包解压到htdocs文件夹下。</li>
+<li>访问你的域名，进行wordpress著名的五分钟安装。</li>
 </ol>
 
             
@@ -533,27 +663,27 @@
       
         
           <ul>
-<li>show databases;列出现有的数据库</li>
-<li>use mytest;使用数据库名称为mytest的数据库</li>
-<li>show tables;列出数据库中的表</li>
-<li>show columns from t_user;或describe t_user;或desc t_user;列出t_user表中的所有字段信息</li>
-<li>show status;列出广泛的服务器状态信息</li>
-<li>show grants;列出授予用户（所有用户或特定用户）的安全权限</li>
-<li>show errors;列出服务器的错误信息</li>
-<li>show warnings;列出服务器的警告信息</li>
-<li>select id, username, password from t_user;列出t_user表中列名分别为id, username, password的所匹配的行</li>
-<li>select * from t_user;列出所有的列所匹配的行</li>
-<li>select destinct username from t_user;列出username不同的行</li>
-<li>select count(destinct username) from t_user;返回的是username不同的行数</li>
-<li>select * from t_user limit 3;返回不多于3行的数据</li>
-<li>select * from t_user limit 2, 3;返回从行的索引为2（也就是第三行）开始的3行数据</li>
-<li>select t_user.username from mytest.t_user;使用完全限定名</li>
-<li>select * from t_user order by username;列出所有的行并按username进行排列，默认的排列方式为asc（升序排列）</li>
-<li>select * from t_user order by username, password;列出所有的行并先按username进行排列，后按照password进行排列</li>
-<li>select * from t_user order by username desc;列出所有的行并按username进行排列，排列方式为desc（降序排列），如果多个列进行降序排列，必须对每个列指定desc关键字</li>
-<li>select * from t_user order by username desc limit 2;检索出的行按照username进行降序排列并只返回前两行数据（order by 和 limit关键字的联合使用，limit放在order by 后使用）</li>
-<li>select * from t_user where username=’xx’ and password=’xxx’;查询出username为xx和password为xxx的行数据，注意：值为字符串时用单引号括起来，为数值时则不用</li>
-<li>select * from t_user where username=’xx’ or password=’xxx’;查询出username为xx或password为xxx的行数据，注意：值为字符串时用单引号括起来，为数值时则不用
+<li>show databases;列出现有的数据库。</li>
+<li>use mytest;使用数据库名称为mytest的数据库。</li>
+<li>show tables;列出数据库中的表。</li>
+<li>show columns from t_user;或describe t_user;或desc t_user;列出t_user表中的所有字段信息。</li>
+<li>show status;列出广泛的服务器状态信息。</li>
+<li>show grants;列出授予用户（所有用户或特定用户）的安全权限。</li>
+<li>show errors;列出服务器的错误信息。</li>
+<li>show warnings;列出服务器的警告信息。</li>
+<li>select id, username, password from t_user;列出t_user表中列名分别为id, username, password的所匹配的行。</li>
+<li>select * from t_user;列出所有的列所匹配的行。</li>
+<li>select destinct username from t_user;列出username不同的行。</li>
+<li>select count(destinct username) from t_user;返回的是username不同的行数。</li>
+<li>select * from t_user limit 3;返回不多于3行的数据。</li>
+<li>select * from t_user limit 2, 3;返回从行的索引为2（也就是第三行）开始的3行数据。</li>
+<li>select t_user.username from mytest.t_user;使用完全限定名。</li>
+<li>select * from t_user order by username;列出所有的行并按username进行排列，默认的排列方式为asc（升序排列）。</li>
+<li>select * from t_user order by username, password;列出所有的行并先按username进行排列，后按照password进行排列。</li>
+<li>select * from t_user order by username desc;列出所有的行并按username进行排列，排列方式为desc（降序排列），如果多个列进行降序排列，必须对每个列指定desc关键字。</li>
+<li>select * from t_user order by username desc limit 2;检索出的行按照username进行降序排列并只返回前两行数据（order by 和 limit关键字的联合使用，limit放在order by 后使用）。</li>
+<li>select * from t_user where username=’xx’ and password=’xxx’;查询出username为xx和password为xxx的行数据，注意：值为字符串时用单引号括起来，为数值时则不用。</li>
+<li>select * from t_user where username=’xx’ or password=’xxx’;查询出username为xx或password为xxx的行数据，注意：值为字符串时用单引号括起来，为数值时则不用。
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/11/09/MySQL命令大全/#more" rel="contents">
               阅读全文 &raquo;
@@ -658,7 +788,7 @@
         
           <span itemprop="articleBody">
             
-              <p><strong>下载这个<a href="/downloads/hosts">hosts</a>文件，替换本机的hosts文件，win7下的路径为<code>C:\Windows\System32\drivers\etc</code>，注意先对本机的hosts文件进行备份</strong></p>
+              <p><strong>点击<a href="/downloads/hosts">hosts</a>下载这个文件，替换本机的hosts文件，win7下的路径为<code>C:\Windows\System32\drivers\etc</code>，注意先对本机的hosts文件进行备份。</strong></p>
 
             
           </span>
@@ -761,21 +891,21 @@
         
           <span itemprop="articleBody">
             
-              <h2 id="含义">含义</h2><p>将一个类的定义放在另一个类的定义内部</p>
+              <h2 id="含义">含义</h2><p>将一个类的定义放在另一个类的定义内部。</p>
 <h2 id="作用">作用</h2><ul>
-<li>与外部类进行通讯：能访问其外部类的所有成员</li>
-<li>一般来说，内部类继承自某个类或某个接口，内部类可以操作外部类对象，提供了进入其外围类的窗口</li>
-<li>解决“多重继承”问题</li>
-<li>闭包与回调</li>
+<li>与外部类进行通讯：能访问其外部类的所有成员。</li>
+<li>一般来说，内部类继承自某个类或某个接口，内部类可以操作外部类对象，提供了进入其外围类的窗口。</li>
+<li>解决“多重继承”问题。</li>
+<li>闭包与回调。</li>
 </ul>
 <h2 id="分类">分类</h2><ul>
-<li>局部内部类：在局部作用域里定义的内部类（该类只在所在的局部作用域内有效）</li>
+<li>局部内部类：在局部作用域里定义的内部类（该类只在所在的局部作用域内有效）。</li>
 <li>匿名内部类：</li>
-<li>嵌套类：以static修饰的内部类（静态内部类），不需要内部类对象与其外部类对象有联系，不能从嵌套类对象中访问非静态的外围类对象</li>
+<li>嵌套类：以static修饰的内部类（静态内部类），不需要内部类对象与其外部类对象有联系，不能从嵌套类对象中访问非静态的外围类对象。</li>
 </ul>
 <h2 id="注意">注意</h2><ul>
-<li>必须使用外部类的对象的引用去创建内部类，除非内部类是静态内部类（嵌套类）</li>
-<li>创建内部类可以使用：外部类对象的引用.new 内部类 的方式进行创建</li>
+<li>必须使用外部类的对象的引用去创建内部类，除非内部类是静态内部类（嵌套类）。</li>
+<li>创建内部类可以使用：外部类对象的引用.new 内部类 的方式进行创建。</li>
 </ul>
 
             
@@ -987,6 +1117,7 @@
 </ul>
 </li>
 </ul>
+<h2 id="一个转账例子进行分析">一个转账例子进行分析</h2><p><strong>首先搭建环境</strong></p>
 
             
           </span>
@@ -1263,113 +1394,14 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/04/设计模式之策略模式/" itemprop="url">
-                  设计模式之策略模式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-04T13:24:33+08:00" content="2015-11-04">
-              2015-11-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/04/设计模式之策略模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/04/设计模式之策略模式/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p><strong>策略模式定义了算法族，并分别封装起来，让它们之间可以相互替换，此模式让算法的变化独立于使用算法的客户。</strong></p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
         </div>
@@ -1408,21 +1440,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">标签</span>
               
           </div>
