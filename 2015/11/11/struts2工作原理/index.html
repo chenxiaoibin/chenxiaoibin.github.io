@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="blog,wordpress," />
+  <meta name="keywords" content="strus2," />
 
 
 
@@ -53,28 +53,17 @@
 
 
 
-<meta name="description" content="购买一个自己喜欢的域名（可在万网上买，如果在其他域名商那购买，也可在万网上进行云解析）
-免费申请到阿里云虚拟主机（1g的网页空间，windows或centos操作系统，sqlserver或mysql数据库）
-将你的域名绑定你的主机的ip地址
-使用centos系统，因为支持php
-下载wordpress压缩包，使用ftp上传到你的主机上的htdocs文件夹下（如果使用ftp无法上传，请检查输入的ft">
+<meta name="description" content="首先看一下struts2官方给出的体系结构图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿里云虚拟主机上搭建wordpress">
-<meta property="og:url" content="http://yoursite.com/2015/11/09/阿里云虚拟主机上搭建wordpress/index.html">
+<meta property="og:title" content="struts2工作原理">
+<meta property="og:url" content="http://yoursite.com/2015/11/11/struts2工作原理/index.html">
 <meta property="og:site_name" content="MVBlog">
-<meta property="og:description" content="购买一个自己喜欢的域名（可在万网上买，如果在其他域名商那购买，也可在万网上进行云解析）
-免费申请到阿里云虚拟主机（1g的网页空间，windows或centos操作系统，sqlserver或mysql数据库）
-将你的域名绑定你的主机的ip地址
-使用centos系统，因为支持php
-下载wordpress压缩包，使用ftp上传到你的主机上的htdocs文件夹下（如果使用ftp无法上传，请检查输入的ft">
-<meta property="og:updated_time" content="2015-11-09T08:43:14.190Z">
+<meta property="og:description" content="首先看一下struts2官方给出的体系结构图">
+<meta property="og:image" content="http://yoursite.com/uploads/Struts2体系结构.png">
+<meta property="og:updated_time" content="2015-11-11T01:44:49.095Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里云虚拟主机上搭建wordpress">
-<meta name="twitter:description" content="购买一个自己喜欢的域名（可在万网上买，如果在其他域名商那购买，也可在万网上进行云解析）
-免费申请到阿里云虚拟主机（1g的网页空间，windows或centos操作系统，sqlserver或mysql数据库）
-将你的域名绑定你的主机的ip地址
-使用centos系统，因为支持php
-下载wordpress压缩包，使用ftp上传到你的主机上的htdocs文件夹下（如果使用ftp无法上传，请检查输入的ft">
+<meta name="twitter:title" content="struts2工作原理">
+<meta name="twitter:description" content="首先看一下struts2官方给出的体系结构图">
 
 
 
@@ -86,7 +75,7 @@
   };
 </script>
 
-  <title> 阿里云虚拟主机上搭建wordpress | MVBlog </title>
+  <title> struts2工作原理 | MVBlog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -237,7 +226,7 @@
             
             
               
-                阿里云虚拟主机上搭建wordpress
+                struts2工作原理
               
             
           </h1>
@@ -246,8 +235,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-09T16:40:07+08:00" content="2015-11-09">
-              2015-11-09
+            <time itemprop="dateCreated" datetime="2015-11-11T09:38:20+08:00" content="2015-11-11">
+              2015-11-11
             </time>
           </span>
 
@@ -256,8 +245,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/wordpress/" itemprop="url" rel="index">
-                    <span itemprop="name">wordpress</span>
+                  <a href="/categories/JavaEE/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaEE</span>
                   </a>
                 </span>
 
@@ -272,8 +261,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/09/阿里云虚拟主机上搭建wordpress/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/09/阿里云虚拟主机上搭建wordpress/" itemprop="commentsCount"></span>
+                <a href="/2015/11/11/struts2工作原理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/11/struts2工作原理/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -292,15 +281,7 @@
       
 
       
-        <span itemprop="articleBody"><ol>
-<li>购买一个自己喜欢的域名（可在<a href="http://wanwang.aliyun.com/" target="_blank" rel="external">万网</a>上买，如果在其他域名商那购买，也可在万网上进行云解析）</li>
-<li>免费申请到阿里云虚拟主机（1g的网页空间，windows或centos操作系统，sqlserver或mysql数据库）</li>
-<li>将你的域名绑定你的主机的ip地址</li>
-<li>使用centos系统，因为支持php</li>
-<li>下载wordpress压缩包，使用ftp上传到你的主机上的htdocs文件夹下（如果使用ftp无法上传，请检查输入的ftp信息是否正确，如：密码错误等）</li>
-<li>利用阿里云上的主机管理平台→文件管理→文件解压缩，将wordpress压缩包解压到htdocs文件夹下</li>
-<li>访问你的域名，进行wordpress著名的五分钟安装</li>
-</ol>
+        <span itemprop="articleBody"><p><strong>首先看一下struts2官方给出的体系结构图</strong><br><img src="/uploads/Struts2体系结构.png" alt="Struts2体系结构" title="Struts2体系结构"></p>
 </span>
       
     </div>
@@ -309,9 +290,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/blog/" rel="tag">#blog</a>
-          
-            <a href="/tags/wordpress/" rel="tag">#wordpress</a>
+            <a href="/tags/strus2/" rel="tag">#strus2</a>
           
         </div>
       
@@ -320,17 +299,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/09/MySQL命令大全/" rel="next" title="MySQL命令大全">
-                <i class="fa fa-chevron-left"></i> MySQL命令大全
+              <a href="/2015/11/09/阿里云虚拟主机上搭建wordpress/" rel="next" title="阿里云虚拟主机上搭建wordpress">
+                <i class="fa fa-chevron-left"></i> 阿里云虚拟主机上搭建wordpress
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/11/struts2工作原理/" rel="prev" title="struts2工作原理">
-                struts2工作原理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -357,8 +332,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/09/阿里云虚拟主机上搭建wordpress/"
-           data-title="阿里云虚拟主机上搭建wordpress" data-url="http://yoursite.com/2015/11/09/阿里云虚拟主机上搭建wordpress/">
+      <div class="ds-thread" data-thread-key="2015/11/11/struts2工作原理/"
+           data-title="struts2工作原理" data-url="http://yoursite.com/2015/11/11/struts2工作原理/">
       </div>
     
   </div>
