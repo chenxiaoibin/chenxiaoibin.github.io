@@ -53,17 +53,29 @@
 
 
 
-<meta name="description" content="首先看一下struts2官方给出的体系结构图">
+<meta name="description" content="看一下struts2官方给出的体系结构图解释
+
+客户端发出一个HttpServletRequest请求（action或jsp）
+请求经过一系列的过滤器链（过滤器链包括可选的 ActionContextCleanUp 过滤器，用于系统整合技术，如 SiteMesh 插件）
+FilterDispather是struts2的核心控制器，此过滤器须在web.xml中进行配置，通常为过滤器链中的最后一个过滤">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Struts2工作原理">
 <meta property="og:url" content="http://yoursite.com/2015/11/11/Struts2工作原理/index.html">
 <meta property="og:site_name" content="MVBlog">
-<meta property="og:description" content="首先看一下struts2官方给出的体系结构图">
+<meta property="og:description" content="看一下struts2官方给出的体系结构图解释
+
+客户端发出一个HttpServletRequest请求（action或jsp）
+请求经过一系列的过滤器链（过滤器链包括可选的 ActionContextCleanUp 过滤器，用于系统整合技术，如 SiteMesh 插件）
+FilterDispather是struts2的核心控制器，此过滤器须在web.xml中进行配置，通常为过滤器链中的最后一个过滤">
 <meta property="og:image" content="http://yoursite.com/uploads/Struts2体系结构.png">
-<meta property="og:updated_time" content="2015-11-11T01:58:36.496Z">
+<meta property="og:updated_time" content="2015-11-11T05:19:59.677Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Struts2工作原理">
-<meta name="twitter:description" content="首先看一下struts2官方给出的体系结构图">
+<meta name="twitter:description" content="看一下struts2官方给出的体系结构图解释
+
+客户端发出一个HttpServletRequest请求（action或jsp）
+请求经过一系列的过滤器链（过滤器链包括可选的 ActionContextCleanUp 过滤器，用于系统整合技术，如 SiteMesh 插件）
+FilterDispather是struts2的核心控制器，此过滤器须在web.xml中进行配置，通常为过滤器链中的最后一个过滤">
 
 
 
@@ -281,7 +293,34 @@
       
 
       
-        <span itemprop="articleBody"><p><strong>首先看一下struts2官方给出的体系结构图</strong><br><img src="/uploads/Struts2体系结构.png" alt="Struts2体系结构" title="Struts2体系结构"></p>
+        <span itemprop="articleBody"><p><strong>看一下struts2官方给出的体系结构图</strong><br><img src="/uploads/Struts2体系结构.png" alt="Struts2体系结构" title="Struts2体系结构"><br><strong>解释</strong></p>
+<ul>
+<li>客户端发出一个HttpServletRequest请求（action或jsp）</li>
+<li>请求经过一系列的过滤器链（过滤器链包括可选的 ActionContextCleanUp 过滤器，用于系统整合技术，如 SiteMesh 插件）</li>
+<li>FilterDispather是struts2的核心控制器，此过滤器须在web.xml中进行配置，通常为过滤器链中的最后一个过滤器</li>
+</ul>
+<pre><code><span class="comment">&lt;!-- 配置struts2的核心过滤器 --&gt;</span>
+<span class="tag">&lt;<span class="title">filter</span>&gt;</span>
+    <span class="comment">&lt;!-- 过滤器名称 --&gt;</span>
+    <span class="tag">&lt;<span class="title">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="title">filter-name</span>&gt;</span>
+    <span class="comment">&lt;!-- 过滤器类 --&gt;</span>
+    <span class="tag">&lt;<span class="title">filter-class</span>&gt;</span>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter<span class="tag">&lt;/<span class="title">filter-class</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">filter</span>&gt;</span>
+<span class="comment">&lt;!-- 过滤器映射 --&gt;</span>
+<span class="tag">&lt;<span class="title">filter-mapping</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="title">filter-name</span>&gt;</span>
+    <span class="comment">&lt;!-- /*表示所有的请求都需要经过这个过滤器过滤 --&gt;</span>
+    <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">filter-mapping</span>&gt;</span>
+</code></pre><ul>
+<li>通过FilterDispatcher查找ActionMapper，以确定这个请求是否需要调用某个 Action</li>
+<li>如果ActionMapper确定需要调用某个Action，FilterDispatcher 将控制权交给ActionProxy</li>
+<li>ActionProxy依照框架的配置文件(struts.xml)，找到需要调用的Action类</li>
+<li>ActionProxy会创建一个ActionInvocation的实例</li>
+<li>ActionInvocation会先调用相关的拦截器（Action 调用之前），最后调用 Action</li>
+<li>Action调用返回结果Result，根据之前的配置文件（struts.xml），查找响应的转发路径（此路径可以是一个jsp文件或者FreeMarker的模版技术的网页呈现，也可以是一个Action类等）</li>
+<li>按照相反的方向调用相关的拦截器链（Action调用之后），返回一个HttpServletResponse，然后再通过过滤器链返回给客户端进行呈现</li>
+</ul>
 </span>
       
     </div>
