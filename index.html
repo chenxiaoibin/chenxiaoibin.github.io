@@ -378,9 +378,7 @@
 
       
         
-          <span itemprop="articleBody">
-            
-              <h2 id="单例模式（Singleton_Pattern）">单例模式（Singleton Pattern）</h2><p><strong>程序设计过程中，当我们需要一个全局的，独一无二的实例时，我们可以使用单例模式进行设计。</strong></p>
+          <h2 id="单例模式（Singleton_Pattern）">单例模式（Singleton Pattern）</h2><p><strong>程序设计过程中，当我们需要一个全局的，独一无二的实例时，我们可以使用单例模式进行设计。</strong></p>
 <h2 id="一般写法（线程不安全）">一般写法（线程不安全）</h2><pre><code><span class="comment">//一个普通的类</span>
 <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Singleton</span> {
     <span class="comment">//.....该类其他的一些属性</span>
@@ -402,87 +400,12 @@
 
     <span class="comment">//.......该类其他的一些方法</span>
 }
-</code></pre><p>如果该类在应用程序并不是关键程序，不经常使用，这种写法的单例模式就足够，但是，如果该类很重要，需经常使用，则这种写法会导致多线程问题。</p>
-<h2 id="同步getInstance()方法（线程安全）">同步getInstance()方法（线程安全）</h2><pre><code><span class="comment">//一个普通的类</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>{
-    <span class="comment">//.....该类其他的一些属性</span>
-
-    <span class="comment">//uniqueInstance：确保全局只有一个实例</span>
-    <span class="keyword">private</span> <span class="keyword">static</span> Singleton uniqueInstance;
-    <span class="comment">//私有化的构造方法：只能在类的内部创建实例</span>
-    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>{
-
-    }
-    <span class="comment">//静态方法getInstance()：外部类可以通过Singleton.getInstance()得到一个实例</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>{
-        <span class="comment">//uniqueInstance，没有的话创建一个，此处使用的是懒汉式加载，只在需要时候进行创建</span>
-        <span class="keyword">if</span>(uniqueInstance == <span class="keyword">null</span>) {
-            uniqueInstance = <span class="keyword">new</span> Singleton();
-        }
-        <span class="keyword">return</span> uniqueInstance;
-    }
-
-    <span class="comment">//.......该类其他的一些方法</span>
-}
-</code></pre><p>使用synchronized关键字修饰getInstance()方法，这样就迫使每个线程进入这个方法之前，要先等到别的线程离开这个方法。但是同步的方式会降低性能，在每次调用这个方法时，都要同步，其实，真正需要的时只是在第一次创建实例时进行同步的，因此，这种写法不可取。    </p>
-<h2 id="饿汉式写法（线程安全）">饿汉式写法（线程安全）</h2><pre><code><span class="comment">//一个普通的类</span>
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Singleton</span> {
-    <span class="comment">//.....该类其他的一些属性</span>
-
-    <span class="comment">//首先定义一个静态变量uniqueInstance，确保全局只有一个实例，另外，在JVM加载这个类的时候，就直接对该类进行实例化（饿汉式），以此避免多线程问题</span>
-    <span class="keyword">private</span> <span class="keyword">static</span> Singleton uniqueInstance = <span class="keyword">new</span> Singleton();
-    <span class="comment">//私有化的构造方法：只能在类的内部创建实例</span>
-    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span>(<span class="params"></span>) </span>{
-
-    }
-    <span class="comment">//静态方法getInstance()：外部类可以通过Singleton.getInstance()得到一个实例</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span>(<span class="params"></span>) </span>{
-        <span class="keyword">return</span> uniqueInstance;
-    }
-
-    <span class="comment">//.......其他该类的一些方法</span>
-}
-</code></pre><p>这种写法可以有效避免多线程问题，但是假如这个类加载时非常耗用资源，程序启动效率低下，就不要用这种写法了。</p>
-<h2 id="双重检查加锁写法（线程安全）">双重检查加锁写法（线程安全）</h2><pre><code><span class="comment">//一个普通的类</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>{
-    <span class="comment">//.....该类其他的一些属性</span>
-
-    <span class="comment">//volatile关键字适用于jdk1.5以上版本，其确保当uniqueInstance变量被实例化时，多个线程正确处理uniqueInstance变量</span>
-    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton uniqueInstance; 
-    <span class="comment">//私有化构造方法</span>
-    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>{
-
-    }
-    <span class="comment">//只有在第一次创建实例时，才会彻底执行该方法</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>{
-        <span class="comment">//第一次检查是否为null</span>
-        <span class="keyword">if</span>(uniqueInstance == <span class="keyword">null</span>) {
-            <span class="comment">//同步区块</span>
-            <span class="keyword">synchronized</span> (Singleton.class) {
-                <span class="comment">//第二次检查是否为null</span>
-                <span class="keyword">if</span>(uniqueInstance == <span class="keyword">null</span>) {
-                    <span class="comment">//这才创建实例</span>
-                    uniqueInstance = <span class="keyword">new</span> Singleton();
-                }
-            }
-        }
-        <span class="keyword">return</span> uniqueInstance;
-    }
-
-    <span class="comment">//.......其他该类的一些方法</span>
-}
-</code></pre><p>这种写法提升了性能，但是须在jdk1.5版本以上使用</p>
-<h2 id="枚举类型写法（线程安全）">枚举类型写法（线程安全）</h2><pre><code><span class="comment">//一个普通的枚举类型</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">SingletonEnum</span> {</span>
-    <span class="comment">//调用SingletonEnum.INSTANCE即可获得一个实例，枚举类型自动提供了序列化机制，绝对防止多次实例化</span>
-    INSTANCE;
-
-    <span class="comment">//...其他方法</span>
-}
-</code></pre><p>需要jdk1.5版本以上，采用单元素的枚举类型的方式，比较简洁，推荐采用这种写法。    </p>
-
-            
-          </span>
+</code></pre><p>如果该类在应用程序并不是关键程序，不经常使用，这种写法的单例模式就足够，但是，如果该类很重要，需经常使用，则这种写法会导致多线程问题。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/11/设计模式之单例模式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
