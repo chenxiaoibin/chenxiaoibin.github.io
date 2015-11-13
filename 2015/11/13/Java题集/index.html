@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Strategy Pattern," />
+  <meta name="keywords" content="题集," />
 
 
 
@@ -53,16 +53,49 @@
 
 
 
-<meta name="description" content="策略模式定义了算法族，并分别封装起来，让它们之间可以相互替换，此模式让算法的变化独立于使用算法的客户。">
+<meta name="description" content="1. 以下代码的输出结果
+public class Base {
+
+    private String basename = &quot;base&quot;;
+    public Base() {
+        callName();
+    }
+    public void callName() {
+        System.out.println(basename);
+    }
+
+    stat">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式之策略模式">
-<meta property="og:url" content="http://yoursite.com/2015/11/04/设计模式之策略模式/index.html">
+<meta property="og:title" content="Java题集">
+<meta property="og:url" content="http://yoursite.com/2015/11/13/Java题集/index.html">
 <meta property="og:site_name" content="MVBlog">
-<meta property="og:description" content="策略模式定义了算法族，并分别封装起来，让它们之间可以相互替换，此模式让算法的变化独立于使用算法的客户。">
-<meta property="og:updated_time" content="2015-11-12T02:56:51.579Z">
+<meta property="og:description" content="1. 以下代码的输出结果
+public class Base {
+
+    private String basename = &quot;base&quot;;
+    public Base() {
+        callName();
+    }
+    public void callName() {
+        System.out.println(basename);
+    }
+
+    stat">
+<meta property="og:updated_time" content="2015-11-13T02:51:35.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式之策略模式">
-<meta name="twitter:description" content="策略模式定义了算法族，并分别封装起来，让它们之间可以相互替换，此模式让算法的变化独立于使用算法的客户。">
+<meta name="twitter:title" content="Java题集">
+<meta name="twitter:description" content="1. 以下代码的输出结果
+public class Base {
+
+    private String basename = &quot;base&quot;;
+    public Base() {
+        callName();
+    }
+    public void callName() {
+        System.out.println(basename);
+    }
+
+    stat">
 
 
 
@@ -74,7 +107,7 @@
   };
 </script>
 
-  <title> 设计模式之策略模式 | MVBlog </title>
+  <title> Java题集 | MVBlog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -225,7 +258,7 @@
             
             
               
-                设计模式之策略模式
+                Java题集
               
             
           </h1>
@@ -234,8 +267,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-04T13:24:33+08:00" content="2015-11-04">
-              2015-11-04
+            <time itemprop="dateCreated" datetime="2015-11-13T10:20:01+08:00" content="2015-11-13">
+              2015-11-13
             </time>
           </span>
 
@@ -244,8 +277,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
+                  <a href="/categories/题集/" itemprop="url" rel="index">
+                    <span itemprop="name">题集</span>
                   </a>
                 </span>
 
@@ -260,8 +293,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/04/设计模式之策略模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/04/设计模式之策略模式/" itemprop="commentsCount"></span>
+                <a href="/2015/11/13/Java题集/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/13/Java题集/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -280,7 +313,45 @@
       
 
       
-        <span itemprop="articleBody"><p><strong>策略模式定义了算法族，并分别封装起来，让它们之间可以相互替换，此模式让算法的变化独立于使用算法的客户。</strong></p>
+        <span itemprop="articleBody"><p><strong>1. 以下代码的输出结果</strong></p>
+<pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Base</span> {
+
+    <span class="keyword">private</span> String basename = <span class="string">"base"</span>;
+    <span class="function"><span class="keyword">public</span> <span class="title">Base</span>(<span class="params"></span>) </span>{
+        callName();
+    }
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">callName</span>(<span class="params"></span>) </span>{
+        System.<span class="keyword">out</span>.println(basename);
+    }
+
+    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">Sub</span> <span class="title">extends</span> <span class="title">Base</span> {
+        <span class="keyword">private</span> String basename = <span class="string">"sub"</span>;
+        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">callName</span>(<span class="params"></span>) </span>{
+            System.<span class="keyword">out</span>.println(basename);
+        }
+    }
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>{
+        Base b = <span class="keyword">new</span> Sub();
+        System.<span class="keyword">out</span>.println(b);
+    }
+}
+</code></pre><p>解析：</p>
+<ul>
+<li><code>Base b = new Sub();</code></li>
+<li><code>Base b =</code>直接忽略，从 <code>new Sub();</code>开始</li>
+<li>类加载器加载 Base，Sub 类到jvm;</li>
+<li>为Base，Sub 类中的两个属性baseName 分配存储空间，但是不初始化；注意:属性的初始化时放在构造器中，按照代码顺序执行的。</li>
+<li><code>new Sub()</code>会调用Sub的无参构造器，而在这个构造器中会隐式调用父类Base的无参构造器；</li>
+<li>父类Base的构造器中代码本质是<pre><code><span class="label">public</span> <span class="keyword">Base() </span>{
+    <span class="keyword">baseName </span>= <span class="string">"base"</span><span class="comment">;</span>
+    callName()<span class="comment">;</span>
+}
+</code></pre>即父类的属性baseName 的值为base。但为何输出null？</li>
+<li>因为父类构造器方法是在子类中调用的，即大环境是子类。此时，调用的方法<code>callName()</code>当然是指子类的方法。而这个方法打印的属性baseName 当然也是子类的。那现在子类的属性baseName的值是多少呢？答案是null.因为此时子类Sub的构造器内代码本质是:<pre><code><span class="keyword">super</span>();
+baseName=<span class="string">"sub"</span>;
+</code></pre>此时<code>baseName=&quot;sub&quot;</code>还没执行。因此，最后的值当然是null。</li>
+</ul>
 </span>
       
     </div>
@@ -289,7 +360,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Strategy-Pattern/" rel="tag">#Strategy Pattern</a>
+            <a href="/tags/题集/" rel="tag">#题集</a>
           
         </div>
       
@@ -298,13 +369,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2015/11/11/正则表达式/" rel="next" title="正则表达式">
+                <i class="fa fa-chevron-left"></i> 正则表达式
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/04/Extjs学习笔记/" rel="prev" title="Extjs学习笔记">
-                Extjs学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -319,10 +390,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/11/04/设计模式之策略模式/"
-     data-title="设计模式之策略模式"
+        <div class="ds-share flat" data-thread-key="2015/11/13/Java题集/"
+     data-title="Java题集"
      data-content=""
-     data-url="http://yoursite.com/2015/11/04/设计模式之策略模式/">
+     data-url="http://yoursite.com/2015/11/13/Java题集/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -350,8 +421,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/04/设计模式之策略模式/"
-           data-title="设计模式之策略模式" data-url="http://yoursite.com/2015/11/04/设计模式之策略模式/">
+      <div class="ds-thread" data-thread-key="2015/11/13/Java题集/"
+           data-title="Java题集" data-url="http://yoursite.com/2015/11/13/Java题集/">
       </div>
     
   </div>
