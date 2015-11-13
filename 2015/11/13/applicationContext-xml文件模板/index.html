@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Singleton Pattern," />
+  <meta name="keywords" content="Spring,applicationContext," />
 
 
 
@@ -53,34 +53,28 @@
 
 
 
-<meta name="description" content="单例模式（Singleton Pattern）程序设计过程中，当我们需要一个全局的，独一无二的实例时，我们可以使用单例模式进行设计。
-一般写法（线程不安全）//一个普通的类
-public class Singleton {
-    //.....该类其他的一些属性
-
-    //uniqueInstance：确保全局只有一个实例
-    private static Singleton uniqu">
+<meta name="description" content="以spring-framework-4.2.0为例
+&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;beans 
+    xmlns=&quot;http://www.springframework.org/schema/beans&quot; 
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式之单例模式">
-<meta property="og:url" content="http://yoursite.com/2015/11/11/设计模式之单例模式/index.html">
+<meta property="og:title" content="applicationContext.xml文件模板">
+<meta property="og:url" content="http://yoursite.com/2015/11/13/applicationContext-xml文件模板/index.html">
 <meta property="og:site_name" content="MVBlog">
-<meta property="og:description" content="单例模式（Singleton Pattern）程序设计过程中，当我们需要一个全局的，独一无二的实例时，我们可以使用单例模式进行设计。
-一般写法（线程不安全）//一个普通的类
-public class Singleton {
-    //.....该类其他的一些属性
-
-    //uniqueInstance：确保全局只有一个实例
-    private static Singleton uniqu">
-<meta property="og:updated_time" content="2015-11-12T04:44:13.900Z">
+<meta property="og:description" content="以spring-framework-4.2.0为例
+&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;beans 
+    xmlns=&quot;http://www.springframework.org/schema/beans&quot; 
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;">
+<meta property="og:updated_time" content="2015-11-13T07:09:21.581Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式之单例模式">
-<meta name="twitter:description" content="单例模式（Singleton Pattern）程序设计过程中，当我们需要一个全局的，独一无二的实例时，我们可以使用单例模式进行设计。
-一般写法（线程不安全）//一个普通的类
-public class Singleton {
-    //.....该类其他的一些属性
-
-    //uniqueInstance：确保全局只有一个实例
-    private static Singleton uniqu">
+<meta name="twitter:title" content="applicationContext.xml文件模板">
+<meta name="twitter:description" content="以spring-framework-4.2.0为例
+&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;beans 
+    xmlns=&quot;http://www.springframework.org/schema/beans&quot; 
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;">
 
 
 
@@ -92,7 +86,7 @@ public class Singleton {
   };
 </script>
 
-  <title> 设计模式之单例模式 | MVBlog </title>
+  <title> applicationContext.xml文件模板 | MVBlog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -243,7 +237,7 @@ public class Singleton {
             
             
               
-                设计模式之单例模式
+                applicationContext.xml文件模板
               
             
           </h1>
@@ -252,8 +246,8 @@ public class Singleton {
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-11T16:34:35+08:00" content="2015-11-11">
-              2015-11-11
+            <time itemprop="dateCreated" datetime="2015-11-13T15:04:26+08:00" content="2015-11-13">
+              2015-11-13
             </time>
           </span>
 
@@ -262,8 +256,8 @@ public class Singleton {
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
                   </a>
                 </span>
 
@@ -278,8 +272,8 @@ public class Singleton {
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/11/设计模式之单例模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/11/设计模式之单例模式/" itemprop="commentsCount"></span>
+                <a href="/2015/11/13/applicationContext-xml文件模板/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/13/applicationContext-xml文件模板/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -298,107 +292,45 @@ public class Singleton {
       
 
       
-        <span itemprop="articleBody"><h2 id="单例模式（Singleton_Pattern）">单例模式（Singleton Pattern）</h2><p><strong>程序设计过程中，当我们需要一个全局的，独一无二的实例时，我们可以使用单例模式进行设计。</strong></p>
-<h2 id="一般写法（线程不安全）">一般写法（线程不安全）</h2><pre><code><span class="comment">//一个普通的类</span>
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Singleton</span> {
-    <span class="comment">//.....该类其他的一些属性</span>
+        <span itemprop="articleBody"><p><strong>以spring-framework-4.2.0为例</strong></p>
+<pre><code><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="tag">&lt;<span class="title">beans</span> 
+    <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span> 
+    <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span>
+    <span class="attribute">xmlns:aop</span>=<span class="value">"http://www.springframework.org/schema/aop"</span>
+    <span class="attribute">xmlns:context</span>=<span class="value">"http://www.springframework.org/schema/context"</span> 
+    <span class="attribute">xmlns:tx</span>=<span class="value">"http://www.springframework.org/schema/tx"</span>
+    <span class="attribute">xmlns:cache</span>=<span class="value">"http://www.springframework.org/schema/cache"</span> 
+    <span class="attribute">xmlns:p</span>=<span class="value">"http://www.springframework.org/schema/p"</span>
+    <span class="attribute">xsi:schemaLocation</span>=<span class="value">"
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+        http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.2.xsd
+"</span>&gt;</span>
+    <span class="comment">&lt;!-- 配置c3p0连接池 --&gt;</span>
+    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"dataSource"</span> <span class="attribute">class</span>=<span class="value">"com.mchange.v2.c3p0.ComboPooledDataSource"</span> <span class="attribute">destroy-method</span>=<span class="value">"close"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"driverClass"</span> <span class="attribute">value</span>=<span class="value">"${jdbc.driverClass}"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"jdbcUrl"</span> <span class="attribute">value</span>=<span class="value">"${jdbc.url}"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"user"</span> <span class="attribute">value</span>=<span class="value">"${jdbc.username}"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"password"</span> <span class="attribute">value</span>=<span class="value">"${jdbc.password}"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="title">bean</span>&gt;</span>
+    <span class="comment">&lt;!-- 加载jdbc的属性文件 --&gt;</span>
+    <span class="tag">&lt;<span class="title">context:property-placeholder</span> <span class="attribute">location</span>=<span class="value">"classpath:db.properties"</span>/&gt;</span>
 
-    <span class="comment">//uniqueInstance：确保全局只有一个实例</span>
-    <span class="keyword">private</span> <span class="keyword">static</span> Singleton uniqueInstance;
-    <span class="comment">//私有化的构造方法：只能在类的内部创建实例</span>
-    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span>(<span class="params"></span>) </span>{
-
-    }
-    <span class="comment">//静态方法getInstance()：外部类可以通过Singleton.getInstance()得到一个实例</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span>(<span class="params"></span>) </span>{
-        <span class="comment">//uniqueInstance，没有的话创建一个，此处使用的是懒汉式加载，只在需要时候进行创建</span>
-        <span class="keyword">if</span>(uniqueInstance == <span class="keyword">null</span>) {
-            uniqueInstance = <span class="keyword">new</span> Singleton();
-        }
-        <span class="keyword">return</span> uniqueInstance;
-    }
-
-    <span class="comment">//.......该类其他的一些方法</span>
-}
-</code></pre><p>如果该类在应用程序并不是关键程序，不经常使用，这种写法的单例模式就足够，但是，如果该类很重要，需经常使用，则这种写法会导致多线程问题。<br><a id="more"></a></p>
-<h2 id="同步getInstance()方法（线程安全）">同步getInstance()方法（线程安全）</h2><pre><code><span class="comment">//一个普通的类</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>{
-    <span class="comment">//.....该类其他的一些属性</span>
-
-    <span class="comment">//uniqueInstance：确保全局只有一个实例</span>
-    <span class="keyword">private</span> <span class="keyword">static</span> Singleton uniqueInstance;
-    <span class="comment">//私有化的构造方法：只能在类的内部创建实例</span>
-    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>{
-
-    }
-    <span class="comment">//静态方法getInstance()：外部类可以通过Singleton.getInstance()得到一个实例</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>{
-        <span class="comment">//uniqueInstance，没有的话创建一个，此处使用的是懒汉式加载，只在需要时候进行创建</span>
-        <span class="keyword">if</span>(uniqueInstance == <span class="keyword">null</span>) {
-            uniqueInstance = <span class="keyword">new</span> Singleton();
-        }
-        <span class="keyword">return</span> uniqueInstance;
-    }
-
-    <span class="comment">//.......该类其他的一些方法</span>
-}
-</code></pre><p>使用synchronized关键字修饰getInstance()方法，这样就迫使每个线程进入这个方法之前，要先等到别的线程离开这个方法。但是同步的方式会降低性能，在每次调用这个方法时，都要同步，其实，真正需要的时只是在第一次创建实例时进行同步的，因此，这种写法不可取。    </p>
-<h2 id="饿汉式写法（线程安全）">饿汉式写法（线程安全）</h2><pre><code><span class="comment">//一个普通的类</span>
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Singleton</span> {
-    <span class="comment">//.....该类其他的一些属性</span>
-
-    <span class="comment">//首先定义一个静态变量uniqueInstance，确保全局只有一个实例，另外，在JVM加载这个类的时候，就直接对该类进行实例化（饿汉式），以此避免多线程问题</span>
-    <span class="keyword">private</span> <span class="keyword">static</span> Singleton uniqueInstance = <span class="keyword">new</span> Singleton();
-    <span class="comment">//私有化的构造方法：只能在类的内部创建实例</span>
-    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span>(<span class="params"></span>) </span>{
-
-    }
-    <span class="comment">//静态方法getInstance()：外部类可以通过Singleton.getInstance()得到一个实例</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span>(<span class="params"></span>) </span>{
-        <span class="keyword">return</span> uniqueInstance;
-    }
-
-    <span class="comment">//.......其他该类的一些方法</span>
-}
-</code></pre><p>这种写法可以有效避免多线程问题，但是假如这个类加载时非常耗用资源，程序启动效率低下，就不要用这种写法了。</p>
-<h2 id="双重检查加锁写法（线程安全）">双重检查加锁写法（线程安全）</h2><pre><code><span class="comment">//一个普通的类</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>{
-    <span class="comment">//.....该类其他的一些属性</span>
-
-    <span class="comment">//volatile关键字适用于jdk1.5以上版本，其确保当uniqueInstance变量被实例化时，多个线程正确处理uniqueInstance变量</span>
-    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton uniqueInstance; 
-    <span class="comment">//私有化构造方法</span>
-    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>{
-
-    }
-    <span class="comment">//只有在第一次创建实例时，才会彻底执行该方法</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>{
-        <span class="comment">//第一次检查是否为null</span>
-        <span class="keyword">if</span>(uniqueInstance == <span class="keyword">null</span>) {
-            <span class="comment">//同步区块</span>
-            <span class="keyword">synchronized</span> (Singleton.class) {
-                <span class="comment">//第二次检查是否为null</span>
-                <span class="keyword">if</span>(uniqueInstance == <span class="keyword">null</span>) {
-                    <span class="comment">//这才创建实例</span>
-                    uniqueInstance = <span class="keyword">new</span> Singleton();
-                }
-            }
-        }
-        <span class="keyword">return</span> uniqueInstance;
-    }
-
-    <span class="comment">//.......其他该类的一些方法</span>
-}
-</code></pre><p>这种写法提升了性能，但是须在jdk1.5版本以上使用</p>
-<h2 id="枚举类型写法（线程安全）">枚举类型写法（线程安全）</h2><pre><code><span class="comment">//一个普通的枚举类型</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">SingletonEnum</span> {</span>
-    <span class="comment">//调用SingletonEnum.INSTANCE即可获得一个实例，枚举类型自动提供了序列化机制，绝对防止多次实例化</span>
-    INSTANCE;
-
-    <span class="comment">//...其他方法</span>
-}
-</code></pre><p>需要jdk1.5版本以上，采用单元素的枚举类型的方式，比较简洁，推荐采用这种写法。    </p>
-</span>
+    <span class="comment">&lt;!-- Hibernate事务管理器 --&gt;</span>
+    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"transactionManager"</span> <span class="attribute">class</span>=<span class="value">"org.springframework.orm.hibernate4.HibernateTransactionManager"</span>&gt;</span>
+        <span class="comment">&lt;!-- 属性为引用了一个id为sessionFactory的bean--&gt;</span>
+        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"sessionFactory"</span> <span class="attribute">ref</span>=<span class="value">"sessionFactory"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="title">bean</span>&gt;</span>
+        <span class="comment">&lt;!-- JDBC事务管理器 --&gt;</span>
+<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"transactionManager"</span> <span class="attribute">class</span>=<span class="value">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span>
+        <span class="comment">&lt;!-- 属性为引用了一个id为dataSource的bean--&gt;</span>
+        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"dataSource"</span> <span class="attribute">ref</span>=<span class="value">"dataSource"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="title">bean</span>&gt;</span>    
+<span class="tag">&lt;/<span class="title">beans</span>&gt;</span>
+</code></pre></span>
       
     </div>
 
@@ -406,7 +338,9 @@ public class Singleton {
       
         <div class="post-tags">
           
-            <a href="/tags/Singleton-Pattern/" rel="tag">#Singleton Pattern</a>
+            <a href="/tags/Spring/" rel="tag">#Spring</a>
+          
+            <a href="/tags/applicationContext/" rel="tag">#applicationContext</a>
           
         </div>
       
@@ -415,17 +349,13 @@ public class Singleton {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/11/请求转发与重定向的区别/" rel="next" title="请求转发与重定向的区别">
-                <i class="fa fa-chevron-left"></i> 请求转发与重定向的区别
+              <a href="/2015/11/13/Java题集/" rel="next" title="Java题集">
+                <i class="fa fa-chevron-left"></i> Java题集
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/11/正则表达式/" rel="prev" title="正则表达式">
-                正则表达式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -440,10 +370,10 @@ public class Singleton {
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/11/11/设计模式之单例模式/"
-     data-title="设计模式之单例模式"
+        <div class="ds-share flat" data-thread-key="2015/11/13/applicationContext-xml文件模板/"
+     data-title="applicationContext.xml文件模板"
      data-content=""
-     data-url="http://yoursite.com/2015/11/11/设计模式之单例模式/">
+     data-url="http://yoursite.com/2015/11/13/applicationContext-xml文件模板/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -471,8 +401,8 @@ public class Singleton {
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/11/设计模式之单例模式/"
-           data-title="设计模式之单例模式" data-url="http://yoursite.com/2015/11/11/设计模式之单例模式/">
+      <div class="ds-thread" data-thread-key="2015/11/13/applicationContext-xml文件模板/"
+           data-title="applicationContext.xml文件模板" data-url="http://yoursite.com/2015/11/13/applicationContext-xml文件模板/">
       </div>
     
   </div>
@@ -562,7 +492,7 @@ public class Singleton {
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式（Singleton_Pattern）"><span class="nav-number">1.</span> <span class="nav-text">单例模式（Singleton Pattern）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一般写法（线程不安全）"><span class="nav-number">2.</span> <span class="nav-text">一般写法（线程不安全）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步getInstance()方法（线程安全）"><span class="nav-number">3.</span> <span class="nav-text">同步getInstance()方法（线程安全）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#饿汉式写法（线程安全）"><span class="nav-number">4.</span> <span class="nav-text">饿汉式写法（线程安全）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双重检查加锁写法（线程安全）"><span class="nav-number">5.</span> <span class="nav-text">双重检查加锁写法（线程安全）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#枚举类型写法（线程安全）"><span class="nav-number">6.</span> <span class="nav-text">枚举类型写法（线程安全）</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
