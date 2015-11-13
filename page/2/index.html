@@ -419,8 +419,8 @@
     <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"sessionFactory"</span> <span class="attribute">ref</span>=<span class="value">"sessionFactory"</span>/&gt;</span>
 <span class="tag">&lt;/<span class="title">bean</span>&gt;</span>
 </code></pre>sessionFactory需要装配一个Hibernate的SessionFactory。</li>
-<li>JpaTransactionManager：</li>
-<li>JtaTransactionManager：
+<li>JpaTransactionManager：用于对Java持久化API进行持久化</li>
+<li>JtaTransactionManager：用于分布式事务，如：跨多个事务资源（一个以上数据库）
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/11/05/Spring事务管理/#more" rel="contents">
               阅读全文 &raquo;

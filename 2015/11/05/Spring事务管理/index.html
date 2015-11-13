@@ -75,7 +75,7 @@
 保证用户的每一次操作都是可靠的，即便出现了异常的访问情况，也不至于破坏后台数据的完整性。
 为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。
 当多个应用程序在并发访问数据库时，可以在这些应用程序之间提供一个隔离方">
-<meta property="og:updated_time" content="2015-11-13T07:09:25.219Z">
+<meta property="og:updated_time" content="2015-11-13T10:05:58.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring事务管理">
 <meta name="twitter:description" content="事务
@@ -345,13 +345,150 @@
     <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"sessionFactory"</span> <span class="attribute">ref</span>=<span class="value">"sessionFactory"</span>/&gt;</span>
 <span class="tag">&lt;/<span class="title">bean</span>&gt;</span>
 </code></pre>sessionFactory需要装配一个Hibernate的SessionFactory。</li>
-<li>JpaTransactionManager：</li>
-<li>JtaTransactionManager：<a id="more"></a>
+<li>JpaTransactionManager：用于对Java持久化API进行持久化</li>
+<li>JtaTransactionManager：用于分布式事务，如：跨多个事务资源（一个以上数据库）<a id="more"></a>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="一个转账示例">一个转账示例</h2><p><strong>首先搭建环境</strong></p>
+<h2 id="一个转账示例（伪代码）">一个转账示例（伪代码）</h2><p>业务层的转账方法代码</p>
+<pre><code><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transferMoney</span>(<span class="params">String <span class="keyword">from</span>, String to, <span class="keyword">double</span> money</span>) </span>{
+    <span class="comment">//调用持久层Dao类的相关方法</span>
+    <span class="comment">//outMoney()：转出方法    inMoney()：转入方法</span>
+    accountDao.outMoney(<span class="keyword">from</span>, money);
+    accountDao.inMoney(to, money);
+}    
+@<span class="function">Test
+<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testTransfer</span>(<span class="params"></span>) </span>{
+    <span class="comment">//调用业务层的转账方法</span>
+    accountService.transferMoney(<span class="string">"lily"</span>, <span class="string">"lucy"</span>, <span class="number">200</span>d);
+}
+</code></pre><p>上边这个转账方法就必须进行事务管理，要么成功，要么失败。但是，如果</p>
+<pre><code><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transferMoney</span><span class="params">(String from, String to, <span class="keyword">double</span> money)</span> </span>{
+    <span class="comment">//调用持久层Dao类的相关方法</span>
+    <span class="comment">//outMoney()：转出方法    inMoney()：转入方法</span>
+    accountDao.outMoney(from, money);
+    <span class="keyword">int</span> i = <span class="number">10</span> / <span class="number">0</span>;<span class="comment">//这里出现异常</span>
+    accountDao.inMoney(to, money);
+}
+</code></pre><p>转账期间出现异常时，转账失败，造成钱转出，对方却没收到的情况，so，交给事务吧！</p>
+<ul>
+<li><p>采用编程式事务管理</p>
+<ul>
+<li><p>首先，我们需要使用Spring的TransactionTemplate来添加事务边界，TransactionTemplate提供了一种回调机制。在配置文件中注入TransactionTemplate</p>
+<pre><code>    <span class="comment">&lt;!-- 配置c3p0连接池 --&gt;</span>
+<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"dataSource"</span> <span class="attribute">class</span>=<span class="value">"com.mchange.v2.c3p0.ComboPooledDataSource"</span> <span class="attribute">destroy-method</span>=<span class="value">"close"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"driverClass"</span> <span class="attribute">value</span>=<span class="value">"${jdbc.driverClass}"</span>/&gt;</span>
+    <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"jdbcUrl"</span> <span class="attribute">value</span>=<span class="value">"${jdbc.url}"</span>/&gt;</span>
+    <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"user"</span> <span class="attribute">value</span>=<span class="value">"${jdbc.username}"</span>/&gt;</span>
+    <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"password"</span> <span class="attribute">value</span>=<span class="value">"${jdbc.password}"</span>/&gt;</span>
+<span class="tag">&lt;/<span class="title">bean</span>&gt;</span>
+<span class="comment">&lt;!-- 加载jdbc的属性文件 --&gt;</span>
+<span class="tag">&lt;<span class="title">context:property-placeholder</span> <span class="attribute">location</span>=<span class="value">"classpath:db.properties"</span>/&gt;</span>
+<span class="comment">&lt;!-- 配置Dao层类 --&gt;</span>
+<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"accountDao"</span> <span class="attribute">class</span>=<span class="value">"com.mvbin.dao.AccountDaoImpl"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"dataSource"</span> <span class="attribute">ref</span>=<span class="value">"dataSource"</span>/&gt;</span>
+<span class="tag">&lt;/<span class="title">bean</span>&gt;</span>
+<span class="comment">&lt;!-- 配置业务层类 --&gt;</span>
+<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"accountService"</span> <span class="attribute">class</span>=<span class="value">"com.mvbin.service.AccountServiceImpl"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"accountDao"</span> <span class="attribute">ref</span>=<span class="value">"accountDao"</span>/&gt;</span>
+    <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"transactionTemplate"</span> <span class="attribute">ref</span>=<span class="value">"transactionTemplate"</span>/&gt;</span>
+<span class="tag">&lt;/<span class="title">bean</span>&gt;</span>
+<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"transactionTemplate"</span> <span class="attribute">class</span>=<span class="value">"org.springframework.transaction.support.TransactionTemplate"</span>&gt;</span>
+    <span class="comment">&lt;!-- 需要注入transactionManager --&gt;</span>
+    <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"transactionManager"</span> <span class="attribute">ref</span>=<span class="value">"transactionManager"</span>/&gt;</span>
+<span class="tag">&lt;/<span class="title">bean</span>&gt;</span>
+<span class="comment">&lt;!-- JDBC事务管理器 --&gt;</span>
+<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"transactionManager"</span> <span class="attribute">class</span>=<span class="value">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span>
+    <span class="comment">&lt;!-- 属性为引用了一个id为dataSource的bean--&gt;</span>
+    <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"dataSource"</span> <span class="attribute">ref</span>=<span class="value">"dataSource"</span>/&gt;</span>
+<span class="tag">&lt;/<span class="title">bean</span>&gt;</span>    
+</code></pre></li>
+<li><p>其次，修改<code>transferMoney()</code></p>
+<pre><code><span class="keyword">public</span> <span class="keyword">void</span> transferMoney(<span class="keyword">final</span> <span class="keyword">String</span> from, <span class="keyword">final</span> <span class="keyword">String</span> to, <span class="keyword">final</span> <span class="keyword">double</span> money) {
+    <span class="comment">/*set注入transactionTemplate
+     * 调用execut()，传入TransactionCallback&lt;T&gt;对象，匿名内部类
+     * 
+     */</span>
+    transactionTemplate.execute(<span class="keyword">new</span> TransactionCallback&lt;<span class="keyword">String</span>&gt;() {
+        <span class="keyword">public</span> <span class="keyword">String</span> doInTransaction(TransactionStatus txStatus) {
+            <span class="keyword">try</span> {
+                accountDao.outMoney(from, money);
+                <span class="built_in">int</span> i = <span class="number">10</span> / <span class="number">0</span>;<span class="comment">//异常</span>
+                accountDao.inMoney(to, money);
+            } <span class="keyword">catch</span> (RuntimeException e) {
+                txStatus.setRollbackOnly();
+                <span class="keyword">throw</span> e;
+            }
+            <span class="keyword">return</span> <span class="string">""</span>;
+        }
+    });
+}
+</code></pre><p>这种就是编程式事务管理了，对程序有较大的侵入性</p>
+</li>
+</ul>
+</li>
+<li><p>采用声明式事务管理：通过事务属性进行定义，通过AOP框架进行实现。</p>
+<ul>
+<li>事务属性<ul>
+<li>传播行为</li>
+<li>隔离级别</li>
+<li>回滚规则</li>
+<li>事务超时</li>
+<li>是否只读</li>
+</ul>
+</li>
+<li><p>使用tx命名空间配置事务 </p>
+<pre><code>    <span class="comment">&lt;!-- 配置事务：配置所需管理器，配置事务属性 --&gt;</span>
+<span class="tag">&lt;<span class="title">tx:advice</span> <span class="attribute">id</span>=<span class="value">"txAdvice"</span> <span class="attribute">transaction-manager</span>=<span class="value">"transactionManager"</span>&gt;</span>
+    <span class="comment">&lt;!-- 事务属性配置 --&gt;</span>
+    <span class="comment">&lt;!-- 
+        name: 方法名称，可用通配符进行匹配一系列方法
+        isolation： 事务隔离级别
+        propagation： 事务传播行为
+        read-only： 事务是否只读
+        timeout： 定义事务超时时间
+        no-rollback-for：对于指定异常出现时不进行回滚
+        rollback-for： 对于指定异常出现时进行回滚
+     --&gt;</span>
+    <span class="tag">&lt;<span class="title">tx:attributes</span>&gt;</span>
+        <span class="comment">&lt;!-- 以 transfer开头的方法需要在事务中运行--&gt;</span>
+        <span class="tag">&lt;<span class="title">tx:method</span> <span class="attribute">name</span>=<span class="value">"transfer*"</span> <span class="attribute">propagation</span>=<span class="value">"REQUIRED"</span>/&gt;</span>
+        <span class="comment">&lt;!-- 其他方法，如果存在当前事务，就在事务中运行，否则不运行 --&gt;</span>
+        <span class="tag">&lt;<span class="title">tx:method</span> <span class="attribute">name</span>=<span class="value">"*"</span> <span class="attribute">propagation</span>=<span class="value">"SUPPORTS"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="title">tx:attributes</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">tx:advice</span>&gt;</span>
+<span class="comment">&lt;!-- 定义一个通知器 --&gt;</span>
+<span class="tag">&lt;<span class="title">aop:config</span>&gt;</span>
+    <span class="comment">&lt;!-- 
+        advice-ref：应用一个通知
+        pointcut：定义一个切面，以AspectJ切入点表达式来声明通知器适用于com.mvbin.service.AccountService接口中的所有方法
+     --&gt;</span>
+    <span class="tag">&lt;<span class="title">aop:advisor</span> <span class="attribute">advice-ref</span>=<span class="value">"txAdvice"</span> <span class="attribute">pointcut</span>=<span class="value">"execution(* com.mvbin.service.AccountService.*(..))"</span>/&gt;</span>
+<span class="tag">&lt;/<span class="title">aop:config</span>&gt;</span>
+</code></pre></li>
+<li><p>通过注解驱动配置事务</p>
+<pre><code>    <span class="comment">&lt;!-- 
+    配置这样一句话即可，注解驱动会检查Spring上下文中所有的Bean，并找出使用@Transactional注解
+    的Bean，不管这个注解是在类上还是方法上，&lt;tx:annotation-driven&gt;会自动为其添加事务通知。
+    通知事务的属性通过@Transactional注解的参数来定义的。
+ --&gt;</span>
+<span class="tag">&lt;<span class="title">tx:annotation-driven</span> <span class="attribute">transaction-manager</span>=<span class="value">"transactionManager"</span>/&gt;</span>
+</code></pre><p>业务类代码</p>
+<pre><code>    <span class="annotation">@Transactional</span>(propagation=Propagation.SUPPORTS, readOnly=<span class="keyword">true</span>)
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AccountServiceImpl</span> <span class="keyword">implements</span> <span class="title">AccountService</span> </span>{
+
+    <span class="keyword">private</span> AccountDaoImpl accountDao;
+    <span class="keyword">private</span> TransactionTemplate transactionTemplate;
+
+    <span class="annotation">@Transactional</span>(propagation=Propagation.REQUIRED, readOnly=<span class="keyword">false</span>)
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transferMoney</span><span class="params">(<span class="keyword">final</span> String from, <span class="keyword">final</span> String to, <span class="keyword">final</span> <span class="keyword">double</span> money)</span> </span>{
+    <span class="comment">//此处省略一万行代码。。。。</span>
+    }
+</code></pre></li>
+</ul>
+</li>
+</ul>
 </span>
       
     </div>
@@ -524,7 +661,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">1.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring事务管理"><span class="nav-number">2.</span> <span class="nav-text">Spring事务管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个转账示例"><span class="nav-number">3.</span> <span class="nav-text">一个转账示例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">1.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring事务管理"><span class="nav-number">2.</span> <span class="nav-text">Spring事务管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个转账示例（伪代码）"><span class="nav-number">3.</span> <span class="nav-text">一个转账示例（伪代码）</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
