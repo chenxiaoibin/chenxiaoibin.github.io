@@ -1245,7 +1245,64 @@ response.sendRedirect("index.jsp");
           <span itemprop="articleBody">
             
               <h2 id="含义">含义</h2><p>将一个类的定义放在另一个类的定义内部。</p>
-<h2 id="作用">作用</h2><ul>
+<pre><code><span class="comment">//一个普通的类</span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">OuterClass</span> {
+
+    <span class="comment">//一个内部类</span>
+    <span class="keyword">class</span> <span class="title">InnerClass1</span> {
+        <span class="keyword">private</span> <span class="keyword">int</span> id = <span class="number">1</span>;
+        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span>(<span class="params"></span>) </span>{
+            <span class="keyword">return</span> id;
+        }
+    }
+
+    <span class="comment">//一个内部类</span>
+    <span class="keyword">class</span> <span class="title">InnerClass2</span> {
+        <span class="keyword">private</span> String name;
+        <span class="function"><span class="keyword">public</span> <span class="title">InnerClass2</span>(<span class="params">String aName</span>) </span>{
+            name = aName;
+        }
+        <span class="function"><span class="keyword">public</span> String <span class="title">getName</span>(<span class="params"></span>) </span>{
+            <span class="keyword">return</span> name;
+        }
+    }
+
+    <span class="comment">//一个内部类</span>
+    <span class="keyword">class</span> <span class="title">InnerClass3</span> {
+        <span class="keyword">private</span> String password = <span class="string">"pass"</span>;
+        <span class="function"><span class="keyword">public</span> <span class="title">InnerClass3</span>(<span class="params"></span>) </span>{
+            System.<span class="keyword">out</span>.println(<span class="string">"pwd:"</span> + password);
+        }
+        <span class="function"><span class="keyword">public</span> String <span class="title">getPwd</span>(<span class="params"></span>) </span>{
+            <span class="keyword">return</span> password;
+        } 
+    }
+
+    <span class="comment">//一个方法</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">user1</span>(<span class="params"></span>) </span>{
+        InnerClass1 ic1 = <span class="keyword">new</span> InnerClass1();
+        InnerClass2 ic2 = <span class="keyword">new</span> InnerClass2(<span class="string">"lilei"</span>);
+        System.<span class="keyword">out</span>.println(ic1.getId() + <span class="string">" : "</span> + ic2.getName());
+    }
+
+    <span class="comment">//一个方法</span>
+    <span class="function"><span class="keyword">public</span> InnerClass3 <span class="title">getIC3</span>(<span class="params"></span>) </span>{
+        <span class="keyword">return</span> <span class="keyword">new</span> InnerClass3();
+    }
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>{
+        OuterClass oc = <span class="keyword">new</span> OuterClass();
+        oc.user1();
+        <span class="comment">//获取内部类</span>
+        InnerClass3 ic3 = oc.getIC3();
+        <span class="comment">/*
+         * 也可以获取内部类
+        OuterClass.InnerClass3 ic31 = oc.getIC3();
+        */</span>
+        System.<span class="keyword">out</span>.println(<span class="string">"pwd: "</span> + ic3.getPwd());
+    }
+}
+</code></pre><h2 id="作用">作用</h2><ul>
 <li>与外部类进行通讯：能访问其外部类的所有成员。</li>
 <li>一般来说，内部类继承自某个类或某个接口，内部类可以操作外部类对象，提供了进入其外围类的窗口。</li>
 <li>解决“多重继承”问题。</li>
