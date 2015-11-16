@@ -59,7 +59,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/11/05/Java-Web之过滤器/index.html">
 <meta property="og:site_name" content="MVBlog">
 <meta property="og:description" content="知识点1、 含义：过滤器是指对客户端向服务器端的web目标资源发出的请求，以及服务器端所做出的响应进行截取并处理。2、 生命周期：①实例化（Web容器在部署Web应用程序时对所有过滤器进行实例化，也就是调用过滤器的构造方法）②初始化（实例化完成后立马对其进行初始化，也就是调用过滤器的init()）③工作（也就是进行过滤URL，调用过滤器的doFilter()）④销毁（web容器关闭时调用过滤器的d">
-<meta property="og:updated_time" content="2015-11-07T03:09:51.611Z">
+<meta property="og:updated_time" content="2015-11-16T04:20:03.255Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Web之过滤器">
 <meta name="twitter:description" content="知识点1、 含义：过滤器是指对客户端向服务器端的web目标资源发出的请求，以及服务器端所做出的响应进行截取并处理。2、 生命周期：①实例化（Web容器在部署Web应用程序时对所有过滤器进行实例化，也就是调用过滤器的构造方法）②初始化（实例化完成后立马对其进行初始化，也就是调用过滤器的init()）③工作（也就是进行过滤URL，调用过滤器的doFilter()）④销毁（web容器关闭时调用过滤器的d">
@@ -370,7 +370,9 @@
         User user = (User) req.getSession().getAttribute(<span class="string">"loginUser"</span>);
         <span class="comment">//foreach循环进行验证，包含不过滤的路径的话就放行</span>
         <span class="keyword">for</span> (String str : urls) {
-            <span class="keyword">if</span>(req.getRequestURI().indexOf(str) != -<span class="number">1</span>) {
+            String uri = req.getRequestURI();
+            <span class="comment">//css文件及js文件也要可以通过过滤</span>
+            <span class="keyword">if</span>(uri.indexOf(str) != -<span class="number">1</span> || uri.endsWith(<span class="string">"css"</span>) || uri.endsWith(<span class="string">"js"</span>)) {
                 chain.doFilter(request, response);            
                 <span class="keyword">return</span>;
             }
