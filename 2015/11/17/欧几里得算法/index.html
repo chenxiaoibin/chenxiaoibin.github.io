@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hosts,翻墙," />
+  <meta name="keywords" content="欧几里得,算法," />
 
 
 
@@ -53,16 +53,43 @@
 
 
 
-<meta name="description" content="点击hosts下载这个文件，替换本机的hosts文件，win7下的路径为C:\Windows\System32\drivers\etc，注意先对本机的hosts文件进行备份。">
+<meta name="description" content="欧几里得算法又称辗转相除法，用于求两个非负整数的最大公约数。
+public class Test {
+
+    //欧几里得算法
+    public static int gcd(int p, int q) {
+        if(q == 0) {
+            return p;
+        }
+        int r = p % q;
+        return gc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="修改hosts文件翻墙">
-<meta property="og:url" content="http://yoursite.com/2015/11/07/修改hosts文件翻墙/index.html">
+<meta property="og:title" content="欧几里得算法">
+<meta property="og:url" content="http://yoursite.com/2015/11/17/欧几里得算法/index.html">
 <meta property="og:site_name" content="MVBlog">
-<meta property="og:description" content="点击hosts下载这个文件，替换本机的hosts文件，win7下的路径为C:\Windows\System32\drivers\etc，注意先对本机的hosts文件进行备份。">
-<meta property="og:updated_time" content="2015-11-11T07:45:34.050Z">
+<meta property="og:description" content="欧几里得算法又称辗转相除法，用于求两个非负整数的最大公约数。
+public class Test {
+
+    //欧几里得算法
+    public static int gcd(int p, int q) {
+        if(q == 0) {
+            return p;
+        }
+        int r = p % q;
+        return gc">
+<meta property="og:updated_time" content="2015-11-17T11:40:20.497Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="修改hosts文件翻墙">
-<meta name="twitter:description" content="点击hosts下载这个文件，替换本机的hosts文件，win7下的路径为C:\Windows\System32\drivers\etc，注意先对本机的hosts文件进行备份。">
+<meta name="twitter:title" content="欧几里得算法">
+<meta name="twitter:description" content="欧几里得算法又称辗转相除法，用于求两个非负整数的最大公约数。
+public class Test {
+
+    //欧几里得算法
+    public static int gcd(int p, int q) {
+        if(q == 0) {
+            return p;
+        }
+        int r = p % q;
+        return gc">
 
 
 
@@ -74,7 +101,7 @@
   };
 </script>
 
-  <title> 修改hosts文件翻墙 | MVBlog </title>
+  <title> 欧几里得算法 | MVBlog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -235,7 +262,7 @@
             
             
               
-                修改hosts文件翻墙
+                欧几里得算法
               
             
           </h1>
@@ -244,8 +271,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-07T11:14:40+08:00" content="2015-11-07">
-              2015-11-07
+            <time itemprop="dateCreated" datetime="2015-11-17T19:29:11+08:00" content="2015-11-17">
+              2015-11-17
             </time>
           </span>
 
@@ -254,8 +281,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/翻墙/" itemprop="url" rel="index">
-                    <span itemprop="name">翻墙</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -270,8 +297,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/07/修改hosts文件翻墙/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/07/修改hosts文件翻墙/" itemprop="commentsCount"></span>
+                <a href="/2015/11/17/欧几里得算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/17/欧几里得算法/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -290,8 +317,23 @@
       
 
       
-        <span itemprop="articleBody"><p><strong>点击<a href="/downloads/hosts">hosts</a>下载这个文件，替换本机的hosts文件，win7下的路径为<code>C:\Windows\System32\drivers\etc</code>，注意先对本机的hosts文件进行备份。</strong></p>
-</span>
+        <span itemprop="articleBody"><p><strong>欧几里得算法又称辗转相除法，用于求两个非负整数的最大公约数。</strong></p>
+<pre><code><span class="keyword">public</span> <span class="keyword">class</span> Test {
+
+    <span class="comment">//欧几里得算法</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>{
+        <span class="keyword">if</span>(q == <span class="number">0</span>) {
+            <span class="keyword">return</span> p;
+        }
+        <span class="keyword">int</span> r = p % q;
+        <span class="keyword">return</span> gcd(q, r);
+    }
+    <span class="comment">//测试</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        System.out.println(<span class="string">"两个非负整数的最大公约数为："</span> + gcd(<span class="number">2</span>, <span class="number">4</span>));
+    }
+}
+</code></pre></span>
       
     </div>
 
@@ -299,9 +341,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hosts/" rel="tag">#hosts</a>
+            <a href="/tags/欧几里得/" rel="tag">#欧几里得</a>
           
-            <a href="/tags/翻墙/" rel="tag">#翻墙</a>
+            <a href="/tags/算法/" rel="tag">#算法</a>
           
         </div>
       
@@ -310,17 +352,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/05/Java内部类/" rel="next" title="Java内部类">
-                <i class="fa fa-chevron-left"></i> Java内部类
+              <a href="/2015/11/16/win7下使用Git/" rel="next" title="win7下使用Git">
+                <i class="fa fa-chevron-left"></i> win7下使用Git
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/09/MySQL命令大全/" rel="prev" title="MySQL命令大全">
-                MySQL命令大全 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -335,10 +373,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/11/07/修改hosts文件翻墙/"
-     data-title="修改hosts文件翻墙"
+        <div class="ds-share flat" data-thread-key="2015/11/17/欧几里得算法/"
+     data-title="欧几里得算法"
      data-content=""
-     data-url="http://yoursite.com/2015/11/07/修改hosts文件翻墙/">
+     data-url="http://yoursite.com/2015/11/17/欧几里得算法/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -366,8 +404,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/07/修改hosts文件翻墙/"
-           data-title="修改hosts文件翻墙" data-url="http://yoursite.com/2015/11/07/修改hosts文件翻墙/">
+      <div class="ds-thread" data-thread-key="2015/11/17/欧几里得算法/"
+           data-title="欧几里得算法" data-url="http://yoursite.com/2015/11/17/欧几里得算法/">
       </div>
     
   </div>
