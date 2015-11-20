@@ -301,29 +301,23 @@
 
       
         
-          <span itemprop="articleBody">
-            
-              <h2 id="安装Sublime_Text2">安装Sublime Text2</h2><ul>
-<li>下载<a href="http://www.sublimetext.com/2" target="_blank" rel="external">Sublime Text2</a></li>
+          <h2 id="安装Sublime_Text2">安装Sublime Text2</h2><ul>
+<li>下载<a href="http://www.sublimetext.com/2">Sublime Text2</a></li>
 <li>按照提示完成安装Sublime Text2</li>
 </ul>
 <h2 id="安装Package_Control">安装Package Control</h2><ul>
-<li>访问<a href="https://packagecontrol.io/installation#st2" target="_blank" rel="external">Package Control</a></li>
+<li>访问<a href="https://packagecontrol.io/installation#st2">Package Control</a></li>
 <li><p>打开Sublime Text2，按下快捷键<code>Ctrl+` </code>，打开了<code>console</code>，复制粘贴进去下边这段代码</p>
 <pre><code>import urllib2,os,hashlib; h = <span class="string">'2915d1851351e5ee549c20394736b442'</span> + <span class="string">'8bc59f460fa1548d1514676163dafc88'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) <span class="keyword">if</span> <span class="operator">not</span> os.path.exists(ipp) <span class="keyword">else</span> None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); <span class="keyword">by</span> = urllib2.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.<span class="built_in">replace</span>(<span class="string">' '</span>, <span class="string">'%20'</span>)).<span class="built_in">read</span>(); dh = hashlib.sha256(<span class="keyword">by</span>).hexdigest(); <span class="built_in">open</span>( os.path.join( ipp, pf), <span class="string">'wb'</span> ).<span class="built_in">write</span>(<span class="keyword">by</span>) <span class="keyword">if</span> dh == h <span class="keyword">else</span> None; print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h) <span class="keyword">if</span> dh != h <span class="keyword">else</span> <span class="string">'Please restart Sublime Text to finish installation'</span>)
 </code></pre><p>  按下<code>Enter</code>键完成安装</p>
 </li>
 <li>重启Sublime Text2，按下快捷键<code>Ctrl+Shift+p</code>（也许会出现弹框提示，按照提示，进行重启操作）</li>
 </ul>
-<h2 id="安装Emmet插件">安装Emmet插件</h2><ul>
-<li>启Sublime Text2，按下快捷键<code>Ctrl+Shift+p</code>，输入pci，选择<code>Package Contro:Install Package</code>，按<code>Enter</code>键进入，输入Emmet，选择第一个按<code>Enter</code>进行该插件的安装</li>
-<li>稍等片刻，重启Sublime Text2，按快捷键<code>Ctrl+n</code>新建一个文档，按快捷键<code>Ctrl+Shift+p</code>，输入<code>sshtml</code>，选择第一项，设置该文档的编辑语法规则为html</li>
-<li>文档编辑区输入<code>!</code>，注意是英文感叹号，按Tab键，则会自动生成html文档的一些默认标签，至此，Emmet安装成功</li>
-<li>Emmet的快捷键用法请点击：<a href="http://docs.emmet.io/cheat-sheet/" target="_blank" rel="external">Emmet快捷键</a></li>
-</ul>
-
-            
-          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/20/Sublime-Text2使用技巧/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
