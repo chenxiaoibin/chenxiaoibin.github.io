@@ -53,16 +53,46 @@
 
 
 
-<meta name="description" content="Just Code It">
+<meta name="description" content="二分查找（BinarySearch）算法是用来查找有序数组中特定元素的算法。此算法用途广泛，执行高效
+import java.util.Arrays;
+
+//二分查找算法
+public class BinarySearch {
+
+    /**
+     * 
+     * @param key ：要查找的值
+     * @param a          ：有序的整数数组
+     * @re">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二分查找算法">
 <meta property="og:url" content="http://yoursite.com/2015/11/18/二分查找算法/index.html">
 <meta property="og:site_name" content="MVBlog">
-<meta property="og:description" content="Just Code It">
-<meta property="og:updated_time" content="2015-11-18T05:46:47.092Z">
+<meta property="og:description" content="二分查找（BinarySearch）算法是用来查找有序数组中特定元素的算法。此算法用途广泛，执行高效
+import java.util.Arrays;
+
+//二分查找算法
+public class BinarySearch {
+
+    /**
+     * 
+     * @param key ：要查找的值
+     * @param a          ：有序的整数数组
+     * @re">
+<meta property="og:updated_time" content="2015-11-20T01:34:56.199Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二分查找算法">
-<meta name="twitter:description" content="Just Code It">
+<meta name="twitter:description" content="二分查找（BinarySearch）算法是用来查找有序数组中特定元素的算法。此算法用途广泛，执行高效
+import java.util.Arrays;
+
+//二分查找算法
+public class BinarySearch {
+
+    /**
+     * 
+     * @param key ：要查找的值
+     * @param a          ：有序的整数数组
+     * @re">
 
 
 
@@ -275,7 +305,45 @@
       
 
       
-        <span itemprop="articleBody"></span>
+        <span itemprop="articleBody"><p><strong>二分查找（BinarySearch）算法是用来查找有序数组中特定元素的算法。此算法用途广泛，执行高效</strong></p>
+<pre><code>import java.util.Arrays;
+
+<span class="comment">//二分查找算法</span>
+<span class="keyword">public</span> <span class="keyword">class</span> BinarySearch {
+
+    <span class="comment">/**
+     * 
+     * @param key ：要查找的值
+     * @param a          ：有序的整数数组
+     * @return
+     */</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">rank</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span>[] a)</span> </span>{
+        <span class="keyword">int</span> lo = <span class="number">0</span>;<span class="comment">//数组的索引的最小值</span>
+        <span class="keyword">int</span> hi = a.length - <span class="number">1</span>;<span class="comment">//数组索引的最大值</span>
+        <span class="comment">//进入while循环</span>
+        <span class="keyword">while</span>(lo &lt;= hi) {
+            <span class="comment">//将当前数组一分为二</span>
+            <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;
+            <span class="comment">//如果key值小于数组中间值，则在数组左半边进行查找，如果key值大于数组中间值，则在数组右半边进行查找，如果没有该值，则返回-1</span>
+            <span class="keyword">if</span>(key &lt; a[mid]) {
+                hi = mid - <span class="number">1</span>;
+            } <span class="keyword">else</span> <span class="keyword">if</span>(key &gt; a[mid]) {
+                lo = mid + <span class="number">1</span>;
+            } <span class="keyword">else</span> {
+                <span class="keyword">return</span> mid;
+            }
+        }
+        <span class="keyword">return</span> -<span class="number">1</span>;
+    }
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        <span class="comment">//定义一个数组</span>
+        <span class="keyword">int</span>[] whiteList = {<span class="number">10</span>, <span class="number">24</span>, <span class="number">54</span>, <span class="number">87</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">98</span>, <span class="number">34</span>,<span class="number">21</span>,<span class="number">20</span>, -<span class="number">1</span>};
+        <span class="comment">//进行升序排列</span>
+        Arrays.sort(whiteList);
+        System.out.println(<span class="string">"查找的数值的索引为： "</span> + rank(<span class="number">20</span>, whiteList));
+    }
+}
+</code></pre></span>
       
     </div>
 
