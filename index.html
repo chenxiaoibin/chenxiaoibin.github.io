@@ -243,6 +243,111 @@
             
               
                 
+                <a class="post-title-link" href="/2015/11/22/Ajax学习笔记/" itemprop="url">
+                  Ajax学习笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-22T10:45:11+08:00" content="2015-11-22">
+              2015-11-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/22/Ajax学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/22/Ajax学习笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="Ajax">Ajax</h2><ul>
+<li>定义：异步的JavaScript和XML。</li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/20/Sublime-Text2使用技巧/" itemprop="url">
                   Sublime Text2使用技巧
                 </a>
@@ -1226,147 +1331,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/13/Java题集/" itemprop="url">
-                  Java题集
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-13T10:20:01+08:00" content="2015-11-13">
-              2015-11-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/题集/" itemprop="url" rel="index">
-                    <span itemprop="name">题集</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/13/Java题集/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/13/Java题集/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p><strong>1. 以下代码的输出结果</strong></p>
-<pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Base</span> {
-
-    <span class="keyword">private</span> String basename = <span class="string">"base"</span>;
-    <span class="function"><span class="keyword">public</span> <span class="title">Base</span>(<span class="params"></span>) </span>{
-        callName();
-    }
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">callName</span>(<span class="params"></span>) </span>{
-        System.<span class="keyword">out</span>.println(basename);
-    }
-
-    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">Sub</span> <span class="title">extends</span> <span class="title">Base</span> {
-        <span class="keyword">private</span> String basename = <span class="string">"sub"</span>;
-        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">callName</span>(<span class="params"></span>) </span>{
-            System.<span class="keyword">out</span>.println(basename);
-        }
-    }
-
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>{
-        Base b = <span class="keyword">new</span> Sub();
-        System.<span class="keyword">out</span>.println(b);
-    }
-}
-</code></pre><p>解析：</p>
-<ul>
-<li><code>Base b = new Sub();</code></li>
-<li><code>Base b =</code>直接忽略，从 <code>new Sub();</code>开始</li>
-<li>类加载器加载 Base，Sub 类到jvm;</li>
-<li>为Base，Sub 类中的两个属性baseName 分配存储空间，但是不初始化；注意:属性的初始化时放在构造器中，按照代码顺序执行的。</li>
-<li><code>new Sub()</code>会调用Sub的无参构造器，而在这个构造器中会隐式调用父类Base的无参构造器；</li>
-<li>父类Base的构造器中代码本质是<pre><code><span class="label">public</span> <span class="keyword">Base() </span>{
-    <span class="keyword">baseName </span>= <span class="string">"base"</span><span class="comment">;</span>
-    callName()<span class="comment">;</span>
-}
-</code></pre>即父类的属性baseName 的值为base。但为何输出null？</li>
-<li>因为父类构造器方法是在子类中调用的，即大环境是子类。此时，调用的方法<code>callName()</code>当然是指子类的方法。而这个方法打印的属性baseName 当然也是子类的。那现在子类的属性baseName的值是多少呢？答案是null.因为此时子类Sub的构造器内代码本质是:<pre><code><span class="keyword">super</span>();
-baseName=<span class="string">"sub"</span>;
-</code></pre>此时<code>baseName=&quot;sub&quot;</code>还没执行。因此，最后的值当然是null。</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1413,7 +1377,7 @@ baseName=<span class="string">"sub"</span>;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1427,7 +1391,7 @@ baseName=<span class="string">"sub"</span>;
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">36</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

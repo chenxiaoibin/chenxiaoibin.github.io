@@ -243,6 +243,151 @@
             
               
                 
+                <a class="post-title-link" href="/2015/11/05/Spring事务管理/" itemprop="url">
+                  Spring事务管理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-05T09:50:01+08:00" content="2015-11-05">
+              2015-11-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaEE/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaEE</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/05/Spring事务管理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/05/Spring事务管理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="事务">事务</h2><ul>
+<li>含义：<ul>
+<li>访问并可能更新数据库中各种数据项的一个程序执行单元(unit)，是一个序列的对数据库的读/写的操作。</li>
+</ul>
+</li>
+<li>目的：<ul>
+<li>保证用户的每一次操作都是可靠的，即便出现了异常的访问情况，也不至于破坏后台数据的完整性。</li>
+<li>为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。</li>
+<li>当多个应用程序在并发访问数据库时，可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作互相干扰。</li>
+</ul>
+</li>
+<li>特性：<ul>
+<li>原子性（Atomicity）：事务作为一个整体被执行，包含在其中的对数据库的操作要么全部被执行，要么都不执行。</li>
+<li>一致性（Consistency）：事务应确保数据库的状态从一个一致状态转变为另一个一致状态。一致状态的含义是数据库中的数据应满足完整性约束。</li>
+<li>隔离性（Isolation）：多个事务并发执行时，一个事务的执行不应影响其他事务的执行。</li>
+<li>持久性（Durability）：已被提交的事务对数据库的修改应该永久保存在数据库中。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Spring事务管理">Spring事务管理</h2><ul>
+<li>方式<ul>
+<li>编程式事务管理（精确控制事务边界）</li>
+<li>声明式事务管理（低耦合）</li>
+</ul>
+</li>
+<li><p>事务管理器</p>
+<ul>
+<li><p>DataSourceTransactionManager：用于Spring对JDBC抽象的支持，也可用于iBATIS进行持久化的场景。</p>
+<pre><code><span class="comment">&lt;!-- JDBC事务管理器 --&gt;</span>
+<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"transactionManager"</span> <span class="attribute">class</span>=<span class="value">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span>
+    <span class="comment">&lt;!-- 属性为引用了一个id为dataSource的bean--&gt;</span>
+    <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"dataSource"</span> <span class="attribute">ref</span>=<span class="value">"dataSource"</span>/&gt;</span>
+<span class="tag">&lt;/<span class="title">bean</span>&gt;</span>
+</code></pre><p>DataSourceTransactionManager通过调用<code>java.sql.Connection</code>来管理事务，后者是通过DataSource获取的，通过调用连接的<code>commit()</code>方法来提交事务。事务失败，则调用其<code>rollback()</code>方法进行回滚。</p>
+</li>
+<li>HibernateTransactionManager：用于对Hibernate进行持久化<pre><code><span class="comment">&lt;!-- Hibernate事务管理器 --&gt;</span>
+<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"transactionManager"</span> <span class="attribute">class</span>=<span class="value">"org.springframework.orm.hibernate4.HibernateTransactionManager"</span>&gt;</span>
+    <span class="comment">&lt;!-- 属性为引用了一个id为sessionFactory的bean--&gt;</span>
+    <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"sessionFactory"</span> <span class="attribute">ref</span>=<span class="value">"sessionFactory"</span>/&gt;</span>
+<span class="tag">&lt;/<span class="title">bean</span>&gt;</span>
+</code></pre>sessionFactory需要装配一个Hibernate的SessionFactory。</li>
+<li>JpaTransactionManager：用于对Java持久化API进行持久化</li>
+<li>JtaTransactionManager：用于分布式事务，如：跨多个事务资源（一个以上数据库）
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/05/Spring事务管理/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/05/Java-Web之过滤器/" itemprop="url">
                   Java Web之过滤器
                 </a>
@@ -646,7 +791,7 @@
         
           <span itemprop="articleBody">
             
-              <h2 id="工作日（20151116-20151120）">工作日（20151116-20151120）</h2><table>
+              <h2 id="工作日（20151123-20151127）">工作日（20151123-20151127）</h2><table>
 <thead>
 <tr>
 <th style="text-align:center">时段</th>
@@ -656,12 +801,12 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">06:10~06:20</td>
+<td style="text-align:center">06:00~06:10</td>
 <td style="text-align:center">起床</td>
 <td style="text-align:left">立刻起床</td>
 </tr>
 <tr>
-<td style="text-align:center">06:20~07:00</td>
+<td style="text-align:center">06:10~07:00</td>
 <td style="text-align:center">其他</td>
 <td style="text-align:left">洗漱等</td>
 </tr>
@@ -671,14 +816,14 @@
 <td style="text-align:left">Java视频教程</td>
 </tr>
 <tr>
-<td style="text-align:center">08:00~08:30</td>
+<td style="text-align:center">08:00~08:15</td>
 <td style="text-align:center">早饭</td>
 <td style="text-align:left">吃早饭</td>
 </tr>
 <tr>
-<td style="text-align:center">08:30~09:30</td>
+<td style="text-align:center">08:15~09:30</td>
 <td style="text-align:center">学习</td>
-<td style="text-align:left">《Head First Python》</td>
+<td style="text-align:left">《Head First 设计模式》 I 《Effective Java》</td>
 </tr>
 <tr>
 <td style="text-align:center">09:30~11:45</td>
@@ -708,7 +853,7 @@
 <tr>
 <td style="text-align:center">18:00~20:30</td>
 <td style="text-align:center">工作 I 学习</td>
-<td style="text-align:left">工作 I （html&amp;css&amp;js视频教程 I 《JavaScript DOM编程艺术》）</td>
+<td style="text-align:left">工作 I （html&amp;css&amp;js视频教程 I  《JavaScript DOM编程艺术》）</td>
 </tr>
 <tr>
 <td style="text-align:center">20:30~21:30</td>
@@ -723,7 +868,7 @@
 <tr>
 <td style="text-align:center">22:00~22:40</td>
 <td style="text-align:center">学习</td>
-<td style="text-align:left">《Head First 设计模式》 I 《Effective Java》</td>
+<td style="text-align:left">英语听力&amp;练字</td>
 </tr>
 <tr>
 <td style="text-align:center">22:40~23:00</td>
@@ -737,7 +882,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="休息日（20151121-20151122）">休息日（20151121-20151122）</h2><table>
+<h2 id="休息日（20151128-20151129）">休息日（20151128-20151129）</h2><table>
 <thead>
 <tr>
 <th style="text-align:center">日期</th>
@@ -747,14 +892,14 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">20151121</td>
+<td style="text-align:center">20151128</td>
 <td style="text-align:center">学习 I 运动</td>
 <td style="text-align:left">整理MVBlog I 打篮球等</td>
 </tr>
 <tr>
-<td style="text-align:center">20151122</td>
+<td style="text-align:center">20151129</td>
 <td style="text-align:center">学习 I 休息</td>
-<td style="text-align:left">《高性能MySQL》 I 睡觉等</td>
+<td style="text-align:left">Android视频教程 I 睡觉等</td>
 </tr>
 </tbody>
 </table>
@@ -825,7 +970,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -839,7 +984,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">36</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
