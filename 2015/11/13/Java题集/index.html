@@ -53,7 +53,7 @@
 
 
 
-<meta name="description" content="1. 以下代码的输出结果
+<meta name="description" content="第一题以下代码的输出结果
 public class Base {
 
     private String basename = &quot;base&quot;;
@@ -69,7 +69,7 @@ public class Base {
 <meta property="og:title" content="Java题集">
 <meta property="og:url" content="http://yoursite.com/2015/11/13/Java题集/index.html">
 <meta property="og:site_name" content="MVBlog">
-<meta property="og:description" content="1. 以下代码的输出结果
+<meta property="og:description" content="第一题以下代码的输出结果
 public class Base {
 
     private String basename = &quot;base&quot;;
@@ -81,10 +81,10 @@ public class Base {
     }
 
     stat">
-<meta property="og:updated_time" content="2015-11-13T02:51:35.726Z">
+<meta property="og:updated_time" content="2015-11-25T06:04:26.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java题集">
-<meta name="twitter:description" content="1. 以下代码的输出结果
+<meta name="twitter:description" content="第一题以下代码的输出结果
 public class Base {
 
     private String basename = &quot;base&quot;;
@@ -323,7 +323,7 @@ public class Base {
       
 
       
-        <span itemprop="articleBody"><p><strong>1. 以下代码的输出结果</strong></p>
+        <span itemprop="articleBody"><h2 id="第一题">第一题</h2><p><strong>以下代码的输出结果</strong></p>
 <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Base</span> {
 
     <span class="keyword">private</span> String basename = <span class="string">"base"</span>;
@@ -362,7 +362,30 @@ public class Base {
 baseName=<span class="string">"sub"</span>;
 </code></pre>此时<code>baseName=&quot;sub&quot;</code>还没执行。因此，最后的值当然是null。</li>
 </ul>
-</span>
+<h2 id="第二题">第二题</h2><p><strong>编写一段代码，将一个正整数N用二进制表示并转换为一个String类型的值s</strong></p>
+<pre><code><span class="keyword">public</span> <span class="keyword">class</span> Base {
+
+    <span class="comment">/**
+     * 十进制转二进制：
+     * ①整数值除以2取余，逆向排序
+     * ②小数值乘以2取整，顺向排序
+     * @param n
+     * @return
+     */</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">toBinaryString</span><span class="params">(<span class="keyword">long</span> n)</span> </span>{
+        String s = <span class="string">""</span>;
+        <span class="keyword">for</span>(<span class="keyword">long</span> i = n; i &gt; <span class="number">0</span>; i /= <span class="number">2</span>) {
+            s = (i % <span class="number">2</span>) + s;
+        }
+        <span class="keyword">return</span> s;
+    }
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        System.out.println(toBinaryString(<span class="number">4</span>));
+        <span class="comment">//等同于</span>
+        System.out.println(Long.toBinaryString(<span class="number">4</span>));
+    }
+}
+</code></pre></span>
       
     </div>
 
@@ -480,7 +503,7 @@ baseName=<span class="string">"sub"</span>;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-count">26</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -526,7 +549,7 @@ baseName=<span class="string">"sub"</span>;
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一题"><span class="nav-number">1.</span> <span class="nav-text">第一题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二题"><span class="nav-number">2.</span> <span class="nav-text">第二题</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

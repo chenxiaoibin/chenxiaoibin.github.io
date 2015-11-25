@@ -243,6 +243,146 @@
             
               
                 
+                <a class="post-title-link" href="/2015/11/13/applicationContext-xml文件模板/" itemprop="url">
+                  applicationContext.xml文件模板
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-13T15:04:26+08:00" content="2015-11-13">
+              2015-11-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/13/applicationContext-xml文件模板/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/13/applicationContext-xml文件模板/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p><strong>以spring-framework-4.2.0为例</strong></p>
+<pre><code><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="tag">&lt;<span class="title">beans</span> 
+    <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span> 
+    <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span>
+    <span class="attribute">xmlns:aop</span>=<span class="value">"http://www.springframework.org/schema/aop"</span>
+    <span class="attribute">xmlns:context</span>=<span class="value">"http://www.springframework.org/schema/context"</span> 
+    <span class="attribute">xmlns:tx</span>=<span class="value">"http://www.springframework.org/schema/tx"</span>
+    <span class="attribute">xmlns:cache</span>=<span class="value">"http://www.springframework.org/schema/cache"</span> 
+    <span class="attribute">xmlns:p</span>=<span class="value">"http://www.springframework.org/schema/p"</span>
+    <span class="attribute">xsi:schemaLocation</span>=<span class="value">"
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+        http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.2.xsd
+"</span>&gt;</span>
+    <span class="comment">&lt;!-- 配置c3p0连接池 --&gt;</span>
+    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"dataSource"</span> <span class="attribute">class</span>=<span class="value">"com.mchange.v2.c3p0.ComboPooledDataSource"</span> <span class="attribute">destroy-method</span>=<span class="value">"close"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"driverClass"</span> <span class="attribute">value</span>=<span class="value">"${jdbc.driverClass}"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"jdbcUrl"</span> <span class="attribute">value</span>=<span class="value">"${jdbc.url}"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"user"</span> <span class="attribute">value</span>=<span class="value">"${jdbc.username}"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"password"</span> <span class="attribute">value</span>=<span class="value">"${jdbc.password}"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="title">bean</span>&gt;</span>
+    <span class="comment">&lt;!-- 加载jdbc的属性文件 --&gt;</span>
+    <span class="tag">&lt;<span class="title">context:property-placeholder</span> <span class="attribute">location</span>=<span class="value">"classpath:db.properties"</span>/&gt;</span>
+
+    <span class="comment">&lt;!-- Hibernate事务管理器 --&gt;</span>
+    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"transactionManager"</span> <span class="attribute">class</span>=<span class="value">"org.springframework.orm.hibernate4.HibernateTransactionManager"</span>&gt;</span>
+        <span class="comment">&lt;!-- 属性为引用了一个id为sessionFactory的bean--&gt;</span>
+        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"sessionFactory"</span> <span class="attribute">ref</span>=<span class="value">"sessionFactory"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="title">bean</span>&gt;</span>
+        <span class="comment">&lt;!-- JDBC事务管理器 --&gt;</span>
+<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"transactionManager"</span> <span class="attribute">class</span>=<span class="value">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span>
+        <span class="comment">&lt;!-- 属性为引用了一个id为dataSource的bean--&gt;</span>
+        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"dataSource"</span> <span class="attribute">ref</span>=<span class="value">"dataSource"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="title">bean</span>&gt;</span>    
+<span class="tag">&lt;/<span class="title">beans</span>&gt;</span>
+</code></pre>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/13/Java题集/" itemprop="url">
                   Java题集
                 </a>
@@ -303,7 +443,7 @@
         
           <span itemprop="articleBody">
             
-              <p><strong>1. 以下代码的输出结果</strong></p>
+              <h2 id="第一题">第一题</h2><p><strong>以下代码的输出结果</strong></p>
 <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Base</span> {
 
     <span class="keyword">private</span> String basename = <span class="string">"base"</span>;
@@ -342,7 +482,30 @@
 baseName=<span class="string">"sub"</span>;
 </code></pre>此时<code>baseName=&quot;sub&quot;</code>还没执行。因此，最后的值当然是null。</li>
 </ul>
+<h2 id="第二题">第二题</h2><p><strong>编写一段代码，将一个正整数N用二进制表示并转换为一个String类型的值s</strong></p>
+<pre><code><span class="keyword">public</span> <span class="keyword">class</span> Base {
 
+    <span class="comment">/**
+     * 十进制转二进制：
+     * ①整数值除以2取余，逆向排序
+     * ②小数值乘以2取整，顺向排序
+     * @param n
+     * @return
+     */</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">toBinaryString</span><span class="params">(<span class="keyword">long</span> n)</span> </span>{
+        String s = <span class="string">""</span>;
+        <span class="keyword">for</span>(<span class="keyword">long</span> i = n; i &gt; <span class="number">0</span>; i /= <span class="number">2</span>) {
+            s = (i % <span class="number">2</span>) + s;
+        }
+        <span class="keyword">return</span> s;
+    }
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        System.out.println(toBinaryString(<span class="number">4</span>));
+        <span class="comment">//等同于</span>
+        System.out.println(Long.toBinaryString(<span class="number">4</span>));
+    }
+}
+</code></pre>
             
           </span>
         
@@ -1363,93 +1526,6 @@ response.sendRedirect("index.jsp");
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/05/Json实战总结/" itemprop="url">
-                  Json实战总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-05T09:50:34+08:00" content="2015-11-05">
-              2015-11-05
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/05/Json实战总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/05/Json实战总结/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1496,7 +1572,7 @@ response.sendRedirect("index.jsp");
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-count">26</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
