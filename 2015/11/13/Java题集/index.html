@@ -81,7 +81,7 @@ public class Base {
     }
 
     stat">
-<meta property="og:updated_time" content="2015-11-25T06:04:26.446Z">
+<meta property="og:updated_time" content="2015-11-25T06:10:00.729Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java题集">
 <meta name="twitter:description" content="第一题以下代码的输出结果
@@ -360,17 +360,17 @@ public class Base {
 </code></pre>即父类的属性baseName 的值为base。但为何输出null？</li>
 <li>因为父类构造器方法是在子类中调用的，即大环境是子类。此时，调用的方法<code>callName()</code>当然是指子类的方法。而这个方法打印的属性baseName 当然也是子类的。那现在子类的属性baseName的值是多少呢？答案是null.因为此时子类Sub的构造器内代码本质是:<pre><code><span class="keyword">super</span>();
 baseName=<span class="string">"sub"</span>;
-</code></pre>此时<code>baseName=&quot;sub&quot;</code>还没执行。因此，最后的值当然是null。</li>
+</code></pre>此时<code>baseName=&quot;sub&quot;</code>还没执行。因此，最后的值当然是null。<a id="more"></a>
+第二题</li>
 </ul>
-<h2 id="第二题">第二题</h2><p><strong>编写一段代码，将一个正整数N用二进制表示并转换为一个String类型的值s</strong></p>
+<hr>
+<p><strong>编写一段代码，将一个正整数N用二进制表示并转换为一个String类型的值s</strong></p>
 <pre><code><span class="keyword">public</span> <span class="keyword">class</span> Base {
 
     <span class="comment">/**
      * 十进制转二进制：
      * ①整数值除以2取余，逆向排序
      * ②小数值乘以2取整，顺向排序
-     * @param n
-     * @return
      */</span>
     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">toBinaryString</span><span class="params">(<span class="keyword">long</span> n)</span> </span>{
         String s = <span class="string">""</span>;
@@ -549,7 +549,7 @@ baseName=<span class="string">"sub"</span>;
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一题"><span class="nav-number">1.</span> <span class="nav-text">第一题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二题"><span class="nav-number">2.</span> <span class="nav-text">第二题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一题"><span class="nav-number">1.</span> <span class="nav-text">第一题</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
