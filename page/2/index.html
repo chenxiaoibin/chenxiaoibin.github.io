@@ -243,6 +243,93 @@
             
               
                 
+                <a class="post-title-link" href="/2015/11/16/设计模式之观察者模式/" itemprop="url">
+                  设计模式之观察者模式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-16T10:08:40+08:00" content="2015-11-16">
+              2015-11-16
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/16/设计模式之观察者模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/16/设计模式之观察者模式/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/13/applicationContext-xml文件模板/" itemprop="url">
                   applicationContext.xml文件模板
                 </a>
@@ -1327,181 +1414,6 @@ response.sendRedirect("index.jsp");
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/05/Java内部类/" itemprop="url">
-                  Java内部类
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-05T09:50:59+08:00" content="2015-11-05">
-              2015-11-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaSE/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaSE</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/05/Java内部类/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/05/Java内部类/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <h2 id="含义">含义</h2><p>将一个类的定义放在另一个类的定义内部。</p>
-<pre><code><span class="comment">//一个普通的类</span>
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">OuterClass</span> {
-
-    <span class="comment">//一个内部类</span>
-    <span class="keyword">class</span> <span class="title">InnerClass1</span> {
-        <span class="keyword">private</span> <span class="keyword">int</span> id = <span class="number">1</span>;
-        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span>(<span class="params"></span>) </span>{
-            <span class="keyword">return</span> id;
-        }
-    }
-
-    <span class="comment">//一个内部类</span>
-    <span class="keyword">class</span> <span class="title">InnerClass2</span> {
-        <span class="keyword">private</span> String name;
-        <span class="function"><span class="keyword">public</span> <span class="title">InnerClass2</span>(<span class="params">String aName</span>) </span>{
-            name = aName;
-        }
-        <span class="function"><span class="keyword">public</span> String <span class="title">getName</span>(<span class="params"></span>) </span>{
-            <span class="keyword">return</span> name;
-        }
-    }
-
-    <span class="comment">//一个内部类</span>
-    <span class="keyword">class</span> <span class="title">InnerClass3</span> {
-        <span class="keyword">private</span> String password = <span class="string">"pass"</span>;
-        <span class="function"><span class="keyword">public</span> <span class="title">InnerClass3</span>(<span class="params"></span>) </span>{
-            System.<span class="keyword">out</span>.println(<span class="string">"pwd:"</span> + password);
-        }
-        <span class="function"><span class="keyword">public</span> String <span class="title">getPwd</span>(<span class="params"></span>) </span>{
-            <span class="keyword">return</span> password;
-        } 
-    }
-
-    <span class="comment">//一个方法</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">user1</span>(<span class="params"></span>) </span>{
-        InnerClass1 ic1 = <span class="keyword">new</span> InnerClass1();
-        InnerClass2 ic2 = <span class="keyword">new</span> InnerClass2(<span class="string">"lilei"</span>);
-        System.<span class="keyword">out</span>.println(ic1.getId() + <span class="string">" : "</span> + ic2.getName());
-    }
-
-    <span class="comment">//一个方法</span>
-    <span class="function"><span class="keyword">public</span> InnerClass3 <span class="title">getIC3</span>(<span class="params"></span>) </span>{
-        <span class="keyword">return</span> <span class="keyword">new</span> InnerClass3();
-    }
-
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>{
-        OuterClass oc = <span class="keyword">new</span> OuterClass();
-        oc.user1();
-        <span class="comment">//获取内部类</span>
-        InnerClass3 ic3 = oc.getIC3();
-        <span class="comment">/*
-         * 也可以获取内部类
-        OuterClass.InnerClass3 ic31 = oc.getIC3();
-        */</span>
-        System.<span class="keyword">out</span>.println(<span class="string">"pwd: "</span> + ic3.getPwd());
-    }
-}
-</code></pre><h2 id="作用">作用</h2><ul>
-<li>与外部类进行通讯：能访问其外部类的所有成员。</li>
-<li>一般来说，内部类继承自某个类或某个接口，内部类可以操作外部类对象，提供了进入其外围类的窗口。</li>
-<li>解决“多重继承”问题。</li>
-<li>闭包与回调。</li>
-</ul>
-<h2 id="分类">分类</h2><ul>
-<li>局部内部类：在局部作用域里定义的内部类（该类只在所在的局部作用域内有效）。</li>
-<li>匿名内部类：</li>
-<li>嵌套类：以static修饰的内部类（静态内部类），不需要内部类对象与其外部类对象有联系，不能从嵌套类对象中访问非静态的外围类对象。</li>
-</ul>
-<h2 id="注意">注意</h2><ul>
-<li>必须使用外部类的对象的引用去创建内部类，除非内部类是静态内部类（嵌套类）。</li>
-<li>创建内部类可以使用：外部类对象的引用.new 内部类 的方式进行创建。</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1548,21 +1460,21 @@ response.sendRedirect("index.jsp");
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-count">27</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-count">37</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
