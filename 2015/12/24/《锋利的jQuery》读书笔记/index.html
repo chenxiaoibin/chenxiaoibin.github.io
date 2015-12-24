@@ -67,7 +67,7 @@ jQuery第一段程序&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
 jQuery文件可以去jQuery官网上进行下载。
 jQuery第一段程序&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
     $(document).ready(function()">
-<meta property="og:updated_time" content="2015-12-24T10:57:17.617Z">
+<meta property="og:updated_time" content="2015-12-24T11:48:45.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《锋利的jQuery》读书笔记">
 <meta name="twitter:description" content="引入jQuery文件例如：
@@ -316,7 +316,7 @@ jQuery第一段程序&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
 <li>相当于<code>window.onload = function() {//JS代码}</code></li>
 </ul>
 <h2 id="jQuery代码风格">jQuery代码风格</h2><ul>
-<li>对于同一对象不超过3个操作的，可以写一行，如：<code>$(&quot;li&quot;).show().unbind(&quot;click&quot;)</code></li>
+<li>对于同一对象不超过3个操作的，可以写一行，如：<code>$(&quot;li&quot;).show().unbind(&quot;click&quot;);</code></li>
 <li>对于同一对象有很多操作的，可以每行写一个操作，如：<pre><code>$(<span class="keyword">this</span>).removeClass(<span class="string">"mouseout"</span>)
            .addClass(<span class="string">"mouseover"</span>)
            .stop()
@@ -346,7 +346,45 @@ var adiv = document.getElementById(<span class="string">"mydiv"</span>);
 var <span class="variable">$adiv</span> = $(adiv);
 </code></pre></li>
 </ul>
-<h2 id="jQuery选择器">jQuery选择器</h2></span>
+<a id="more"></a>
+<h2 id="jQuery选择器">jQuery选择器</h2><ul>
+<li>基本选择器<ul>
+<li><code>$(&quot;li&quot;)</code>    选定所有的li标签</li>
+<li><code>$(&quot;#mydiv&quot;)</code> 选定id为mydiv的标签</li>
+<li><code>$(&quot;.mydiv&quot;)</code> 选定class为mydiv的所有标签</li>
+<li><code>$(&quot;div,span,li&quot;)</code> 选定所有的div、span、li标签</li>
+<li><code>$(&quot;*&quot;)</code> 选定所有的元素</li>
+</ul>
+</li>
+<li>层次选择器<ul>
+<li><code>$(&quot;div span&quot;)</code> 选定所有div标签中的span标签</li>
+<li><code>$(&quot;div &gt; span&quot;)</code> 选定所有div标签下的子标签span，不包括孙子标签</li>
+<li><code>$(&quot;#mydiv + div&quot;)</code> 选定id为mydiv标签相邻的div标签，等价于<code>$(&quot;#mydiv&quot;).next(&quot;div&quot;)</code></li>
+<li><code>$(&quot;#mydiv ~ div&quot;)</code> 选定id为mydiv标签下同辈的所有div标签,等价于<code>$(&quot;#mydiv&quot;).nextAll(&quot;div&quot;)</code></li>
+</ul>
+</li>
+<li>过滤选择器<ul>
+<li><code>$(&quot;div:first&quot;)</code> 选定所有div标签中的第一个div标签</li>
+<li><code>$(&quot;div:last&quot;)</code> 选定所有div标签中的最后一个div标签</li>
+<li><code>$(&quot;div:not(#mydiv)&quot;)</code> 选定所有id不是mydiv的div标签</li>
+<li><code>$(&quot;div:even&quot;)</code> 选定索引为偶数的所有div标签，索引从0开始</li>
+<li><code>$(&quot;div:odd&quot;)</code> 选定索引为奇数的所有div标签，索引从0开始</li>
+<li><code>$(&quot;div:eq(1)&quot;)</code> 选定索引为1的div标签</li>
+<li><code>$(&quot;div:gt(1)&quot;)</code> 选定索引大于1的所有div标签</li>
+<li><code>$(&quot;div:lt(3)&quot;)</code> 选定索引小于3的所有div标签</li>
+<li><code>$(&quot;:header&quot;)</code> 选定所有的标题标签，如：<code>&lt;h1&gt;</code></li>
+<li><code>$(&quot;:animated&quot;)</code> 选定当前正在执行动画的所有标签</li>
+<li><code>$(&quot;:focus&quot;)</code> 选定当前获取焦点的所有标签</li>
+</ul>
+</li>
+<li>XX选择器（未完待续）</li>
+<li>选择器使用时的注意事项<ul>
+<li>对于特殊字符，. # () [] 这些字符应使用\进行转义</li>
+<li>注意选择器的空格问题</li>
+</ul>
+</li>
+</ul>
+</span>
       
     </div>
 

@@ -301,11 +301,9 @@
 
       
         
-          <span itemprop="articleBody">
-            
-              <h2 id="引入jQuery文件">引入jQuery文件</h2><p>例如：</p>
+          <h2 id="引入jQuery文件">引入jQuery文件</h2><p>例如：</p>
 <pre><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"jquery-2.1.4.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-</code></pre><p>jQuery文件可以去<a href="https://jquery.com/" target="_blank" rel="external">jQuery官网</a>上进行下载。</p>
+</code></pre><p>jQuery文件可以去<a href="https://jquery.com/">jQuery官网</a>上进行下载。</p>
 <h2 id="jQuery第一段程序">jQuery第一段程序</h2><pre><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
     $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
         alert(<span class="string">"Hello World"</span>);
@@ -317,7 +315,7 @@
 <li>相当于<code>window.onload = function() {//JS代码}</code></li>
 </ul>
 <h2 id="jQuery代码风格">jQuery代码风格</h2><ul>
-<li>对于同一对象不超过3个操作的，可以写一行，如：<code>$(&quot;li&quot;).show().unbind(&quot;click&quot;)</code></li>
+<li>对于同一对象不超过3个操作的，可以写一行，如：<code>$(&quot;li&quot;).show().unbind(&quot;click&quot;);</code></li>
 <li>对于同一对象有很多操作的，可以每行写一个操作，如：<pre><code>$(<span class="keyword">this</span>).removeClass(<span class="string">"mouseout"</span>)
            .addClass(<span class="string">"mouseover"</span>)
            .stop()
@@ -347,9 +345,11 @@ var adiv = document.getElementById(<span class="string">"mydiv"</span>);
 var <span class="variable">$adiv</span> = $(adiv);
 </code></pre></li>
 </ul>
-<h2 id="jQuery选择器">jQuery选择器</h2>
-            
-          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/24/《锋利的jQuery》读书笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
