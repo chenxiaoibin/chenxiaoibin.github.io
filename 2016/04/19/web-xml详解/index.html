@@ -63,7 +63,7 @@
 <meta property="og:description" content="filter配置多个url-pattern的正确方式&amp;lt;filter&amp;gt;
     &amp;lt;filter-name&amp;gt;struts2&amp;lt;/filter-name&amp;gt;
     &amp;lt;filter-class&amp;gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&amp;lt;/filter-cla">
-<meta property="og:updated_time" content="2016-04-19T07:07:20.537Z">
+<meta property="og:updated_time" content="2016-04-19T08:43:18.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web.xml详解">
 <meta name="twitter:description" content="filter配置多个url-pattern的正确方式&amp;lt;filter&amp;gt;
@@ -308,7 +308,19 @@
     &lt;<span class="attribute">filter</span>-name&gt;struts2&lt;/<span class="attribute">filter</span>-name&gt;
     &lt;url-pattern&gt;*.jsp&lt;/url-pattern&gt;
 &lt;/<span class="attribute">filter</span>-mapping&gt;
-</code></pre></span>
+</code></pre><h2 id="classpath与classpath*的区别">classpath与classpath*的区别</h2><pre><code><span class="variable">&lt;context-param&gt;</span>
+    <span class="variable">&lt;param-name&gt;</span>contextConfigLocation<span class="variable">&lt;/param-name&gt;</span>
+    <span class="variable">&lt;param-value&gt;</span>classpath:/spring/<span class="keyword">*</span>.xml<span class="variable">&lt;/param-value&gt;</span>
+<span class="variable">&lt;/context-param&gt;</span>
+</code></pre><p>这种classpath配置是指只加载本地classpath路径下的spring文件夹中的以<code>.xml</code>结尾的文件。</p>
+<pre><code><span class="variable">&lt;context-param&gt;</span>
+    <span class="variable">&lt;param-name&gt;</span>contextConfigLocation<span class="variable">&lt;/param-name&gt;</span>
+    <span class="variable">&lt;param-value&gt;</span>classpath<span class="keyword">*</span>:/spring/<span class="keyword">*</span>.xml<span class="variable">&lt;/param-value&gt;</span>
+<span class="variable">&lt;/context-param&gt;</span>
+</code></pre><p>这种classpath*配置是指不仅加载本地classpath路径下的，而且也加载jar文件下的classpath路径下的spring文件夹中的以<code>.xml</code>结尾的文件。</p>
+<a id="more"></a>
+<h2 id="配置load-on-startup的作用">配置load-on-startup的作用</h2><p>在web.xml中配置servlet时有时需要配置load-on-startup这个属性，其作用是指在web容器启动时是否就加载该servlet，其值需为整数。当<code>&lt;load-on-startup&gt;&lt;/load-on-startup&gt;</code>中的值大于等于0时，表示在容器启动时就加载，值越小，加载优先级越高；当小于0或者没有值时，表示在用到此servlet时才加载，不在启动时加载。</p>
+</span>
       
     </div>
 
@@ -470,7 +482,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#filter配置多个url-pattern的正确方式"><span class="nav-number">1.</span> <span class="nav-text">filter配置多个url-pattern的正确方式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#filter配置多个url-pattern的正确方式"><span class="nav-number">1.</span> <span class="nav-text">filter配置多个url-pattern的正确方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#classpath与classpath*的区别"><span class="nav-number">2.</span> <span class="nav-text">classpath与classpath*的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置load-on-startup的作用"><span class="nav-number">3.</span> <span class="nav-text">配置load-on-startup的作用</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

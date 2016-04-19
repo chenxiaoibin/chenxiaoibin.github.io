@@ -301,9 +301,7 @@
 
       
         
-          <span itemprop="articleBody">
-            
-              <h2 id="filter配置多个url-pattern的正确方式">filter配置多个url-pattern的正确方式</h2><pre><code>&lt;<span class="attribute">filter</span>&gt;
+          <h2 id="filter配置多个url-pattern的正确方式">filter配置多个url-pattern的正确方式</h2><pre><code>&lt;<span class="attribute">filter</span>&gt;
     &lt;<span class="attribute">filter</span>-name&gt;struts2&lt;/<span class="attribute">filter</span>-name&gt;
     &lt;<span class="attribute">filter</span>-class&gt;org<span class="class">.apache</span><span class="class">.struts2</span><span class="class">.dispatcher</span><span class="class">.ng</span><span class="class">.filter</span><span class="class">.StrutsPrepareAndExecuteFilter</span>&lt;/<span class="attribute">filter</span>-class&gt;
 &lt;/<span class="attribute">filter</span>&gt;
@@ -315,9 +313,21 @@
     &lt;<span class="attribute">filter</span>-name&gt;struts2&lt;/<span class="attribute">filter</span>-name&gt;
     &lt;url-pattern&gt;*.jsp&lt;/url-pattern&gt;
 &lt;/<span class="attribute">filter</span>-mapping&gt;
-</code></pre>
-            
-          </span>
+</code></pre><h2 id="classpath与classpath*的区别">classpath与classpath*的区别</h2><pre><code><span class="variable">&lt;context-param&gt;</span>
+    <span class="variable">&lt;param-name&gt;</span>contextConfigLocation<span class="variable">&lt;/param-name&gt;</span>
+    <span class="variable">&lt;param-value&gt;</span>classpath:/spring/<span class="keyword">*</span>.xml<span class="variable">&lt;/param-value&gt;</span>
+<span class="variable">&lt;/context-param&gt;</span>
+</code></pre><p>这种classpath配置是指只加载本地classpath路径下的spring文件夹中的以<code>.xml</code>结尾的文件。</p>
+<pre><code><span class="variable">&lt;context-param&gt;</span>
+    <span class="variable">&lt;param-name&gt;</span>contextConfigLocation<span class="variable">&lt;/param-name&gt;</span>
+    <span class="variable">&lt;param-value&gt;</span>classpath<span class="keyword">*</span>:/spring/<span class="keyword">*</span>.xml<span class="variable">&lt;/param-value&gt;</span>
+<span class="variable">&lt;/context-param&gt;</span>
+</code></pre><p>这种classpath*配置是指不仅加载本地classpath路径下的，而且也加载jar文件下的classpath路径下的spring文件夹中的以<code>.xml</code>结尾的文件。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/19/web-xml详解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
