@@ -69,7 +69,7 @@ public">
  *
  */
 public">
-<meta property="og:updated_time" content="2016-04-19T02:31:26.675Z">
+<meta property="og:updated_time" content="2016-04-19T04:44:20.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之观察者模式">
 <meta name="twitter:description" content="观察者模式（Observer Pattern）观察者模式定义了对象之间的一对多依赖，当一个对象的状态改变时，它的所有依赖者都会收到通知并自动更新。该模式可以让主题和观察者之间松耦合，降低相互之间的依赖性。
@@ -426,7 +426,90 @@ public">
     }
 
 }
-</code></pre></span>
+</code></pre><h2 id="Java内置的观察者模式">Java内置的观察者模式</h2><p><strong>让观察者类实现java.util包中的Observer接口，让可观察者继承java.util包中的Observable类</strong></p>
+<h2 id="修改过后的代码如下">修改过后的代码如下</h2><pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeatherData</span> <span class="keyword">extends</span> <span class="title">Observable</span> </span>{
+
+    <span class="comment">//天气信息的三个属性</span>
+    <span class="keyword">private</span> <span class="keyword">float</span> temperature;<span class="comment">//温度</span>
+    <span class="keyword">private</span> <span class="keyword">float</span> humidity;<span class="comment">//湿度</span>
+    <span class="keyword">private</span> <span class="keyword">float</span> pressure;<span class="comment">//气压</span>
+
+    <span class="comment">//无参的构造方法</span>
+    <span class="function"><span class="keyword">public</span> <span class="title">WeatherData</span><span class="params">()</span> </span>{}
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeWeather</span><span class="params">()</span> </span>{
+        setChanged();<span class="comment">//标记状态已经改变的事实，只有调用此方法时，才会去更新观察者</span>
+        notifyObservers();
+    }
+
+    <span class="comment">//天气信息设置</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">(<span class="keyword">float</span> temperature, <span class="keyword">float</span> humidity, <span class="keyword">float</span> pressure)</span> </span>{
+        <span class="comment">//为三个属性赋值</span>
+        <span class="keyword">this</span>.temperature = temperature;
+        <span class="keyword">this</span>.humidity = humidity;
+        <span class="keyword">this</span>.pressure = pressure;
+        changeWeather();<span class="comment">//天气信息更改时调用方法</span>
+    }
+
+    <span class="comment">//生成get方法</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getTemperature</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> temperature;
+    }
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getHumidity</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> humidity;
+    }
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getPressure</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> pressure;
+    }
+
+}
+
+<span class="comment">/*
+ * 一个DiaplayElement接口
+ */</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">DisplayElement</span> </span>{
+    <span class="comment">//用于显示天气信息</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>;
+}
+
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CurrentConditionsDisplay</span> <span class="keyword">implements</span> <span class="title">DisplayElement</span>, <span class="title">Observer</span> </span>{
+
+    <span class="keyword">private</span> Observable observable;
+    <span class="comment">//天气信息的三个属性</span>
+    <span class="keyword">private</span> <span class="keyword">float</span> temperature;<span class="comment">//温度</span>
+    <span class="keyword">private</span> <span class="keyword">float</span> humidity;<span class="comment">//湿度</span>
+    <span class="keyword">private</span> <span class="keyword">float</span> pressure;<span class="comment">//气压</span>
+
+    <span class="comment">//无参构造方法</span>
+    <span class="function"><span class="keyword">public</span> <span class="title">CurrentConditionsDisplay</span><span class="params">()</span> </span>{}
+
+    <span class="comment">//有参构造方法</span>
+    <span class="function"><span class="keyword">public</span> <span class="title">CurrentConditionsDisplay</span><span class="params">(Observable obs)</span> </span>{
+        <span class="keyword">this</span>.observable = obs;
+        observable.addObserver(<span class="keyword">this</span>);
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Observable o, Object arg)</span> </span>{
+        <span class="keyword">if</span>(o <span class="keyword">instanceof</span> WeatherData) {
+            WeatherData weatherData = (WeatherData) o;
+            <span class="keyword">this</span>.temperature = weatherData.getTemperature();
+            <span class="keyword">this</span>.humidity = weatherData.getHumidity();
+            <span class="keyword">this</span>.pressure = weatherData.getPressure();
+            display();
+        }
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>{
+        System.out.println(<span class="string">"今天的天气情况： 温度为"</span> + temperature + <span class="string">"\t湿度为"</span> + humidity + <span class="string">"\t气压为"</span> + pressure);
+    }
+
+}
+</code></pre><p>注意：<code>setChanged()</code>方法。</p>
+</span>
       
     </div>
 
@@ -592,7 +675,7 @@ public">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#观察者模式（Observer_Pattern）"><span class="nav-number">1.</span> <span class="nav-text">观察者模式（Observer Pattern）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个来自《Head_First设计模式》的气象站实例"><span class="nav-number">2.</span> <span class="nav-text">一个来自《Head First设计模式》的气象站实例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#观察者模式（Observer_Pattern）"><span class="nav-number">1.</span> <span class="nav-text">观察者模式（Observer Pattern）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个来自《Head_First设计模式》的气象站实例"><span class="nav-number">2.</span> <span class="nav-text">一个来自《Head First设计模式》的气象站实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java内置的观察者模式"><span class="nav-number">3.</span> <span class="nav-text">Java内置的观察者模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改过后的代码如下"><span class="nav-number">4.</span> <span class="nav-text">修改过后的代码如下</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
