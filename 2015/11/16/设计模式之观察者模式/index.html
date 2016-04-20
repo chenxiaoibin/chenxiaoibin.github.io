@@ -69,7 +69,7 @@ public">
  *
  */
 public">
-<meta property="og:updated_time" content="2016-04-19T04:44:20.292Z">
+<meta property="og:updated_time" content="2016-04-20T01:22:55.141Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之观察者模式">
 <meta name="twitter:description" content="观察者模式（Observer Pattern）观察者模式定义了对象之间的一对多依赖，当一个对象的状态改变时，它的所有依赖者都会收到通知并自动更新。该模式可以让主题和观察者之间松耦合，降低相互之间的依赖性。
@@ -508,7 +508,7 @@ public">
     }
 
 }
-</code></pre><p>注意：<code>setChanged()</code>方法。</p>
+</code></pre><p>注意：<code>setChanged()</code>方法。使用Java内置的观察者模式有个缺陷就是，可观察者是继承Observable类，如果可观察者已经继承其他父类，则无法实现观察者模式，由于Java中不支持多继承，因此，在使用该模式时，要视情况而定。</p>
 </span>
       
     </div>
