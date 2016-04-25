@@ -243,6 +243,130 @@
             
               
                 
+                <a class="post-title-link" href="/2015/11/09/MySQL命令大全/" itemprop="url">
+                  MySQL命令大全
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-09T16:34:40+08:00" content="2015-11-09">
+              2015-11-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/09/MySQL命令大全/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/09/MySQL命令大全/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <ul>
+<li>show databases;列出现有的数据库。</li>
+<li>use mytest;使用数据库名称为mytest的数据库。</li>
+<li>show tables;列出数据库中的表。</li>
+<li>show columns from t_user;或describe t_user;或desc t_user;列出t_user表中的所有字段信息。</li>
+<li>show status;列出广泛的服务器状态信息。</li>
+<li>show grants;列出授予用户（所有用户或特定用户）的安全权限。</li>
+<li>show errors;列出服务器的错误信息。</li>
+<li>show warnings;列出服务器的警告信息。</li>
+<li>select id, username, password from t_user;列出t_user表中列名分别为id, username, password的所匹配的行。</li>
+<li>select * from t_user;列出所有的列所匹配的行。</li>
+<li>select destinct username from t_user;列出username不同的行。</li>
+<li>select count(destinct username) from t_user;返回的是username不同的行数。</li>
+<li>select * from t_user limit 3;返回不多于3行的数据。</li>
+<li>select * from t_user limit 2, 3;返回从行的索引为2（也就是第三行）开始的3行数据。</li>
+<li>select t_user.username from mytest.t_user;使用完全限定名。</li>
+<li>select * from t_user order by username;列出所有的行并按username进行排列，默认的排列方式为asc（升序排列）。</li>
+<li>select * from t_user order by username, password;列出所有的行并先按username进行排列，后按照password进行排列。</li>
+<li>select * from t_user order by username desc;列出所有的行并按username进行排列，排列方式为desc（降序排列），如果多个列进行降序排列，必须对每个列指定desc关键字。</li>
+<li>select * from t_user order by username desc limit 2;检索出的行按照username进行降序排列并只返回前两行数据（order by 和 limit关键字的联合使用，limit放在order by 后使用）。</li>
+<li>select * from t_user where username=’xx’ and password=’xxx’;查询出username为xx和password为xxx的行数据，注意：值为字符串时用单引号括起来，为数值时则不用。</li>
+<li>select * from t_user where username=’xx’ or password=’xxx’;查询出username为xx或password为xxx的行数据，注意：值为字符串时用单引号括起来，为数值时则不用。
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/09/MySQL命令大全/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/07/修改hosts文件翻墙/" itemprop="url">
                   修改hosts文件翻墙
                 </a>
@@ -1335,7 +1459,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1349,7 +1473,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">47</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
