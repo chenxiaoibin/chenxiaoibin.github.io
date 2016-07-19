@@ -53,16 +53,31 @@
 
 
 
-<meta name="description" content="什么是JavaScriptJavaScript是一种脚本语言，是一种弱类型语言（可以不用声明变量的类型，与强类型语言不同）。">
+<meta name="description" content="什么是JavaScriptJavaScript是一种脚本语言，是一种弱类型语言（可以不用声明变量的类型，与强类型语言不同）。
+如何使用JavaScript
+在HTML或XHTML文档中直接编写JavaScript代码
+在HTML或XHTML文档中引入扩展名为.js的JavaScript文件
+
+以上两种方式的使用位置最好放在HTML或XHTML文档的最后，即&amp;lt;/body&amp;gt;标签之前，这样有">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript学习笔记">
 <meta property="og:url" content="http://yoursite.com/2016/06/12/JavaScript学习笔记/index.html">
 <meta property="og:site_name" content="MVBlog">
-<meta property="og:description" content="什么是JavaScriptJavaScript是一种脚本语言，是一种弱类型语言（可以不用声明变量的类型，与强类型语言不同）。">
-<meta property="og:updated_time" content="2016-07-19T03:16:06.985Z">
+<meta property="og:description" content="什么是JavaScriptJavaScript是一种脚本语言，是一种弱类型语言（可以不用声明变量的类型，与强类型语言不同）。
+如何使用JavaScript
+在HTML或XHTML文档中直接编写JavaScript代码
+在HTML或XHTML文档中引入扩展名为.js的JavaScript文件
+
+以上两种方式的使用位置最好放在HTML或XHTML文档的最后，即&amp;lt;/body&amp;gt;标签之前，这样有">
+<meta property="og:updated_time" content="2016-07-19T13:14:15.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript学习笔记">
-<meta name="twitter:description" content="什么是JavaScriptJavaScript是一种脚本语言，是一种弱类型语言（可以不用声明变量的类型，与强类型语言不同）。">
+<meta name="twitter:description" content="什么是JavaScriptJavaScript是一种脚本语言，是一种弱类型语言（可以不用声明变量的类型，与强类型语言不同）。
+如何使用JavaScript
+在HTML或XHTML文档中直接编写JavaScript代码
+在HTML或XHTML文档中引入扩展名为.js的JavaScript文件
+
+以上两种方式的使用位置最好放在HTML或XHTML文档的最后，即&amp;lt;/body&amp;gt;标签之前，这样有">
 
 
 
@@ -290,7 +305,26 @@
 
       
         <span itemprop="articleBody"><h2 id="什么是JavaScript">什么是JavaScript</h2><p><strong>JavaScript是一种脚本语言，是一种弱类型语言（可以不用声明变量的类型，与强类型语言不同）。</strong></p>
+<h2 id="如何使用JavaScript">如何使用JavaScript</h2><ol>
+<li>在HTML或XHTML文档中直接编写JavaScript代码</li>
+<li>在HTML或XHTML文档中引入扩展名为<code>.js</code>的JavaScript文件</li>
+</ol>
+<p><strong>以上两种方式的使用位置最好放在HTML或XHTML文档的最后，即<code>&lt;/body&gt;</code>标签之前，这样有利于页面的快速加载。</strong></p>
 <a id="more"></a>
+<h2 id="JavaScript中的注释方式">JavaScript中的注释方式</h2><ol>
+<li>单行注释使用<code>//代码行</code></li>
+<li>多行注释使用<code>/*  多行代码 */</code></li>
+</ol>
+<h2 id="JavaScript中的变量">JavaScript中的变量</h2><ol>
+<li>可以不用显示的声明变量的类型，但最好声明</li>
+<li>变量的命名要规范（驼峰命名法等），且区分大小写，不能包含标点符号或空格</li>
+<li>以<code>var</code>关键字进行变量的声明</li>
+</ol>
+<h2 id="JavaScript中的内置函数">JavaScript中的内置函数</h2><h2 id="JavaScript中的内置对象">JavaScript中的内置对象</h2><h2 id="HTML或XHTML文档中的节点">HTML或XHTML文档中的节点</h2><ol>
+<li>元素节点，如：<code>&lt;body&gt;,&lt;p&gt;</code>等</li>
+<li>文本节点，如：<code>&lt;a&gt;This is a link&lt;/a&gt;</code>中的<code>This is a link</code></li>
+<li>属性节点，如：<code>&lt;img src=&quot;images/1.jpg&quot;&gt;</code>中的<code>src</code></li>
+</ol>
 <h2 id="获取页面（Document）中元素的三种方法">获取页面（Document）中元素的三种方法</h2><ol>
 <li>使用<code>getElementById(&quot;xxx&quot;)</code>根据id获取元素节点（唯一），如：<code>document.getElementById(&quot;form1&quot;);</code>获取id为form1的元素节点</li>
 <li>使用<code>getElementsByTagName(&quot;xxx&quot;)</code>根据标签的名字获取元素数组，如：<code>document.getElementsByTagName(&quot;li&quot;);</code>获取li标签的元素数组，该方法返回的是一个数组，因此，数组相关的一些属性和方法就可以使用，如：获取数组长度等</li>
@@ -479,7 +513,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是JavaScript"><span class="nav-number">1.</span> <span class="nav-text">什么是JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取页面（Document）中元素的三种方法"><span class="nav-number">2.</span> <span class="nav-text">获取页面（Document）中元素的三种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作元素中的属性节点"><span class="nav-number">3.</span> <span class="nav-text">操作元素中的属性节点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是JavaScript"><span class="nav-number">1.</span> <span class="nav-text">什么是JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用JavaScript"><span class="nav-number">2.</span> <span class="nav-text">如何使用JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript中的注释方式"><span class="nav-number">3.</span> <span class="nav-text">JavaScript中的注释方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript中的变量"><span class="nav-number">4.</span> <span class="nav-text">JavaScript中的变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript中的内置函数"><span class="nav-number">5.</span> <span class="nav-text">JavaScript中的内置函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript中的内置对象"><span class="nav-number">6.</span> <span class="nav-text">JavaScript中的内置对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML或XHTML文档中的节点"><span class="nav-number">7.</span> <span class="nav-text">HTML或XHTML文档中的节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取页面（Document）中元素的三种方法"><span class="nav-number">8.</span> <span class="nav-text">获取页面（Document）中元素的三种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作元素中的属性节点"><span class="nav-number">9.</span> <span class="nav-text">操作元素中的属性节点</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
