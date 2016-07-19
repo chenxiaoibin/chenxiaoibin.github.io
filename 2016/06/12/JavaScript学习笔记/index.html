@@ -53,28 +53,16 @@
 
 
 
-<meta name="description" content="JavaScript是一种专为与网页交互而设计的脚本语言，由三个部分组成：
-
-ECMAScript，由ECMA-262定义，提供核心语言功能；
-文档对象模型（DOM），提供访问和操作网页内容的方法和接口；
-浏览器对象模型（BOM），提供与浏览器交互的方法和接口。">
+<meta name="description" content="什么是JavaScriptJavaScript是一种脚本语言，是一种弱类型语言（可以不用声明变量的类型，与强类型语言不同）。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript学习笔记">
 <meta property="og:url" content="http://yoursite.com/2016/06/12/JavaScript学习笔记/index.html">
 <meta property="og:site_name" content="MVBlog">
-<meta property="og:description" content="JavaScript是一种专为与网页交互而设计的脚本语言，由三个部分组成：
-
-ECMAScript，由ECMA-262定义，提供核心语言功能；
-文档对象模型（DOM），提供访问和操作网页内容的方法和接口；
-浏览器对象模型（BOM），提供与浏览器交互的方法和接口。">
-<meta property="og:updated_time" content="2016-06-12T03:06:10.052Z">
+<meta property="og:description" content="什么是JavaScriptJavaScript是一种脚本语言，是一种弱类型语言（可以不用声明变量的类型，与强类型语言不同）。">
+<meta property="og:updated_time" content="2016-07-19T03:16:06.985Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript学习笔记">
-<meta name="twitter:description" content="JavaScript是一种专为与网页交互而设计的脚本语言，由三个部分组成：
-
-ECMAScript，由ECMA-262定义，提供核心语言功能；
-文档对象模型（DOM），提供访问和操作网页内容的方法和接口；
-浏览器对象模型（BOM），提供与浏览器交互的方法和接口。">
+<meta name="twitter:description" content="什么是JavaScriptJavaScript是一种脚本语言，是一种弱类型语言（可以不用声明变量的类型，与强类型语言不同）。">
 
 
 
@@ -301,18 +289,33 @@ ECMAScript，由ECMA-262定义，提供核心语言功能；
       
 
       
-        <span itemprop="articleBody"><blockquote>
-<p>JavaScript是一种专为与网页交互而设计的脚本语言，由三个部分组成：</p>
-<ul>
-<li>ECMAScript，由ECMA-262定义，提供核心语言功能；</li>
-<li>文档对象模型（DOM），提供访问和操作网页内容的方法和接口；</li>
-<li>浏览器对象模型（BOM），提供与浏览器交互的方法和接口。</li>
-</ul>
-</blockquote>
+        <span itemprop="articleBody"><h2 id="什么是JavaScript">什么是JavaScript</h2><p><strong>JavaScript是一种脚本语言，是一种弱类型语言（可以不用声明变量的类型，与强类型语言不同）。</strong></p>
 <a id="more"></a>
-<hr>
-<h1 id="在HTML中使用JavaScript">在HTML中使用JavaScript</h1><p><strong>在HTML中直接插入<code>&lt;script&gt;JavaScript代码&lt;/script&gt;</code>即可。</strong></p>
-<h2 id="&lt;scripy&gt;元素的位置"><code>&lt;scripy&gt;元素的位置</code></h2><h1 id="在XHTML中使用JavaScript">在XHTML中使用JavaScript</h1></span>
+<h2 id="获取页面（Document）中元素的三种方法">获取页面（Document）中元素的三种方法</h2><ol>
+<li>使用<code>getElementById(&quot;xxx&quot;)</code>根据id获取元素节点（唯一），如：<code>document.getElementById(&quot;form1&quot;);</code>获取id为form1的元素节点</li>
+<li>使用<code>getElementsByTagName(&quot;xxx&quot;)</code>根据标签的名字获取元素数组，如：<code>document.getElementsByTagName(&quot;li&quot;);</code>获取li标签的元素数组，该方法返回的是一个数组，因此，数组相关的一些属性和方法就可以使用，如：获取数组长度等</li>
+<li><p>使用<code>getElementsByClassName(&quot;xxx&quot;)</code>根据class属性的值获取元素数组，如：<code>document.getElementsByClassName(&quot;sale&quot;);</code>获取元素中class属性为sale的元素数组，有的元素的class属性有多个值，如<code>class=&quot;sale red big&quot;</code>，要获取类似的元素，依然可以使用<code>document.getElementsByClassName(&quot;red pig&quot;);</code>注意：class属性值得顺序，数量并不重要，只要是含有这些值得元素都可以进行获取。由于<code>getElementsByClassName(&quot;xxx&quot;)</code>这个方法适用于较新版本的浏览器，为了兼容老版本浏览器，我们可以改写该方法，如：</p>
+<pre><code>function getElementsByClassName(<span class="keyword">node</span><span class="identifier"></span><span class="title">, classname</span>) {//<span class="keyword">node</span><span class="identifier"></span><span class="title">是节点元素，classname</span>是class值
+    if(<span class="keyword">node</span>.<span class="identifier"></span><span class="title">getElementsByClassName</span>) {//判断是否可以使用该方法
+        return <span class="keyword">node</span>.<span class="identifier"></span><span class="title">getElementsByClassName</span>(classname);//如果可以，返回该方法
+    } else {
+        var results = new Array();
+        var nodes = <span class="keyword">node</span>.<span class="identifier"></span><span class="title">getElementsByTagName</span>(<span class="string">"*"</span>);
+        for(var i = <span class="number">0</span>; i <span class="tag">&lt; nodes.length; i++) {
+            if(nodes[i].className.indexOf(classname) != -1) {//判断每个节点的class属性值是否包含classname
+                results[results.length] = nodes[i];//如果包含
+            }
+        }
+        return results;
+    }
+}</span>
+</code></pre></li>
+</ol>
+<h2 id="操作元素中的属性节点">操作元素中的属性节点</h2><ol>
+<li>使用<code>getAttribute(&quot;xxx&quot;)</code>获取xxx属性节点的值，如：<code>document.getElementById(&quot;p1&quot;).getAttribute(&quot;title&quot;);</code></li>
+<li>使用<code>setAttribute(&quot;xxx&quot;, &quot;yyyy&quot;)</code>将xxx属性节点的值修改为yyyy，如该属性节点不存在，则会先创建该属性，然后再设置值。</li>
+</ol>
+</span>
       
     </div>
 
@@ -336,6 +339,10 @@ ECMAScript，由ECMA-262定义，提供核心语言功能；
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/13/Spring实战/" rel="prev" title="Spring实战">
+                Spring实战 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -426,7 +433,7 @@ ECMAScript，由ECMA-262定义，提供核心语言功能；
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -472,7 +479,7 @@ ECMAScript，由ECMA-262定义，提供核心语言功能；
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在HTML中使用JavaScript"><span class="nav-number">1.</span> <span class="nav-text">在HTML中使用JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#<scripy>元素的位置"><span class="nav-number">1.1.</span> <span class="nav-text"><scripy>元素的位置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在XHTML中使用JavaScript"><span class="nav-number">2.</span> <span class="nav-text">在XHTML中使用JavaScript</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是JavaScript"><span class="nav-number">1.</span> <span class="nav-text">什么是JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取页面（Document）中元素的三种方法"><span class="nav-number">2.</span> <span class="nav-text">获取页面（Document）中元素的三种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作元素中的属性节点"><span class="nav-number">3.</span> <span class="nav-text">操作元素中的属性节点</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java" />
 
 
 
@@ -219,6 +219,555 @@
 
     
     
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/22/Ajax学习笔记/" itemprop="url">
+                  Ajax学习笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-22T10:45:11+08:00" content="2015-11-22">
+              2015-11-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/22/Ajax学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/22/Ajax学习笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="Ajax">Ajax</h2><ul>
+<li>定义：异步的JavaScript和XML。</li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/20/Sublime-Text2使用技巧/" itemprop="url">
+                  Sublime Text2使用技巧
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-20T10:34:01+08:00" content="2015-11-20">
+              2015-11-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Sublime/" itemprop="url" rel="index">
+                    <span itemprop="name">Sublime</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/20/Sublime-Text2使用技巧/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/20/Sublime-Text2使用技巧/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="安装Sublime_Text2">安装Sublime Text2</h2><ul>
+<li>下载<a href="http://www.sublimetext.com/2">Sublime Text2</a></li>
+<li>按照提示完成安装Sublime Text2</li>
+</ul>
+<h2 id="安装Package_Control">安装Package Control</h2><ul>
+<li>访问<a href="https://packagecontrol.io/installation#st2">Package Control</a></li>
+<li><p>打开Sublime Text2，按下快捷键<code>Ctrl+` </code>，打开了<code>console</code>，复制粘贴进去下边这段代码</p>
+<pre><code>import urllib2,os,hashlib; h = <span class="string">'2915d1851351e5ee549c20394736b442'</span> + <span class="string">'8bc59f460fa1548d1514676163dafc88'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) <span class="keyword">if</span> <span class="operator">not</span> os.path.exists(ipp) <span class="keyword">else</span> None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); <span class="keyword">by</span> = urllib2.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.<span class="built_in">replace</span>(<span class="string">' '</span>, <span class="string">'%20'</span>)).<span class="built_in">read</span>(); dh = hashlib.sha256(<span class="keyword">by</span>).hexdigest(); <span class="built_in">open</span>( os.path.join( ipp, pf), <span class="string">'wb'</span> ).<span class="built_in">write</span>(<span class="keyword">by</span>) <span class="keyword">if</span> dh == h <span class="keyword">else</span> None; print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h) <span class="keyword">if</span> dh != h <span class="keyword">else</span> <span class="string">'Please restart Sublime Text to finish installation'</span>)
+</code></pre><p>  按下<code>Enter</code>键完成安装</p>
+</li>
+<li>重启Sublime Text2，按下快捷键<code>Ctrl+Shift+p</code>（也许会出现弹框提示，按照提示，进行重启操作）</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/20/Sublime-Text2使用技巧/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/19/设计模式之工厂模式/" itemprop="url">
+                  设计模式之工厂模式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-19T09:06:20+08:00" content="2015-11-19">
+              2015-11-19
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/19/设计模式之工厂模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/19/设计模式之工厂模式/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/19/设计模式之装饰者模式/" itemprop="url">
+                  设计模式之装饰者模式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-19T08:33:20+08:00" content="2015-11-19">
+              2015-11-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/19/设计模式之装饰者模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/19/设计模式之装饰者模式/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="装饰者模式（Decorator_Pattern）">装饰者模式（Decorator Pattern）</h2><p><strong>顾名思义，动态的将责任附加到对象（组件）上。若要扩展对象（组件）的功能，该模式提供了比继承更有弹性的解决方案。</strong></p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/18/二分查找算法/" itemprop="url">
+                  二分查找算法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-18T13:46:47+08:00" content="2015-11-18">
+              2015-11-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/18/二分查找算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/18/二分查找算法/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p><strong>二分查找（BinarySearch）算法是用来查找有序数组中特定元素的算法。此算法用途广泛，执行高效。其原理是：搜索过程从数组的中间元素开始，判断数组的中间元素与查找元素的大小，如果相等，则中间元素为查找元素，如果大于中间元素，则在大于中间元素的那半部分数组中进行查找（接下来此查找过程也是分成两部分进行查找，原理相同），如果小于中间元素，则在另一半数组中查找，如果没有，则跳出查找过程，并返回提示信息。</strong></p>
+<pre><code>import java.util.Arrays;
+
+<span class="comment">//二分查找算法</span>
+<span class="keyword">public</span> <span class="keyword">class</span> BinarySearch {
+
+    <span class="comment">/**
+     * 
+     * @param key ：要查找的值
+     * @param a          ：有序的整数数组
+     * @return
+     */</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">rank</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span>[] a)</span> </span>{
+        <span class="keyword">int</span> lo = <span class="number">0</span>;<span class="comment">//数组的索引的最小值</span>
+        <span class="keyword">int</span> hi = a.length - <span class="number">1</span>;<span class="comment">//数组索引的最大值</span>
+        <span class="comment">//进入while循环</span>
+        <span class="keyword">while</span>(lo &lt;= hi) {
+            <span class="comment">//将当前数组一分为二</span>
+            <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;
+            <span class="comment">//如果key值小于数组中间值，则在数组左半边进行查找，如果key值大于数组中间值，则在数组右半边进行查找，如果没有该值，则返回-1</span>
+            <span class="keyword">if</span>(key &lt; a[mid]) {
+                hi = mid - <span class="number">1</span>;
+            } <span class="keyword">else</span> <span class="keyword">if</span>(key &gt; a[mid]) {
+                lo = mid + <span class="number">1</span>;
+            } <span class="keyword">else</span> {
+                <span class="keyword">return</span> mid;
+            }
+        }
+        <span class="keyword">return</span> -<span class="number">1</span>;
+    }
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        <span class="comment">//定义一个数组</span>
+        <span class="keyword">int</span>[] whiteList = {<span class="number">10</span>, <span class="number">24</span>, <span class="number">54</span>, <span class="number">87</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">98</span>, <span class="number">34</span>,<span class="number">21</span>,<span class="number">20</span>, -<span class="number">1</span>};
+        <span class="comment">//进行升序排列</span>
+        Arrays.sort(whiteList);
+        System.out.println(<span class="string">"查找的数值的索引为： "</span> + rank(<span class="number">20</span>, whiteList));
+    }
+}
+</code></pre>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -554,1003 +1103,12 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/16/设计模式之观察者模式/" itemprop="url">
-                  设计模式之观察者模式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-16T10:08:40+08:00" content="2015-11-16">
-              2015-11-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/16/设计模式之观察者模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/16/设计模式之观察者模式/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="观察者模式（Observer_Pattern）">观察者模式（Observer Pattern）</h2><p><strong>观察者模式定义了对象之间的一对多依赖，当一个对象的状态改变时，它的所有依赖者都会收到通知并自动更新。该模式可以让主题和观察者之间松耦合，降低相互之间的依赖性。</strong></p>
-<h2 id="一个来自《Head_First设计模式》的气象站实例">一个来自《Head First设计模式》的气象站实例</h2><pre><code><span class="comment">/*
- * 一个Subject接口（主题接口）：让实现该接口的所有类都具有以下三种方法，用于注册、删除、更新观察者
- *
- */</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>{
-    <span class="comment">//注册一个观察者</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer ob)</span></span>;
-    <span class="comment">//注销一个观察者</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer ob)</span></span>;
-    <span class="comment">//当主题状态改变时，调用此方法，更新所有观察者</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span></span>;
-}
-
-<span class="comment">/*
- * 一个Observer接口（观察者接口）：实现该接口的类必须含有update()方法
- *
- */</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>{
-    <span class="comment">//当气象观测值改变时，主题接口的实现类会把这些状态值作为参数传递给Observer接口实现类的update()方法</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">float</span> temperature, <span class="keyword">float</span> humidity, <span class="keyword">float</span> pressure)</span></span>;
-}
-
-<span class="comment">/*
- * 一个DiaplayElement接口
- */</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">DisplayElement</span> </span>{
-    <span class="comment">//用于显示天气信息</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>;
-}
-
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeatherData</span> <span class="keyword">implements</span> <span class="title">Subject</span> </span>{
-
-    <span class="comment">//天气信息的三个属性</span>
-    <span class="keyword">private</span> <span class="keyword">float</span> temperature;<span class="comment">//温度</span>
-    <span class="keyword">private</span> <span class="keyword">float</span> humidity;<span class="comment">//湿度</span>
-    <span class="keyword">private</span> <span class="keyword">float</span> pressure;<span class="comment">//气压</span>
-
-    <span class="keyword">private</span> List&lt;Observer&gt; obs;
-
-    <span class="comment">//构造方法</span>
-    <span class="function"><span class="keyword">public</span> <span class="title">WeatherData</span><span class="params">()</span> </span>{
-        obs = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();<span class="comment">//创建一个Observer集合</span>
-    }
-
-    <span class="comment">//天气信息设置</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">(<span class="keyword">float</span> temperature, <span class="keyword">float</span> humidity, <span class="keyword">float</span> pressure)</span> </span>{
-        <span class="comment">//为三个属性赋值</span>
-        <span class="keyword">this</span>.temperature = temperature;
-        <span class="keyword">this</span>.humidity = humidity;
-        <span class="keyword">this</span>.pressure = pressure;
-        changeWeather();<span class="comment">//天气信息更改时调用方法</span>
-    }
-
-    <span class="comment">//天气信息更改时，更新观察者</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeWeather</span><span class="params">()</span> </span>{
-        notifyObservers();
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer ob)</span> </span>{
-        <span class="keyword">if</span>(!obs.contains(ob)) {
-            obs.add(ob);
-        }
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer ob)</span> </span>{
-        <span class="keyword">if</span>(obs.contains(ob)) {
-            obs.remove(ob);
-        }
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span> </span>{
-        <span class="keyword">for</span>(Observer ob : obs) {
-            ob.update(temperature, humidity, pressure);
-        }
-    }
-
-    <span class="comment">//WeatherData的其他方法。。。</span>
-}
-
-<span class="comment">/*
- * 一个CurrentConditionsDisplay类实现Observer接口和DisplayElement接口：现实中可以有很多种CurrentConditionsDisplay类
- */</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CurrentConditionsDisplay</span> <span class="keyword">implements</span> <span class="title">Observer</span>, <span class="title">DisplayElement</span> </span>{
-
-    <span class="keyword">private</span> <span class="keyword">float</span> temperature;
-    <span class="keyword">private</span> <span class="keyword">float</span> humidity;
-    <span class="keyword">private</span> <span class="keyword">float</span> pressure;
-    <span class="keyword">private</span> Subject weatherData; 
-
-    <span class="comment">//无参构造方法</span>
-    <span class="function"><span class="keyword">public</span> <span class="title">CurrentConditionsDisplay</span><span class="params">()</span></span>{}
-
-    <span class="comment">//有参的构造方法：在创建CurrentConditionsDisplay的对象时，传入Subject接口实现类，调用实现类的registerObserver()方法，将观察者类注册进去</span>
-    <span class="function"><span class="keyword">public</span> <span class="title">CurrentConditionsDisplay</span><span class="params">(Subject subject)</span> </span>{
-        <span class="keyword">this</span>.weatherData = subject;
-        weatherData.registerObserver(<span class="keyword">this</span>);
-    }
-
-    <span class="comment">//注销观察者</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">()</span> </span>{
-        weatherData.removeObserver(<span class="keyword">this</span>);
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>{
-        System.out.println(<span class="string">"今天的天气情况： 温度为"</span> + temperature + <span class="string">"\t湿度为"</span> + humidity + <span class="string">"\t气压为"</span> + pressure);
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">float</span> temperature, <span class="keyword">float</span> humidity, <span class="keyword">float</span> pressure)</span> </span>{
-        <span class="keyword">this</span>.temperature = temperature;
-        <span class="keyword">this</span>.humidity = humidity;
-        <span class="keyword">this</span>.pressure = pressure;
-        display();        
-    }
-
-}
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/11/16/设计模式之观察者模式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/13/applicationContext-xml文件模板/" itemprop="url">
-                  applicationContext.xml文件模板
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-13T15:04:26+08:00" content="2015-11-13">
-              2015-11-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/13/applicationContext-xml文件模板/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/13/applicationContext-xml文件模板/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p><strong>以spring-framework-4.2.0为例</strong></p>
-<pre><code><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="tag">&lt;<span class="title">beans</span> 
-    <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span> 
-    <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span>
-    <span class="attribute">xmlns:aop</span>=<span class="value">"http://www.springframework.org/schema/aop"</span>
-    <span class="attribute">xmlns:context</span>=<span class="value">"http://www.springframework.org/schema/context"</span> 
-    <span class="attribute">xmlns:tx</span>=<span class="value">"http://www.springframework.org/schema/tx"</span>
-    <span class="attribute">xmlns:cache</span>=<span class="value">"http://www.springframework.org/schema/cache"</span> 
-    <span class="attribute">xmlns:p</span>=<span class="value">"http://www.springframework.org/schema/p"</span>
-    <span class="attribute">xsi:schemaLocation</span>=<span class="value">"
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
-        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
-        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
-        http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.2.xsd
-"</span>&gt;</span>
-    <span class="comment">&lt;!-- 配置c3p0连接池 --&gt;</span>
-    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"dataSource"</span> <span class="attribute">class</span>=<span class="value">"com.mchange.v2.c3p0.ComboPooledDataSource"</span> <span class="attribute">destroy-method</span>=<span class="value">"close"</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"driverClass"</span> <span class="attribute">value</span>=<span class="value">"${jdbc.driverClass}"</span>/&gt;</span>
-        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"jdbcUrl"</span> <span class="attribute">value</span>=<span class="value">"${jdbc.url}"</span>/&gt;</span>
-        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"user"</span> <span class="attribute">value</span>=<span class="value">"${jdbc.username}"</span>/&gt;</span>
-        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"password"</span> <span class="attribute">value</span>=<span class="value">"${jdbc.password}"</span>/&gt;</span>
-    <span class="tag">&lt;/<span class="title">bean</span>&gt;</span>
-    <span class="comment">&lt;!-- 加载jdbc的属性文件 --&gt;</span>
-    <span class="tag">&lt;<span class="title">context:property-placeholder</span> <span class="attribute">location</span>=<span class="value">"classpath:db.properties"</span>/&gt;</span>
-
-    <span class="comment">&lt;!-- Hibernate事务管理器 --&gt;</span>
-    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"transactionManager"</span> <span class="attribute">class</span>=<span class="value">"org.springframework.orm.hibernate4.HibernateTransactionManager"</span>&gt;</span>
-        <span class="comment">&lt;!-- 属性为引用了一个id为sessionFactory的bean--&gt;</span>
-        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"sessionFactory"</span> <span class="attribute">ref</span>=<span class="value">"sessionFactory"</span>/&gt;</span>
-    <span class="tag">&lt;/<span class="title">bean</span>&gt;</span>
-        <span class="comment">&lt;!-- JDBC事务管理器 --&gt;</span>
-<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"transactionManager"</span> <span class="attribute">class</span>=<span class="value">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span>
-        <span class="comment">&lt;!-- 属性为引用了一个id为dataSource的bean--&gt;</span>
-        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"dataSource"</span> <span class="attribute">ref</span>=<span class="value">"dataSource"</span>/&gt;</span>
-    <span class="tag">&lt;/<span class="title">bean</span>&gt;</span>    
-<span class="tag">&lt;/<span class="title">beans</span>&gt;</span>
-</code></pre>
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/13/Java题集/" itemprop="url">
-                  Java题集
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-13T10:20:01+08:00" content="2015-11-13">
-              2015-11-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/题集/" itemprop="url" rel="index">
-                    <span itemprop="name">题集</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/13/Java题集/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/13/Java题集/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="第一题">第一题</h2><p><strong>以下代码的输出结果</strong></p>
-<pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Base</span> {
-
-    <span class="keyword">private</span> String basename = <span class="string">"base"</span>;
-    <span class="function"><span class="keyword">public</span> <span class="title">Base</span>(<span class="params"></span>) </span>{
-        callName();
-    }
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">callName</span>(<span class="params"></span>) </span>{
-        System.<span class="keyword">out</span>.println(basename);
-    }
-
-    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">Sub</span> <span class="title">extends</span> <span class="title">Base</span> {
-        <span class="keyword">private</span> String basename = <span class="string">"sub"</span>;
-        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">callName</span>(<span class="params"></span>) </span>{
-            System.<span class="keyword">out</span>.println(basename);
-        }
-    }
-
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>{
-        Base b = <span class="keyword">new</span> Sub();
-        System.<span class="keyword">out</span>.println(b);
-    }
-}
-</code></pre><p>解析：</p>
-<ul>
-<li><code>Base b = new Sub();</code></li>
-<li><code>Base b =</code>直接忽略，从 <code>new Sub();</code>开始</li>
-<li>类加载器加载 Base，Sub 类到jvm;</li>
-<li>为Base，Sub 类中的两个属性baseName 分配存储空间，但是不初始化；注意:属性的初始化时放在构造器中，按照代码顺序执行的。</li>
-<li><code>new Sub()</code>会调用Sub的无参构造器，而在这个构造器中会隐式调用父类Base的无参构造器；</li>
-<li>父类Base的构造器中代码本质是<pre><code><span class="label">public</span> <span class="keyword">Base() </span>{
-    <span class="keyword">baseName </span>= <span class="string">"base"</span><span class="comment">;</span>
-    callName()<span class="comment">;</span>
-}
-</code></pre>即父类的属性baseName 的值为base。但为何输出null？</li>
-<li>因为父类构造器方法是在子类中调用的，即大环境是子类。此时，调用的方法<code>callName()</code>当然是指子类的方法。而这个方法打印的属性baseName 当然也是子类的。那现在子类的属性baseName的值是多少呢？答案是null.因为此时子类Sub的构造器内代码本质是:<pre><code><span class="keyword">super</span>();
-baseName=<span class="string">"sub"</span>;
-</code></pre>此时<code>baseName=&quot;sub&quot;</code>还没执行。因此，最后的值当然是null。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/11/13/Java题集/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/11/正则表达式/" itemprop="url">
-                  正则表达式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-11T17:23:49+08:00" content="2015-11-11">
-              2015-11-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/正则表达式/" itemprop="url" rel="index">
-                    <span itemprop="name">正则表达式</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/11/正则表达式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/11/正则表达式/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/11/设计模式之单例模式/" itemprop="url">
-                  设计模式之单例模式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-11T16:34:35+08:00" content="2015-11-11">
-              2015-11-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/11/设计模式之单例模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/11/设计模式之单例模式/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="单例模式（Singleton_Pattern）">单例模式（Singleton Pattern）</h2><p><strong>程序设计过程中，当我们需要一个全局的，独一无二的实例时，我们可以使用单例模式进行设计。</strong></p>
-<h2 id="一般写法（线程不安全）">一般写法（线程不安全）</h2><pre><code><span class="comment">//一个普通的类</span>
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Singleton</span> {
-    <span class="comment">//.....该类其他的一些属性</span>
-
-    <span class="comment">//uniqueInstance：确保全局只有一个实例</span>
-    <span class="keyword">private</span> <span class="keyword">static</span> Singleton uniqueInstance;
-    <span class="comment">//私有化的构造方法：只能在类的内部创建实例</span>
-    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span>(<span class="params"></span>) </span>{
-
-    }
-    <span class="comment">//静态方法getInstance()：外部类可以通过Singleton.getInstance()得到一个实例</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span>(<span class="params"></span>) </span>{
-        <span class="comment">//uniqueInstance，没有的话创建一个，此处使用的是懒汉式加载，只在需要时候进行创建</span>
-        <span class="keyword">if</span>(uniqueInstance == <span class="keyword">null</span>) {
-            uniqueInstance = <span class="keyword">new</span> Singleton();
-        }
-        <span class="keyword">return</span> uniqueInstance;
-    }
-
-    <span class="comment">//.......该类其他的一些方法</span>
-}
-</code></pre><p>如果该类在应用程序并不是关键程序，不经常使用，这种写法的单例模式就足够，但是，如果该类很重要，需经常使用，则这种写法会导致多线程问题。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/11/11/设计模式之单例模式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/11/请求转发与重定向的区别/" itemprop="url">
-                  请求转发与重定向的区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-11T15:05:48+08:00" content="2015-11-11">
-              2015-11-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Http/" itemprop="url" rel="index">
-                    <span itemprop="name">Http</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/11/请求转发与重定向的区别/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/11/请求转发与重定向的区别/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <h2 id="请求转发">请求转发</h2><pre><code><span class="comment">&lt;!-- 伪代码 --&gt;</span>
-request.getRequestDispatcher("index.jsp").forward(request, response);
-</code></pre><ol>
-<li>一次请求，一次响应，地址栏不变<ul>
-<li>客户端浏览器发出http请求，web服务器接收此请求，调用内部的一个方法在容器内部完成请求处理和转发动作，将目标资源发送给客户；在这里，转发的路径必须是同一个web容器下的url，其不能转向到其他的web路径上去，中间传递的是自己的容器内的request。在客户浏览器路径栏显示的仍然是其第一次访问的路径，也就是说客户是感觉不到服务器做了转发的。转发行为是浏览器只做了一次访问请求。</li>
-</ul>
-</li>
-<li>request中的数据<code>response.setAttribute(&quot;data&quot;,data);</code>不会丢失<ul>
-<li>以这种方式的请求可以进行数据传递。</li>
-<li>只能将请求转发给同一个WEB应用中的组件。</li>
-<li>如果指定的相对url以“/”开头，它是相对于当前WEB应用程序的根目录。</li>
-</ul>
-</li>
-</ol>
-<h2 id="重定向">重定向</h2><pre><code><span class="comment">&lt;!-- 伪代码 --&gt;</span>
-response.sendRedirect("index.jsp");
-</code></pre><ol>
-<li>两次请求，两次响应，地址栏改变<ul>
-<li>客户端浏览器发出http请求，web服务器接收后发送302状态码响应及对应新的location给客户浏览器，客户浏览器发现是302响应，则自动再发送一个新的http请求，请求url是新的location地址，服务器根据此请求寻找资源并发送给客户。在这里location可以重定向到任意url，既然是浏览器重新发出了请求，则就没有什么request传递的概念了。在客户浏览器路径栏显示的是其重定向的路径，客户可以观察到地址的变化的。重定向行为是浏览器做了至少两次的访问请求的。</li>
-</ul>
-</li>
-<li>request中的数据<code>response.setAttribute(&quot;data&quot;,data);</code>会丢失<ul>
-<li>以这种方式的请求不能进行数据传递。</li>
-<li>不仅可以重定向到当前应用程序中的其他资源，还可以重定向到同一个站点上的其他应用程序中的资源，甚至是使用绝对url重定向到其他站点的资源。</li>
-<li>如果指定的相对url以“/”开头，它是相对于整个WEB站点的根目录。</li>
-</ul>
-</li>
-</ol>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/11/Struts2工作原理/" itemprop="url">
-                  Struts2工作原理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-11T09:38:20+08:00" content="2015-11-11">
-              2015-11-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaEE/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaEE</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/11/Struts2工作原理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/11/Struts2工作原理/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p><strong>看一下Struts2官方给出的体系结构图</strong><br><img src="/uploads/Struts2体系结构.png" alt="Struts2体系结构" title="Struts2体系结构"><br><strong>解释</strong></p>
-<ul>
-<li>客户端发出一个HttpServletRequest请求（action或jsp）。</li>
-<li>请求经过一系列的过滤器链（过滤器链包括可选的 ActionContextCleanUp 过滤器，用于系统整合技术，如 SiteMesh 插件）。</li>
-<li>FilterDispather是struts2的核心控制器，此过滤器须在web.xml中进行配置，通常为过滤器链中的最后一个过滤器。</li>
-</ul>
-<pre><code><span class="comment">&lt;!-- 配置struts2的核心过滤器 --&gt;</span>
-<span class="tag">&lt;<span class="title">filter</span>&gt;</span>
-    <span class="comment">&lt;!-- 过滤器名称 --&gt;</span>
-    <span class="tag">&lt;<span class="title">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="title">filter-name</span>&gt;</span>
-    <span class="comment">&lt;!-- 过滤器类 --&gt;</span>
-    <span class="tag">&lt;<span class="title">filter-class</span>&gt;</span>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter<span class="tag">&lt;/<span class="title">filter-class</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">filter</span>&gt;</span>
-<span class="comment">&lt;!-- 过滤器映射 --&gt;</span>
-<span class="tag">&lt;<span class="title">filter-mapping</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="title">filter-name</span>&gt;</span>
-    <span class="comment">&lt;!-- /*表示所有的请求都需要经过这个过滤器过滤 --&gt;</span>
-    <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">filter-mapping</span>&gt;</span>
-</code></pre><ul>
-<li>通过FilterDispatcher查找ActionMapper，以确定这个请求是否需要调用某个 Action。</li>
-<li>如果ActionMapper确定需要调用某个Action，FilterDispatcher 将控制权交给ActionProxy。</li>
-<li>ActionProxy依照框架的配置文件(struts.xml)，找到需要调用的Action类</li>
-<li>ActionProxy会创建一个ActionInvocation的实例。</li>
-<li>ActionInvocation会先调用相关的拦截器（Action 调用之前），最后调用 Action。</li>
-<li>Action调用返回结果Result，根据之前的配置文件（struts.xml），查找响应的转发路径（此路径可以是一个jsp文件或者FreeMarker的模版技术的网页呈现，也可以是一个Action类等）。</li>
-<li>按照相反的方向调用相关的拦截器链（Action调用之后），返回一个HttpServletResponse，然后再通过过滤器链返回给客户端进行呈现。</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1591,7 +1149,7 @@ response.sendRedirect("index.jsp");
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
