@@ -69,7 +69,7 @@
 在HTML或XHTML文档中引入扩展名为.js的JavaScript文件
 
 以上两种方式的使用位置最好放在HTML或XHTML文档的最后，即&amp;lt;/body&amp;gt;标签之前，这样有">
-<meta property="og:updated_time" content="2016-07-19T13:14:15.898Z">
+<meta property="og:updated_time" content="2016-07-20T03:44:45.862Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript学习笔记">
 <meta name="twitter:description" content="什么是JavaScriptJavaScript是一种脚本语言，是一种弱类型语言（可以不用声明变量的类型，与强类型语言不同）。
@@ -320,7 +320,20 @@
 <li>变量的命名要规范（驼峰命名法等），且区分大小写，不能包含标点符号或空格</li>
 <li>以<code>var</code>关键字进行变量的声明</li>
 </ol>
-<h2 id="JavaScript中的内置函数">JavaScript中的内置函数</h2><h2 id="JavaScript中的内置对象">JavaScript中的内置对象</h2><h2 id="HTML或XHTML文档中的节点">HTML或XHTML文档中的节点</h2><ol>
+<h2 id="JavaScript中的内置函数">JavaScript中的内置函数</h2><h2 id="JavaScript中的内置对象">JavaScript中的内置对象</h2><p>JavaScript中使用window对象</p>
+<ol>
+<li>使用<code>window.onload</code>在页面加载时调用指定函数，如：<code>window.onload = showPic();</code>在页面加载时调用<code>showPic()</code>函数</li>
+<li>使用<code>window.open</code>打开一个新的窗口，如：<code>window.open(url, name, features)</code>，其中url表示打开的新窗口的链接地址，name是新窗口的名字，features是一个字符串，用来设置新的窗口的特征，如宽度，高度等，属性之间以逗号进行分割</li>
+</ol>
+<p>JavaScript中的事件处理函数</p>
+<ol>
+<li><code>onmouseover</code>当鼠标指责悬停在某个元素上时调用指定函数，如：<code>onmouseover=&quot;uf_Over();&quot;</code></li>
+<li><code>onmouseout</code>当鼠标指针离开某个元素时调用指定函数</li>
+<li><code>onclick</code>当鼠标点击某个元素时调用指定函数，如：<code>onclick=&quot;showPic();add();return false;&quot;</code></li>
+<li><code>onkeypress</code>当敲击键盘上任意一个按键时调用指定函数，这个时间处理函数请谨慎使用</li>
+</ol>
+<p><strong>注意：以上事件处理函数调用的指定函数的数量可以有多个，并用分号分割开即可。</strong></p>
+<h2 id="HTML或XHTML文档中的节点">HTML或XHTML文档中的节点</h2><ol>
 <li>元素节点，如：<code>&lt;body&gt;,&lt;p&gt;</code>等</li>
 <li>文本节点，如：<code>&lt;a&gt;This is a link&lt;/a&gt;</code>中的<code>This is a link</code></li>
 <li>属性节点，如：<code>&lt;img src=&quot;images/1.jpg&quot;&gt;</code>中的<code>src</code></li>
@@ -348,7 +361,39 @@
 <h2 id="操作元素中的属性节点">操作元素中的属性节点</h2><ol>
 <li>使用<code>getAttribute(&quot;xxx&quot;)</code>获取xxx属性节点的值，如：<code>document.getElementById(&quot;p1&quot;).getAttribute(&quot;title&quot;);</code></li>
 <li>使用<code>setAttribute(&quot;xxx&quot;, &quot;yyyy&quot;)</code>将xxx属性节点的值修改为yyyy，如该属性节点不存在，则会先创建该属性，然后再设置值。</li>
+<li>使用<code>childNodes</code>获取任意元素的所有子元素，返回的是一个数组，如：<code>document.getElementsByTagName(&quot;body&quot;)[0].childNodes</code>获取body元素下的所有子元素。</li>
+<li>使用<code>nodeType</code>获取节点的类型，返回的是一个数字，其中，1为元素节点；2为属性节点；3为文本节点。</li>
+<li>使用<code>nodeValue</code>获取文本节点的值</li>
+<li>使用<code>firstChild</code>获取节点的第一个子元素</li>
+<li>使用<code>lastChild</code>获取节点的最后一个子元素</li>
+<li>使用<code>nodeName</code>获取节点的标签名称，返回值为标签名的大写英文，如IMG等</li>
+<li>使用<code>innerHTML</code>获取节点中的html代码，也可以写入相应的html代码</li>
+<li>使用<code>createElement</code>创建一个新的元素节点，如：<code>var para = document.createElement(&quot;p&quot;);</code>创建一个p标签，变量para代表对这个p标签的引用</li>
+<li><p>使用<code>appendChild</code>向父节点中插入子节点，如：</p>
+<pre><code><span class="keyword">var</span> testdiv = <span class="built_in">document</span>.getElementById(<span class="string">"testdiv"</span>);<span class="comment">//获取父节点testdiv</span>
+<span class="keyword">var</span> para = <span class="built_in">document</span>.createElement(<span class="string">"p"</span>);<span class="comment">//创建新的节点p</span>
+testdiv.appendChild(para);<span class="comment">//将节点p插入到testdiv中</span>
+</code></pre></li>
+<li><p>使用<code>createTextNode</code>创建新的文本节点，如：</p>
+<pre><code><span class="comment">//接上边代码</span>
+<span class="keyword">var</span> textNode = <span class="built_in">document</span>.createTextNode(<span class="string">"hello world"</span>);<span class="comment">//创建一个新的文本节点textNode</span>
+para.appendChild(textNode);<span class="comment">//插入该文本节点</span>
+</code></pre></li>
+<li>使用<code>parentNode</code>获取父节点</li>
+<li>使用<code>insertBefore</code>将一个新元素插入到一个现有元素的前面，其调用语法：<code>parentElement.insertBefore(newElement, targetElement)</code>，因此需要知道三个元素，父元素parentElement，要插入的元素newElement，目标元素targetElement</li>
+<li>使用<code>nextSilbing</code>获取该元素的下一个兄弟元素</li>
+<li><p>JavaScript没有内置一个<code>insertAfter</code>函数用来在一个元素后面插入新元素，因此，可以编写一个这样的函数，如：</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">insertAfter</span><span class="params">(newElement, targetElement)</span> </span>{
+    <span class="keyword">var</span> parentElement = targetElement.parentNode;<span class="comment">//获取父元素</span>
+    <span class="keyword">if</span>(parentElement.lastChild == targetElement) {<span class="comment">//判断父元素的最后一个子元素是不是目标元素</span>
+        parentElement.appendChild(newElement);<span class="comment">//如果是，直接插入子节点</span>
+    } <span class="keyword">else</span> {
+        parentElement.insertBefore(newElement, targetElement.nextSibling);<span class="comment">//如果不是</span>
+    }
+}
+</code></pre></li>
 </ol>
+<h2 id="Ajax">Ajax</h2><p>这一部分的学习请参考<a href="http://chenxb.cn/2015/11/22/Ajax%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank" rel="external">Ajax学习笔记</a></p>
 </span>
       
     </div>
@@ -513,7 +558,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是JavaScript"><span class="nav-number">1.</span> <span class="nav-text">什么是JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用JavaScript"><span class="nav-number">2.</span> <span class="nav-text">如何使用JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript中的注释方式"><span class="nav-number">3.</span> <span class="nav-text">JavaScript中的注释方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript中的变量"><span class="nav-number">4.</span> <span class="nav-text">JavaScript中的变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript中的内置函数"><span class="nav-number">5.</span> <span class="nav-text">JavaScript中的内置函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript中的内置对象"><span class="nav-number">6.</span> <span class="nav-text">JavaScript中的内置对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML或XHTML文档中的节点"><span class="nav-number">7.</span> <span class="nav-text">HTML或XHTML文档中的节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取页面（Document）中元素的三种方法"><span class="nav-number">8.</span> <span class="nav-text">获取页面（Document）中元素的三种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作元素中的属性节点"><span class="nav-number">9.</span> <span class="nav-text">操作元素中的属性节点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是JavaScript"><span class="nav-number">1.</span> <span class="nav-text">什么是JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用JavaScript"><span class="nav-number">2.</span> <span class="nav-text">如何使用JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript中的注释方式"><span class="nav-number">3.</span> <span class="nav-text">JavaScript中的注释方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript中的变量"><span class="nav-number">4.</span> <span class="nav-text">JavaScript中的变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript中的内置函数"><span class="nav-number">5.</span> <span class="nav-text">JavaScript中的内置函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript中的内置对象"><span class="nav-number">6.</span> <span class="nav-text">JavaScript中的内置对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML或XHTML文档中的节点"><span class="nav-number">7.</span> <span class="nav-text">HTML或XHTML文档中的节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取页面（Document）中元素的三种方法"><span class="nav-number">8.</span> <span class="nav-text">获取页面（Document）中元素的三种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作元素中的属性节点"><span class="nav-number">9.</span> <span class="nav-text">操作元素中的属性节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax"><span class="nav-number">10.</span> <span class="nav-text">Ajax</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
