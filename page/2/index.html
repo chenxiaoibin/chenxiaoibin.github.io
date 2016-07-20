@@ -242,6 +242,353 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/20/Markdown语法/" itemprop="url">
+                  Markdown语法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-04-20T10:21:55+08:00" content="2016-04-20">
+              2016-04-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Markdown/" itemprop="url" rel="index">
+                    <span itemprop="name">Markdown</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/20/Markdown语法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/20/Markdown语法/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p><strong>Markdown是一种轻量级的标记语言，旨在使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档。</strong></p>
+<h2 id="强制换行">强制换行</h2><p>如果要在一段文字中进行强制换行，则可以<strong><em>在要换行的地方敲上两个以上空格后回车。</em></strong></p>
+<hr>
+<h2 id="标题">标题</h2><p><strong>第一种方式（插入底线）</strong></p>
+<pre><code><span class="header">这是一个大标题
+===</span>
+<span class="header">这是一个小标题
+---</span>
+</code></pre><p>效果如下</p>
+<h1 id="这是一个大标题">这是一个大标题</h1><h2 id="这是一个小标题">这是一个小标题</h2><hr>
+<p><strong>第二种方式（插入<code>#</code>）</strong></p>
+<pre><code><span class="preprocessor"># 这是一个h1标题</span>
+<span class="preprocessor">## 这是一个h2标题</span>
+<span class="preprocessor">### 这是一个h3标题</span>
+<span class="preprocessor">#### 这是一个h4标题</span>
+<span class="preprocessor">##### 这是一个h5标题</span>
+<span class="preprocessor">###### 这是一个h6标题</span>
+</code></pre><p>效果如下</p>
+<h1 id="这是一个h1标题">这是一个h1标题</h1><h2 id="这是一个h2标题">这是一个h2标题</h2><h3 id="这是一个h3标题">这是一个h3标题</h3><h4 id="这是一个h4标题">这是一个h4标题</h4><h5 id="这是一个h5标题">这是一个h5标题</h5><h6 id="这是一个h6标题">这是一个h6标题</h6><p><strong><em>注意<code>#</code>后有一个空格。</em></strong></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/20/Markdown语法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/19/web-xml详解/" itemprop="url">
+                  web.xml详解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-04-19T15:02:26+08:00" content="2016-04-19">
+              2016-04-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaEE/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaEE</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/19/web-xml详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/19/web-xml详解/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="filter配置多个url-pattern的正确方式">filter配置多个url-pattern的正确方式</h2><pre><code>&lt;<span class="attribute">filter</span>&gt;
+    &lt;<span class="attribute">filter</span>-name&gt;struts2&lt;/<span class="attribute">filter</span>-name&gt;
+    &lt;<span class="attribute">filter</span>-class&gt;org<span class="class">.apache</span><span class="class">.struts2</span><span class="class">.dispatcher</span><span class="class">.ng</span><span class="class">.filter</span><span class="class">.StrutsPrepareAndExecuteFilter</span>&lt;/<span class="attribute">filter</span>-class&gt;
+&lt;/<span class="attribute">filter</span>&gt;
+&lt;<span class="attribute">filter</span>-mapping&gt;
+    &lt;<span class="attribute">filter</span>-name&gt;struts2&lt;/<span class="attribute">filter</span>-name&gt;
+    &lt;url-pattern&gt;*.action&lt;/url-pattern&gt;
+&lt;/<span class="attribute">filter</span>-mapping&gt;
+&lt;<span class="attribute">filter</span>-mapping&gt;
+    &lt;<span class="attribute">filter</span>-name&gt;struts2&lt;/<span class="attribute">filter</span>-name&gt;
+    &lt;url-pattern&gt;*.jsp&lt;/url-pattern&gt;
+&lt;/<span class="attribute">filter</span>-mapping&gt;
+</code></pre><h2 id="classpath与classpath*的区别">classpath与classpath*的区别</h2><pre><code><span class="variable">&lt;context-param&gt;</span>
+    <span class="variable">&lt;param-name&gt;</span>contextConfigLocation<span class="variable">&lt;/param-name&gt;</span>
+    <span class="variable">&lt;param-value&gt;</span>classpath:/spring/<span class="keyword">*</span>.xml<span class="variable">&lt;/param-value&gt;</span>
+<span class="variable">&lt;/context-param&gt;</span>
+</code></pre><p>这种classpath配置是指只加载本地classpath路径下的spring文件夹中的以<code>.xml</code>结尾的文件。</p>
+<pre><code><span class="variable">&lt;context-param&gt;</span>
+    <span class="variable">&lt;param-name&gt;</span>contextConfigLocation<span class="variable">&lt;/param-name&gt;</span>
+    <span class="variable">&lt;param-value&gt;</span>classpath<span class="keyword">*</span>:/spring/<span class="keyword">*</span>.xml<span class="variable">&lt;/param-value&gt;</span>
+<span class="variable">&lt;/context-param&gt;</span>
+</code></pre><p>这种classpath*配置是指不仅加载本地classpath路径下的，而且也加载jar文件下的classpath路径下的spring文件夹中的以<code>.xml</code>结尾的文件。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/19/web-xml详解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/14/Maven使用总结/" itemprop="url">
+                  Maven使用总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-03-14T14:41:35+08:00" content="2016-03-14">
+              2016-03-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Maven/" itemprop="url" rel="index">
+                    <span itemprop="name">Maven</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/14/Maven使用总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/14/Maven使用总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/12/24/《锋利的jQuery》读书笔记/" itemprop="url">
                   《锋利的jQuery》读书笔记
                 </a>
@@ -731,331 +1078,6 @@ var <span class="variable">$adiv</span> = $(adiv);
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/01/回文子串/" itemprop="url">
-                  回文子串
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-12-01T13:29:39+08:00" content="2015-12-01">
-              2015-12-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/01/回文子串/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/01/回文子串/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p><strong>给出一个字符串，取该字符串的一部分即为子串，回文子串就是指该子串正着读，倒着读都是一样的（也就是对称的），例如：abba。</strong></p>
-<h2 id="1-判断字符串是否回文">1.判断字符串是否回文</h2><pre><code><span class="comment">//判断是否为回文字符串</span>
-<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> boolean <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>{
-    <span class="keyword">int</span> n = s.length();<span class="comment">//获取字符串长度</span>
-    <span class="comment">//循环该字符串，次数为长度的一半取整，判断首尾字符是否相同即可</span>
-    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (n / <span class="number">2</span>); i ++) {
-        <span class="keyword">if</span>(s.charAt(i) != s.charAt(n - <span class="number">1</span> - i)) {
-            <span class="keyword">return</span> <span class="literal">false</span>;
-        }
-    }
-    <span class="keyword">return</span> <span class="literal">true</span>;
-}
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/01/回文子串/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/27/Eclipse常用快捷键/" itemprop="url">
-                  Eclipse常用快捷键
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-27T12:07:50+08:00" content="2015-11-27">
-              2015-11-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Eclipse/" itemprop="url" rel="index">
-                    <span itemprop="name">Eclipse</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/27/Eclipse常用快捷键/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/27/Eclipse常用快捷键/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li>Shift+Enter：在当前行下添加一空行</li>
-<li>Ctrl+Shift+Enter：在当前行上添加一空行</li>
-<li>Alt+上下方向键：将当前行向上或向下移动</li>
-<li>Ctrl+M：将编辑区域最大化</li>
-<li>Ctrl+E：切换已经打开的编辑文件（打开文件较多时使用）</li>
-<li>Alt+Shift+R：批量重命名属性名或方法名（先选中名称）</li>
-<li>Ctrl+.：将光标移至下个错误处（需切换输入法）</li>
-<li>Ctrl+1：修改错误的建议</li>
-<li>Ctrl+H：打开Search弹出框</li>
-<li>Ctrl+O：显示该类的outline（就是所有属性和方法）</li>
-<li>Ctrl+Shift+R：打开资源（输入关键字打开工作区相关文件）</li>
-<li>Ctrl+Y：与Ctrl+Z（撤销）功能相反</li>
-<li>Ctrl+K：向后查找所选中的内容</li>
-<li>Ctrl+Shift+K：向前查找所选中的内容</li>
-<li>Ctrl+Alt+方向键：复制当前行到下一行或上一行</li>
-<li>Ctrl+L：定位到指定行（输入行数）</li>
-<li>Ctrl+Shift+F：格式化当前代码</li>
-<li>Ctrl+Shift+X ：把当前选中的文本全部变为大写</li>
-<li>Ctrl+Shift+Y ：把当前选中的文本全部变为小写</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/24/Jxl使用总结/" itemprop="url">
-                  Jxl使用总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-24T15:06:00+08:00" content="2015-11-24">
-              2015-11-24
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/24/Jxl使用总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/24/Jxl使用总结/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1102,21 +1124,21 @@ var <span class="variable">$adiv</span> = $(adiv);
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">44</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

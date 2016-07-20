@@ -242,6 +242,339 @@
             
               
                 
+                <a class="post-title-link" href="/2015/11/17/欧几里得算法/" itemprop="url">
+                  欧几里得算法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-17T19:29:11+08:00" content="2015-11-17">
+              2015-11-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/17/欧几里得算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/17/欧几里得算法/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p><strong>欧几里得算法又称辗转相除法，用于求两个非负整数的最大公约数。</strong></p>
+<pre><code><span class="keyword">public</span> <span class="keyword">class</span> Test {
+
+    <span class="comment">//欧几里得算法</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>{
+        <span class="keyword">if</span>(q == <span class="number">0</span>) {
+            <span class="keyword">return</span> p;
+        }
+        <span class="keyword">int</span> r = p % q;
+        <span class="keyword">return</span> gcd(q, r);
+    }
+    <span class="comment">//测试</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        System.out.println(<span class="string">"两个非负整数的最大公约数为："</span> + gcd(<span class="number">2</span>, <span class="number">4</span>));
+    }
+}
+</code></pre>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/16/win7下使用Git/" itemprop="url">
+                  win7下使用Git
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-16T14:34:40+08:00" content="2015-11-16">
+              2015-11-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/16/win7下使用Git/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/16/win7下使用Git/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="第一步：安装Git客户端">第一步：安装Git客户端</h2><ul>
+<li><a href="https://git-scm.com/download/win" target="_blank" rel="external">下载</a>Git的windows客户端</li>
+<li>安装Git客户端</li>
+</ul>
+<h2 id="第二步：建立本地仓库">第二步：建立本地仓库</h2><ul>
+<li>在本地磁盘根目录下新建一个文件夹，名字随便起，例如：projects</li>
+<li>进入文件夹，右键选择<code>Git Bash Here</code></li>
+<li>输入<code>git config --global user.name &quot;Your Name&quot;</code>，其中<code>Your Name</code>改为自己想起的名字</li>
+<li>输入<code>git config --global user.email &quot;email@example.com&quot;</code>，其中<code>email@example.com</code>改为自己的邮箱地址</li>
+<li>输入<code>git init</code>，将当前目录交给git进行管理，这是文件夹中会多出一个<code>.git</code>文件夹来</li>
+<li>在当前文件夹中新建一个txt文档，如：readme.txt，使用notepad++或vi打开，里面随便输入一些内容，保存</li>
+<li>输入<code>git add readme.txt</code>，把文件添加到仓库</li>
+<li>输入<code>git commit -m &quot;add readme.txt&quot;</code>，把文件提交给仓库</li>
+</ul>
+<h2 id="第三步：Github上建立远程仓库">第三步：Github上建立远程仓库</h2><ul>
+<li>访问<a href="https://github.com/" target="_blank" rel="external">Github</a>官网，没账号的注册一个账号</li>
+<li>登录进入，点击<code>+ New Repository</code>手动创建一个仓库，仓库名字自己起，如：projects</li>
+<li>切换到刚才的命令输入窗口，输入<code>git remote add origin git@github.com:mvbin/projects.git</code>，关联远程仓库，其中<code>mvbin</code>应改为你自己的github名称</li>
+<li>输入<code>git push -u origin master</code>，将本地分支与远程仓库的master分支关联</li>
+<li>刷新github网站页面，你会看见<code>readme.txt</code>已经添加到远程仓库中<br><strong>注意，添加文件至远程仓库，要先<code>git add .</code>或<code>git add filename</code>，再<code>git commit -m &quot;xxx&quot;</code>，然后再<code>git push origin master</code></strong></li>
+</ul>
+<p>第四步：创建<code>.gitignore</code>文件</p>
+<ul>
+<li>命令窗口输入<code>touch .gitignore</code>，创建该文件旨在忽略一些不必提交的文件或文件夹</li>
+<li>notepad++打开该文件，里面输入要忽略的文件名或文件夹名，如<img src="/uploads/gitignore内容.png" alt=".gitignore文件内容"></li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/16/Hibernate缓存机制/" itemprop="url">
+                  Hibernate缓存机制
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-16T10:09:07+08:00" content="2015-11-16">
+              2015-11-16
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/16/Hibernate缓存机制/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/16/Hibernate缓存机制/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/16/设计模式之观察者模式/" itemprop="url">
                   设计模式之观察者模式
                 </a>
@@ -952,377 +1285,6 @@ baseName=<span class="string">"sub"</span>;
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/11/请求转发与重定向的区别/" itemprop="url">
-                  请求转发与重定向的区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-11T15:05:48+08:00" content="2015-11-11">
-              2015-11-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Http/" itemprop="url" rel="index">
-                    <span itemprop="name">Http</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/11/请求转发与重定向的区别/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/11/请求转发与重定向的区别/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <h2 id="请求转发">请求转发</h2><pre><code><span class="comment">&lt;!-- 伪代码 --&gt;</span>
-request.getRequestDispatcher("index.jsp").forward(request, response);
-</code></pre><ol>
-<li>一次请求，一次响应，地址栏不变<ul>
-<li>客户端浏览器发出http请求，web服务器接收此请求，调用内部的一个方法在容器内部完成请求处理和转发动作，将目标资源发送给客户；在这里，转发的路径必须是同一个web容器下的url，其不能转向到其他的web路径上去，中间传递的是自己的容器内的request。在客户浏览器路径栏显示的仍然是其第一次访问的路径，也就是说客户是感觉不到服务器做了转发的。转发行为是浏览器只做了一次访问请求。</li>
-</ul>
-</li>
-<li>request中的数据<code>response.setAttribute(&quot;data&quot;,data);</code>不会丢失<ul>
-<li>以这种方式的请求可以进行数据传递。</li>
-<li>只能将请求转发给同一个WEB应用中的组件。</li>
-<li>如果指定的相对url以“/”开头，它是相对于当前WEB应用程序的根目录。</li>
-</ul>
-</li>
-</ol>
-<h2 id="重定向">重定向</h2><pre><code><span class="comment">&lt;!-- 伪代码 --&gt;</span>
-response.sendRedirect("index.jsp");
-</code></pre><ol>
-<li>两次请求，两次响应，地址栏改变<ul>
-<li>客户端浏览器发出http请求，web服务器接收后发送302状态码响应及对应新的location给客户浏览器，客户浏览器发现是302响应，则自动再发送一个新的http请求，请求url是新的location地址，服务器根据此请求寻找资源并发送给客户。在这里location可以重定向到任意url，既然是浏览器重新发出了请求，则就没有什么request传递的概念了。在客户浏览器路径栏显示的是其重定向的路径，客户可以观察到地址的变化的。重定向行为是浏览器做了至少两次的访问请求的。</li>
-</ul>
-</li>
-<li>request中的数据<code>response.setAttribute(&quot;data&quot;,data);</code>会丢失<ul>
-<li>以这种方式的请求不能进行数据传递。</li>
-<li>不仅可以重定向到当前应用程序中的其他资源，还可以重定向到同一个站点上的其他应用程序中的资源，甚至是使用绝对url重定向到其他站点的资源。</li>
-<li>如果指定的相对url以“/”开头，它是相对于整个WEB站点的根目录。</li>
-</ul>
-</li>
-</ol>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/11/Struts2工作原理/" itemprop="url">
-                  Struts2工作原理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-11T09:38:20+08:00" content="2015-11-11">
-              2015-11-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaEE/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaEE</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/11/Struts2工作原理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/11/Struts2工作原理/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p><strong>看一下Struts2官方给出的体系结构图</strong><br><img src="/uploads/Struts2体系结构.png" alt="Struts2体系结构" title="Struts2体系结构"><br><strong>解释</strong></p>
-<ul>
-<li>客户端发出一个HttpServletRequest请求（action或jsp）。</li>
-<li>请求经过一系列的过滤器链（过滤器链包括可选的 ActionContextCleanUp 过滤器，用于系统整合技术，如 SiteMesh 插件）。</li>
-<li>FilterDispather是struts2的核心控制器，此过滤器须在web.xml中进行配置，通常为过滤器链中的最后一个过滤器。</li>
-</ul>
-<pre><code><span class="comment">&lt;!-- 配置struts2的核心过滤器 --&gt;</span>
-<span class="tag">&lt;<span class="title">filter</span>&gt;</span>
-    <span class="comment">&lt;!-- 过滤器名称 --&gt;</span>
-    <span class="tag">&lt;<span class="title">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="title">filter-name</span>&gt;</span>
-    <span class="comment">&lt;!-- 过滤器类 --&gt;</span>
-    <span class="tag">&lt;<span class="title">filter-class</span>&gt;</span>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter<span class="tag">&lt;/<span class="title">filter-class</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">filter</span>&gt;</span>
-<span class="comment">&lt;!-- 过滤器映射 --&gt;</span>
-<span class="tag">&lt;<span class="title">filter-mapping</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="title">filter-name</span>&gt;</span>
-    <span class="comment">&lt;!-- /*表示所有的请求都需要经过这个过滤器过滤 --&gt;</span>
-    <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">filter-mapping</span>&gt;</span>
-</code></pre><ul>
-<li>通过FilterDispatcher查找ActionMapper，以确定这个请求是否需要调用某个 Action。</li>
-<li>如果ActionMapper确定需要调用某个Action，FilterDispatcher 将控制权交给ActionProxy。</li>
-<li>ActionProxy依照框架的配置文件(struts.xml)，找到需要调用的Action类</li>
-<li>ActionProxy会创建一个ActionInvocation的实例。</li>
-<li>ActionInvocation会先调用相关的拦截器（Action 调用之前），最后调用 Action。</li>
-<li>Action调用返回结果Result，根据之前的配置文件（struts.xml），查找响应的转发路径（此路径可以是一个jsp文件或者FreeMarker的模版技术的网页呈现，也可以是一个Action类等）。</li>
-<li>按照相反的方向调用相关的拦截器链（Action调用之后），返回一个HttpServletResponse，然后再通过过滤器链返回给客户端进行呈现。</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/09/阿里云虚拟主机上搭建wordpress/" itemprop="url">
-                  阿里云虚拟主机上搭建wordpress
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-09T16:40:07+08:00" content="2015-11-09">
-              2015-11-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/wordpress/" itemprop="url" rel="index">
-                    <span itemprop="name">wordpress</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/09/阿里云虚拟主机上搭建wordpress/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/09/阿里云虚拟主机上搭建wordpress/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ol>
-<li>购买一个自己喜欢的域名（可在<a href="http://wanwang.aliyun.com/" target="_blank" rel="external">万网</a>上买，如果在其他域名商那购买，也可在万网上进行云解析）。</li>
-<li>免费申请到阿里云虚拟主机（1g的网页空间，windows或centos操作系统，sqlserver或mysql数据库）。</li>
-<li>将你的域名绑定你的主机的ip地址。</li>
-<li>使用centos系统，因为支持php。</li>
-<li>下载wordpress压缩包，使用ftp上传到你的主机上的htdocs文件夹下（如果使用ftp无法上传，请检查输入的ftp信息是否正确，如：密码错误等）。</li>
-<li>利用阿里云上的主机管理平台→文件管理→文件解压缩，将wordpress压缩包解压到htdocs文件夹下。</li>
-<li>访问你的域名，进行wordpress著名的五分钟安装。</li>
-</ol>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1369,21 +1331,21 @@ response.sendRedirect("index.jsp");
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">44</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
