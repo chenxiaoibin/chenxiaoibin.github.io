@@ -53,25 +53,16 @@
 
 
 
-<meta name="description" content="Ajax
-Ajax（异步的JavaScript和XML），是一种创建交互式网页应用的网页开发技术。
-Ajax技术的核心是XMLHttpRequest对象，这个对象充当着浏览器中的脚本（客户端）与服务器之间的中间人的角色。以往的请求都是由浏览器发出，而JavaScript可以通过XMLHttpRequest对象自己发动请求，并自己处理响应。
-不同浏览器实现XMLHttpRequest对象的方式是不同">
+<meta name="description" content="AjaxAjax是什么Ajax（异步的JavaScript和XML），是一种创建交互式网页应用的网页开发技术，该技术的核心是XMLHttpRequest对象，这个对象充当着浏览器中的脚本（客户端）与服务器之间的中间人的角色。以往的请求都是由浏览器发出，而JavaScript可以通过XMLHttpRequest对象自己发送请求，并自己处理响应。通过使用该技术，用户发送请求，请求得到响应这个过程在后台">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ajax学习笔记">
 <meta property="og:url" content="http://yoursite.com/2015/11/22/Ajax学习笔记/index.html">
 <meta property="og:site_name" content="MVBlog">
-<meta property="og:description" content="Ajax
-Ajax（异步的JavaScript和XML），是一种创建交互式网页应用的网页开发技术。
-Ajax技术的核心是XMLHttpRequest对象，这个对象充当着浏览器中的脚本（客户端）与服务器之间的中间人的角色。以往的请求都是由浏览器发出，而JavaScript可以通过XMLHttpRequest对象自己发动请求，并自己处理响应。
-不同浏览器实现XMLHttpRequest对象的方式是不同">
-<meta property="og:updated_time" content="2016-07-21T01:16:39.097Z">
+<meta property="og:description" content="AjaxAjax是什么Ajax（异步的JavaScript和XML），是一种创建交互式网页应用的网页开发技术，该技术的核心是XMLHttpRequest对象，这个对象充当着浏览器中的脚本（客户端）与服务器之间的中间人的角色。以往的请求都是由浏览器发出，而JavaScript可以通过XMLHttpRequest对象自己发送请求，并自己处理响应。通过使用该技术，用户发送请求，请求得到响应这个过程在后台">
+<meta property="og:updated_time" content="2016-08-02T03:29:55.817Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax学习笔记">
-<meta name="twitter:description" content="Ajax
-Ajax（异步的JavaScript和XML），是一种创建交互式网页应用的网页开发技术。
-Ajax技术的核心是XMLHttpRequest对象，这个对象充当着浏览器中的脚本（客户端）与服务器之间的中间人的角色。以往的请求都是由浏览器发出，而JavaScript可以通过XMLHttpRequest对象自己发动请求，并自己处理响应。
-不同浏览器实现XMLHttpRequest对象的方式是不同">
+<meta name="twitter:description" content="AjaxAjax是什么Ajax（异步的JavaScript和XML），是一种创建交互式网页应用的网页开发技术，该技术的核心是XMLHttpRequest对象，这个对象充当着浏览器中的脚本（客户端）与服务器之间的中间人的角色。以往的请求都是由浏览器发出，而JavaScript可以通过XMLHttpRequest对象自己发送请求，并自己处理响应。通过使用该技术，用户发送请求，请求得到响应这个过程在后台">
 
 
 
@@ -298,12 +289,26 @@ Ajax技术的核心是XMLHttpRequest对象，这个对象充当着浏览器中�
       
 
       
-        <span itemprop="articleBody"><h2 id="Ajax">Ajax</h2><ul>
-<li>Ajax（异步的JavaScript和XML），是一种创建交互式网页应用的网页开发技术。</li>
-<li>Ajax技术的核心是XMLHttpRequest对象，这个对象充当着浏览器中的脚本（客户端）与服务器之间的中间人的角色。以往的请求都是由浏览器发出，而JavaScript可以通过XMLHttpRequest对象自己发动请求，并自己处理响应。</li>
-<li>不同浏览器实现XMLHttpRequest对象的方式是不同的：①IE浏览器各个版本之间②IE浏览器与非IE浏览器之间。</li>
-</ul>
-</span>
+        <span itemprop="articleBody"><h2 id="Ajax">Ajax</h2><h2 id="Ajax是什么">Ajax是什么</h2><p><strong>Ajax（异步的JavaScript和XML），是一种创建交互式网页应用的网页开发技术，该技术的核心是XMLHttpRequest对象，这个对象充当着浏览器中的脚本（客户端）与服务器之间的中间人的角色。以往的请求都是由浏览器发出，而JavaScript可以通过XMLHttpRequest对象自己发送请求，并自己处理响应。通过使用该技术，用户发送请求，请求得到响应这个过程在后台进行，用户的界面以连续的方式进行。</strong></p>
+<h2 id="Ajax如何实现">Ajax如何实现</h2><ol>
+<li>创建XMLHttpRequest对象</li>
+<li>通过XMLHttpRequest对象向服务器发送请求</li>
+<li>创建回调函数，监视服务器响应的状态，在服务器响应完成后，回调函数启动</li>
+<li>回调函数通多DOM动态更新HTML页面</li>
+</ol>
+<p>代码示例：</p>
+<pre><code><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+    <span class="keyword">var</span> xmlHttpRequest;
+    <span class="function"><span class="keyword">function</span> <span class="title">createXMLHttpRequest</span>(<span class="params"></span>) </span>{
+        <span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest) {
+            xmlHttpRequest = <span class="keyword">new</span> XMLHttpRequest();
+        } <span class="keyword">else</span> {
+            <span class="comment">//兼容IE5、IE6</span>
+            xmlHttpRequest = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);
+        }
+    }
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre></span>
       
     </div>
 
@@ -423,7 +428,7 @@ Ajax技术的核心是XMLHttpRequest对象，这个对象充当着浏览器中�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-count">44</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -469,7 +474,7 @@ Ajax技术的核心是XMLHttpRequest对象，这个对象充当着浏览器中�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax"><span class="nav-number">1.</span> <span class="nav-text">Ajax</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax"><span class="nav-number">1.</span> <span class="nav-text">Ajax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax是什么"><span class="nav-number">2.</span> <span class="nav-text">Ajax是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax如何实现"><span class="nav-number">3.</span> <span class="nav-text">Ajax如何实现</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
