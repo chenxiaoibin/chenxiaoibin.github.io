@@ -54,42 +54,36 @@
 
 
 <meta name="description" content="Spring核心
-依赖注入（DI），也称为控制反转（IOC）
-面向切面（AOP）
+依赖注入（DI），也称为控制反转（IOC）。
+面向切面（AOP）。
 
 Spring容器Spring容器负责创建对象，装配对象，配置对象并管理它们的整个生命周期。Spring容器使用DI管理构成应用程序的各个组件，它会创建相互协作的组件之间的关联。
-两种分类
-Bean工厂（BeanFactory）
-应用上下文（ApplicationContext）
+两种分类Bean工厂（BeanFactory）应用上下文（ApplicationContext）常见的几种应用上下文，如下：
 
-依赖注入（DI）应用程序要想完成复">
+Ann">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring实战">
 <meta property="og:url" content="http://yoursite.com/2016/07/13/Spring实战/index.html">
 <meta property="og:site_name" content="MVBlog">
 <meta property="og:description" content="Spring核心
-依赖注入（DI），也称为控制反转（IOC）
-面向切面（AOP）
+依赖注入（DI），也称为控制反转（IOC）。
+面向切面（AOP）。
 
 Spring容器Spring容器负责创建对象，装配对象，配置对象并管理它们的整个生命周期。Spring容器使用DI管理构成应用程序的各个组件，它会创建相互协作的组件之间的关联。
-两种分类
-Bean工厂（BeanFactory）
-应用上下文（ApplicationContext）
+两种分类Bean工厂（BeanFactory）应用上下文（ApplicationContext）常见的几种应用上下文，如下：
 
-依赖注入（DI）应用程序要想完成复">
-<meta property="og:updated_time" content="2016-08-02T08:20:24.277Z">
+Ann">
+<meta property="og:updated_time" content="2016-08-02T08:44:23.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring实战">
 <meta name="twitter:description" content="Spring核心
-依赖注入（DI），也称为控制反转（IOC）
-面向切面（AOP）
+依赖注入（DI），也称为控制反转（IOC）。
+面向切面（AOP）。
 
 Spring容器Spring容器负责创建对象，装配对象，配置对象并管理它们的整个生命周期。Spring容器使用DI管理构成应用程序的各个组件，它会创建相互协作的组件之间的关联。
-两种分类
-Bean工厂（BeanFactory）
-应用上下文（ApplicationContext）
+两种分类Bean工厂（BeanFactory）应用上下文（ApplicationContext）常见的几种应用上下文，如下：
 
-依赖注入（DI）应用程序要想完成复">
+Ann">
 
 
 
@@ -317,15 +311,19 @@ Bean工厂（BeanFactory）
 
       
         <span itemprop="articleBody"><h2 id="Spring核心">Spring核心</h2><ul>
-<li>依赖注入（DI），也称为控制反转（IOC）</li>
-<li>面向切面（AOP）</li>
+<li>依赖注入（DI），也称为控制反转（IOC）。</li>
+<li>面向切面（AOP）。</li>
 </ul>
 <h2 id="Spring容器">Spring容器</h2><p><strong>Spring容器负责创建对象，装配对象，配置对象并管理它们的整个生命周期。Spring容器使用DI管理构成应用程序的各个组件，它会创建相互协作的组件之间的关联。</strong></p>
-<h3 id="两种分类">两种分类</h3><ul>
-<li>Bean工厂（BeanFactory）</li>
-<li>应用上下文（ApplicationContext）</li>
+<h3 id="两种分类">两种分类</h3><h4 id="Bean工厂（BeanFactory）">Bean工厂（BeanFactory）</h4><h4 id="应用上下文（ApplicationContext）">应用上下文（ApplicationContext）</h4><p>常见的几种应用上下文，如下：</p>
+<ul>
+<li>AnnotationConfigApplicationContext：从一个或多个基于Java的配置类中加载Spring应用上下文。</li>
+<li>AnnotationConfigWebApplicationContext：从一个或多个基于Java的配置类中加载Spring Web应用上下文。</li>
+<li>ClassPathXmlApplicationContext：从类路径下的一个或多个XML配置文件中加载上下文定义，把应用上下文的定义文件作为类资源。</li>
+<li>FileSystemXmlApplicationContext：从文件系统下的一个或多个XML配置文件中加载上下文定义。</li>
+<li>XmlWebApplicationContext：从Web应用下的一个或多个XML配置文件中加载上下文定义。</li>
 </ul>
-<h2 id="依赖注入（DI）">依赖注入（DI）</h2><p><strong>应用程序要想完成复杂的实际需求，各个类之间肯定会相互耦合，然而，高度紧密的耦合会使代码难以理解、难以测试、难以服用，Spring的依赖注入旨在实现各个对象直接的松耦合，对象无需自行创建所耦合的其他对象，而是从Spring容器中去获取。</strong></p>
+<h2 id="Bean生命周期">Bean生命周期</h2><h2 id="依赖注入（DI）">依赖注入（DI）</h2><p><strong>应用程序要想完成复杂的实际需求，各个类之间肯定会相互耦合，然而，高度紧密的耦合会使代码难以理解、难以测试、难以复用，Spring的依赖注入旨在实现各个对象直接的松耦合，对象无需自行创建所耦合的其他对象，而是从Spring容器中去获取。</strong></p>
 <h3 id="注入方式">注入方式</h3></span>
       
     </div>
@@ -492,7 +490,7 @@ Bean工厂（BeanFactory）
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring核心"><span class="nav-number">1.</span> <span class="nav-text">Spring核心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring容器"><span class="nav-number">2.</span> <span class="nav-text">Spring容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两种分类"><span class="nav-number">2.1.</span> <span class="nav-text">两种分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖注入（DI）"><span class="nav-number">3.</span> <span class="nav-text">依赖注入（DI）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注入方式"><span class="nav-number">3.1.</span> <span class="nav-text">注入方式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring核心"><span class="nav-number">1.</span> <span class="nav-text">Spring核心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring容器"><span class="nav-number">2.</span> <span class="nav-text">Spring容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两种分类"><span class="nav-number">2.1.</span> <span class="nav-text">两种分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bean工厂（BeanFactory）"><span class="nav-number">2.1.1.</span> <span class="nav-text">Bean工厂（BeanFactory）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用上下文（ApplicationContext）"><span class="nav-number">2.1.2.</span> <span class="nav-text">应用上下文（ApplicationContext）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bean生命周期"><span class="nav-number">3.</span> <span class="nav-text">Bean生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖注入（DI）"><span class="nav-number">4.</span> <span class="nav-text">依赖注入（DI）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注入方式"><span class="nav-number">4.1.</span> <span class="nav-text">注入方式</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
