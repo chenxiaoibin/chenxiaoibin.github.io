@@ -242,6 +242,93 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/10/javaIO总结/" itemprop="url">
+                  javaIO总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-08-10T18:52:26+08:00" content="2016-08-10">
+              2016-08-10
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/10/javaIO总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/10/javaIO总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/03/数据库题集/" itemprop="url">
                   数据库题集
                 </a>
@@ -957,173 +1044,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/22/Java传参/" itemprop="url">
-                  Java传参
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-04-22T11:10:36+08:00" content="2016-04-22">
-              2016-04-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/22/Java传参/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/22/Java传参/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p><strong>Java中传递参数，要么传递的是基本数据类型的值的副本，要么传递的是引用数据类型的引用（String类型属于引用数据类型，但由于它是final类，不可变类型，故在传参过程中，其值不会改变）</strong></p>
-<h2 id="参数类型为基本数据类型">参数类型为基本数据类型</h2><p>示例代码</p>
-<pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> {
-
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>{
-        <span class="keyword">int</span> a = <span class="number">10</span>;
-        boolean b = <span class="keyword">true</span>;
-        <span class="keyword">float</span> f = <span class="number">2.3</span>f;
-        <span class="keyword">char</span> c = <span class="string">'c'</span>;
-
-        changeInt(a);
-        changeBoolean(b);
-        changeFloat(f);
-        changeChar(c);
-
-        System.<span class="keyword">out</span>.println(a);<span class="comment">//10</span>
-        System.<span class="keyword">out</span>.println(b);<span class="comment">//true</span>
-        System.<span class="keyword">out</span>.println(f);<span class="comment">//2.3</span>
-        System.<span class="keyword">out</span>.println(c);<span class="comment">//c</span>
-    }
-
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">changeChar</span>(<span class="params"><span class="keyword">char</span> c</span>) </span>{
-        c = <span class="string">'r'</span>;
-    }
-
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">changeFloat</span>(<span class="params"><span class="keyword">float</span> f</span>) </span>{
-        f = <span class="number">5.4</span>f;
-    }
-
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">changeBoolean</span>(<span class="params">boolean b</span>) </span>{
-        b = !b;
-    }
-
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">changeInt</span>(<span class="params"><span class="keyword">int</span> a</span>) </span>{
-        a = <span class="number">100</span>;
-    }
-
-}
-</code></pre><p>根据以上代码的输出结果可以看出：当传参类型为基本数据类型时，传递的是值的副本，并不会改变值本身。</p>
-<h2 id="参数类型为引用数据类型">参数类型为引用数据类型</h2><p>示例代码</p>
-<pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> {
-
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>{
-        <span class="keyword">char</span>[] ch = {<span class="string">'l'</span>, <span class="string">'o'</span>, <span class="string">'v'</span>, <span class="string">'e'</span>};
-        StringBuilder sb = <span class="keyword">new</span> StringBuilder(<span class="string">"abc"</span>);
-        System.<span class="keyword">out</span>.println(ch);<span class="comment">//love</span>
-        System.<span class="keyword">out</span>.println(sb);<span class="comment">//abc</span>
-
-        changeCh(ch);
-        changeSb(sb);
-
-        System.<span class="keyword">out</span>.println(ch);<span class="comment">//dove</span>
-        System.<span class="keyword">out</span>.println(sb);<span class="comment">//abcefg</span>
-    }
-
-    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">changeSb</span>(<span class="params">StringBuilder sb</span>) </span>{
-        sb.append(<span class="string">"efg"</span>);
-    }
-
-    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">changeCh</span>(<span class="params"><span class="keyword">char</span>[] ch</span>) </span>{
-        ch[<span class="number">0</span>] = <span class="string">'d'</span>;
-    }
-
-}
-</code></pre><p>根据以上代码的输出结果可以看出，当参数的数据类型为引用数据类型时，传递的是引用的副本。我们应当了解引用数据类型的创建方式：<code>User u1 = new User();</code>这样就创建了一个User类的对象，u1是变量名，它存放在<strong>栈内存</strong>上，u1的值为其指向的user对象所在<strong>堆内存</strong>上的地址，它只是一个对象的引用，而不是对象的本身。在进行传递时，传递的也只是这个引用的副本，当这个副本的值改变时，原引用的值并不会受到影响。</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1170,7 +1090,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">45</span>
+              <span class="site-state-item-count">46</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
